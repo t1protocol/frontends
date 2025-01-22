@@ -1,6 +1,6 @@
 import MainnetSvg from "@/assets/svgs/bridge/network-mainnet.svg"
 import ETHSvg from "@/assets/svgs/bridge/network-mainnet.svg?url"
-import ScrollSvg from "@/assets/svgs/bridge/network-scroll.svg"
+import T1Svg from "@/assets/svgs/bridge/network-t1.svg"
 
 import { CHAIN_ID, ETH_SYMBOL, EXPLORER_URL, L1_NAME, L2_NAME, RPC_URL } from "./common"
 
@@ -18,7 +18,7 @@ export const NETWORKS: Network[] = [
   {
     name: L2_NAME,
     slug: "layer2",
-    icon: ScrollSvg,
+    icon: T1Svg,
     rpcUrl: RPC_URL.L2,
     explorer: EXPLORER_URL.L2,
     chainId: CHAIN_ID.L2,

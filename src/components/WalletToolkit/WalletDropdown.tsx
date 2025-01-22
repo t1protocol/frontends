@@ -1,5 +1,7 @@
 import copy from "copy-to-clipboard"
-import { usePathname, useRouter } from "next/navigation"
+import {
+  usePathname, //, useRouter
+} from "next/navigation"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import Img from "react-cool-img"
 import { makeStyles } from "tss-react/mui"
@@ -13,7 +15,7 @@ import BlockSvg from "@/assets/svgs/wallet-connector/block.svg"
 import CopySvg from "@/assets/svgs/wallet-connector/copy.svg"
 import DisconnectSvg from "@/assets/svgs/wallet-connector/disconnect.svg"
 import DownTriangleSvg from "@/assets/svgs/wallet-connector/down-triangle.svg"
-import ProfileSvg from "@/assets/svgs/wallet-connector/profile.svg"
+// import ProfileSvg from "@/assets/svgs/wallet-connector/profile.svg"
 import { CHAIN_ID, EXPLORER_URL } from "@/constants"
 import { useCanvasContext } from "@/contexts/CanvasContextProvider"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
@@ -86,7 +88,7 @@ const WalletDropdown = props => {
   const { sx, dark } = props
   const { classes, cx } = useStyles({ dark })
   const pathname = usePathname()
-  const router = useRouter()
+  // const router = useRouter()
 
   const { walletCurrentAddress, connect, disconnect, chainId } = useRainbowContext()
   const { changeHistoryVisible } = useBridgeStore()
@@ -136,18 +138,18 @@ const WalletDropdown = props => {
 
   const operations = useMemo(
     () => [
-      {
-        icon: ProfileSvg,
-        label: "Scroll Canvas",
-        action: () => {
-          if (profileMinted) {
-            router.push("/canvas")
-          } else {
-            router.push("/canvas/mint")
-          }
-          handleClose()
-        },
-      },
+      // {
+      //   icon: ProfileSvg,
+      //   label: "Scroll Canvas",
+      //   action: () => {
+      //     if (profileMinted) {
+      //       router.push("/canvas")
+      //     } else {
+      //       router.push("/canvas/mint")
+      //     }
+      //     handleClose()
+      //   },
+      // },
       {
         icon: HistorySvg,
         label: "Transaction history",
