@@ -150,14 +150,14 @@ const WalletDropdown = props => {
       //     handleClose()
       //   },
       // },
-      {
-        icon: HistorySvg,
-        label: "Transaction history",
-        action: () => {
-          changeHistoryVisible(true)
-          handleClose()
-        },
-      },
+      // {
+      //   icon: HistorySvg,
+      //   label: "Transaction history",
+      //   action: () => {
+      //     changeHistoryVisible(true)
+      //     handleClose()
+      //   },
+      // },
       {
         icon: BlockSvg,
         label: "Block explorer",

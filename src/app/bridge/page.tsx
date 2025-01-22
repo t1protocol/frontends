@@ -12,7 +12,8 @@ import useBridgeStore from "@/stores/bridgeStore"
 import { isSepolia, sentryDebug } from "@/utils"
 
 import Send from "./Send"
-import HistoryButton from "./components/HistoryButton"
+
+// import HistoryButton from "./components/HistoryButton"
 
 // import FAQsLink from "./faq/link"
 
@@ -70,7 +71,7 @@ const Bridge = () => {
           >
             {isSepolia ? `${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Testnet` : ""} Bridge
           </Typography>
-          <HistoryButton></HistoryButton>
+          {/* <HistoryButton></HistoryButton> */}
         </Stack>
         <Send></Send>
         {/* <FAQsLink /> */}

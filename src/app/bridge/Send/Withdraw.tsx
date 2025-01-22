@@ -49,23 +49,25 @@ const useStyles = makeStyles()(theme => ({
 
 const Withdraw = () => {
   const { classes } = useStyles()
-  const { withDrawStep, changeWithdrawStep } = useBridgeStore()
+  const {
+    withDrawStep, // changeWithdrawStep
+  } = useBridgeStore()
 
-  const handleChange = (e, newValue) => {
-    changeWithdrawStep(newValue)
-  }
+  // const handleChange = (e, newValue) => {
+  //   changeWithdrawStep(newValue)
+  // }
 
   return (
     <Stack direction="column" sx={{ height: "100%" }}>
       <TabContext value={withDrawStep}>
-        <TabList
+        {/* <TabList
           onChange={handleChange}
           textColor="primary"
           classes={{ root: classes.tabList, flexContainer: classes.tabFlex, indicator: classes.indicator }}
         >
           <Tab label="Step 1: Withdraw" value="1" classes={{ root: classes.tab }}></Tab>
           <Tab label="Step 2: Claim" value="2" classes={{ root: classes.tab }}></Tab>
-        </TabList>
+        </TabList> */}
         <TabPanel value="1" classes={{ root: classes.tabPanel }}>
           <SendTransaction></SendTransaction>
         </TabPanel>

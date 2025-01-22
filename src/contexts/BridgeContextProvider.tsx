@@ -15,9 +15,9 @@ import { BATCH_BRIDGE_GATEWAY_PROXY_ADDR, CHAIN_ID, GATEWAY_ROUTE_PROXY_ADDR, RP
 import { BLOCK_NUMBERS } from "@/constants/storageKey"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBlockNumbers from "@/hooks/useBlockNumbers"
-import useClaimHistory from "@/hooks/useClaimHistory"
+// import useClaimHistory from "@/hooks/useClaimHistory"
 import useTokenPrice from "@/hooks/useTokenPrice"
-import useTxHistory, { TxHistory } from "@/hooks/useTxHistory"
+// import useTxHistory, { TxHistory } from "@/hooks/useTxHistory"
 import useBridgeStore from "@/stores/bridgeStore"
 
 export interface Price {
@@ -32,9 +32,9 @@ export interface Prices {
 
 type BridgeContextProps = {
   networksAndSigners: any
-  txHistory: TxHistory
+  // txHistory: TxHistory
   blockNumbers: number[]
-  claimHistory: TxHistory
+  // claimHistory: TxHistory
   tokenPrice: Prices
 }
 
@@ -52,8 +52,8 @@ const BridgeContextProvider = ({ children }: any) => {
     [CHAIN_ID.L2]: {},
   })
 
-  const txHistory = useTxHistory()
-  const claimHistory = useClaimHistory()
+  // const txHistory = useTxHistory()
+  // const claimHistory = useClaimHistory()
 
   // TODO: need refactoring inspired by publicClient and walletClient
   const update = async (walletProvider: BrowserProvider, address: string) => {
@@ -121,9 +121,9 @@ const BridgeContextProvider = ({ children }: any) => {
     <BridgeContext.Provider
       value={{
         networksAndSigners,
-        txHistory,
+        // txHistory,
         blockNumbers,
-        claimHistory,
+        // claimHistory,
         tokenPrice,
       }}
     >
