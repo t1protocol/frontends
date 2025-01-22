@@ -241,7 +241,7 @@ const TxRow = props => {
     if (tx.isL1) {
       return (
         <>
-          Deposit <span style={{ whiteSpace: "nowrap" }}>to Scroll</span>
+          Deposit <span style={{ whiteSpace: "nowrap" }}>to t1</span>
         </>
       )
     } else {
@@ -281,7 +281,7 @@ const TxRow = props => {
       <TableCell sx={{ width: "21rem" }}>
         <Stack direction="column">
           <Typography sx={{ whiteSpace: "nowrap" }}>
-            {tx.isL1 ? "Ethereum" : "Scroll"}:{" "}
+            {tx.isL1 ? "Ethereum" : "t1"}:{" "}
             <Link
               external
               underline="always"
@@ -295,7 +295,7 @@ const TxRow = props => {
 
         <Stack direction="column">
           <Typography sx={{ whiteSpace: "nowrap" }}>
-            {tx.isL1 ? "Scroll" : "Ethereum"}:{" "}
+            {tx.isL1 ? "t1" : "Ethereum"}:{" "}
             {tx.toHash ? (
               <Link
                 external

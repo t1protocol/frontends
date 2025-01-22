@@ -131,7 +131,7 @@ const Send = () => {
           textColor="primary"
           classes={{ root: classes.tabList, fixed: classes.tabList, flexContainer: classes.tabList, indicator: classes.indicator }}
         >
-          <Tab label="Deposit to Scroll" value="Deposit" classes={{ root: classes.tab }}></Tab>
+          <Tab label="Deposit to t1" value="Deposit" classes={{ root: classes.tab }}></Tab>
           <Tab label="Withdraw to Ethereum" value="Withdraw" classes={{ root: classes.tab }}></Tab>
         </TabList>
         <TabPanel value="Deposit" classes={{ root: classes.tabPanel }}>

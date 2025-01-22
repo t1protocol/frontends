@@ -1,7 +1,7 @@
 import { SvgIcon } from "@mui/material"
 
-import ScrollLogoLightIcon from "@/assets/svgs/common/scroll-logo-light.svg"
-import ScrollLogoIcon from "@/assets/svgs/common/scroll-logo.svg"
+import ScrollLogoLightIcon from "@/assets/svgs/common/t1-dark.svg"
+import ScrollLogoIcon from "@/assets/svgs/common/t1-dark.svg"
 
 const ScrollLogo = props => {
   const { light, ...restProps } = props

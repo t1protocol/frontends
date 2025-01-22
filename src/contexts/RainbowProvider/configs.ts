@@ -11,10 +11,15 @@ import {
   walletConnectWallet,
   zerionWallet,
 } from "@rainbow-me/rainbowkit/wallets"
-import { Chain, mainnet, scroll, scrollSepolia, sepolia } from "@wagmi/core/chains"
+import {
+  Chain,
+  mainnet, // scroll, scrollSepolia,
+  sepolia,
+} from "@wagmi/core/chains"
 import { parseUnits } from "ethers"
 import produce from "immer"
 
+import { t1 } from "../t1/chain"
 // import { RPC_URL } from "@/constants"
 import { BinanceWallet } from "./walletConnectors/binanceWallet/binanceWallet"
 
@@ -61,8 +66,8 @@ const mainnetChain: Chain = produce(mainnet, draft => {
 
 export const configs = {
   wallets,
-  appName: "Scroll",
+  appName: "T1",
   projectId,
-  chains: [mainnetChain, sepoliaChain, scroll, scrollSepolia],
+  chains: [mainnetChain, sepoliaChain, t1],
   ssr: true,
 }

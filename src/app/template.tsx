@@ -6,17 +6,17 @@ import "swiper/css/pagination"
 
 import { Box } from "@mui/material"
 
-import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import useCheckTheme from "@/components/Header/useCheckTheme"
-import useHideFooter from "@/hooks/useHideFooter"
-import { isSepolia } from "@/utils"
 
+// import { isSepolia } from "@/utils"
+// import Footer from "@/components/Footer"
+// import useHideFooter from "@/hooks/useHideFooter"
 import "./global"
 
 export default function RootTemplate({ children }: { children: React.ReactNode }) {
   const dark = useCheckTheme()
-  const hideFooter = useHideFooter()
+  // const hideFooter = useHideFooter()
 
   useEffect(() => {
     function setVh() {
@@ -34,7 +34,7 @@ export default function RootTemplate({ children }: { children: React.ReactNode }
     <Box sx={{ minHeight: "100vh", backgroundColor: dark ? "themeBackground.dark" : "themeBackground.light" }}>
       <Header></Header>
       {children}
-      {!(isSepolia || hideFooter) && <Footer />}
+      {/* {!(isSepolia || hideFooter) && <Footer />} */}
     </Box>
   )
 }

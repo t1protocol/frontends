@@ -49,7 +49,7 @@ const MintBadge = () => {
       <Canvas
         visible={canBeMint}
         buttonText="Mint badge"
-        title={`Heya! Congratulations! You can mint ${badge.name} on Scroll Canvas.`}
+        title={`Heya! Congratulations! You can mint ${badge.name} on t1 Canvas.`}
         onClick={handleMintBadge}
         canvasId={`bridgeBadge_${walletCurrentAddress}`}
       />

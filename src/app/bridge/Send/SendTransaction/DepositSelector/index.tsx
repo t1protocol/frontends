@@ -246,7 +246,7 @@ const DepositSelector = props => {
 
               <Grid container>
                 <Grid classes={{ root: classes.label }} item xs={4}>
-                  Scroll
+                  T1
                 </Grid>
                 <Grid classes={{ root: classes.info }} item xs={8} textAlign="right">
                   {displayedL2Fee[DepositBatchMode[item.type]].value}

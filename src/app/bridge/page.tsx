@@ -13,7 +13,8 @@ import { isSepolia, sentryDebug } from "@/utils"
 
 import Send from "./Send"
 import HistoryButton from "./components/HistoryButton"
-import FAQsLink from "./faq/link"
+
+// import FAQsLink from "./faq/link"
 
 const Bridge = () => {
   const { txType, changeFromNetwork, changeToNetwork, fetchTokenList } = useBridgeStore()
@@ -72,7 +73,7 @@ const Bridge = () => {
           <HistoryButton></HistoryButton>
         </Stack>
         <Send></Send>
-        <FAQsLink />
+        {/* <FAQsLink /> */}
       </SectionWrapper>
       {/* <MintBadge /> */}
     </PriceFeeProvider>

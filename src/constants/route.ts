@@ -10,7 +10,7 @@ export interface PageMetadata {
 }
 
 export const DEFAULT_METADATA = {
-  title: "Scroll",
+  title: "T1",
   description: "Native zkEVM Layer 2 for Ethereum",
   ogImg: "/og_scroll.png",
   twitterImg: "/og_scroll.png",

@@ -173,7 +173,7 @@ const TransactionSummary: FC<Props> = props => {
             large
           />
           {txType === "Deposit" && <DetailRow title="Ethereum gas fee" value={displayedL1Fee.value} price={displayedL1Fee.price} large />}
-          <DetailRow title="Scroll gas fee" value={displayedL2Fee.value} price={displayedL2Fee.price} large />
+          <DetailRow title="t1 gas fee" value={displayedL2Fee.value} price={displayedL2Fee.price} large />
           {txType === "Withdraw" && <DetailRow title="Ethereum data fee" value={displayedL1DataFee.value} price={displayedL1DataFee.price} large />}
           <tr className={styles.hr}>
             <td></td>

@@ -1,23 +1,27 @@
 "use client"
 
-import { Box, Container, Stack, Typography } from "@mui/material"
+import {
+  Box,
+  Container,
+  Stack, // Typography
+} from "@mui/material"
 import { styled } from "@mui/system"
 
 import Button from "@/components/Button"
 import OrientationToView from "@/components/Motion/OrientationToView"
 import useCheckViewport from "@/hooks/useCheckViewport"
 
-const Title = styled(Typography)(({ theme }) => ({
-  fontSize: "6.4rem",
-  lineHeight: "8.8rem",
-  fontWeight: 600,
-  textAlign: "center",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "4rem",
-    lineHeight: "5.6rem",
-    marginBottom: "0.4rem",
-  },
-}))
+// const Title = styled(Typography)(({ theme }) => ({
+//   fontSize: "6.4rem",
+//   lineHeight: "8.8rem",
+//   fontWeight: 600,
+//   textAlign: "center",
+//   [theme.breakpoints.down("md")]: {
+//     fontSize: "4rem",
+//     lineHeight: "5.6rem",
+//     marginBottom: "0.4rem",
+//   },
+// }))
 
 const ButtonContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -72,7 +76,7 @@ const Header = () => {
         >
           <OrientationToView>
             <Stack direction="column" alignItems="center" gap={isMobile ? "2.4rem" : "3.2rem"}>
-              <Title data-aos="fade-up">
+              {/* <Title data-aos="fade-up">
                 {isMobile ? (
                   <>
                     Homepage of the<br></br> Multichain World
@@ -85,14 +89,14 @@ const Header = () => {
               </Title>
               <Typography sx={{ fontSize: ["1.8rem", "2.4rem"], lineHeight: ["2.8rem", "3.6rem"], textAlign: "center", mt: "-1.8rem" }}>
                 Scroll is the leading zero-knowledge rollup.<br></br>Scaling Ethereum for good.{" "}
-              </Typography>
+              </Typography> */}
               <ButtonContainer>
                 <Button sx={{ backgroundColor: "#FFF8F3 !important" }} href="/bridge" color="primary">
-                  Bridge into Scroll
+                  Bridge into T1
                 </Button>
-                <Button sx={{ backgroundColor: "#FFF8F3 !important" }} target="_blank" href="https://docs.scroll.io/en/home/">
+                {/* <Button sx={{ backgroundColor: "#FFF8F3 !important" }} target="_blank" href="https://docs.scroll.io/en/home/">
                   Start building
-                </Button>
+                </Button> */}
               </ButtonContainer>
             </Stack>
           </OrientationToView>
