@@ -41,9 +41,10 @@ const useStyles = makeStyles()(theme => ({
 const Claim = () => {
   const { classes } = useStyles()
   const { walletCurrentAddress } = useRainbowContext()
-  const {
-    claimHistory: { refreshPageTransactions },
-  } = useBridgeContext()
+  // TODO - removed: causes runtime error
+  // const {
+  //   claimHistory: { refreshPageTransactions },
+  // } = useBridgeContext()
 
   const { page, total, pageTransactions, loading, clearTransactions } = useClaimStore()
 
@@ -58,7 +59,7 @@ const Claim = () => {
   }, [])
 
   const handleChangePage = currentPage => {
-    refreshPageTransactions(currentPage)
+    // refreshPageTransactions(currentPage)
   }
 
   return (
