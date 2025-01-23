@@ -19,7 +19,7 @@ import {
 import { parseUnits } from "ethers"
 import produce from "immer"
 
-import { t1 } from "../t1/chain"
+import { t1_devnet } from "../t1/chain"
 // import { RPC_URL } from "@/constants"
 import { BinanceWallet } from "./walletConnectors/binanceWallet/binanceWallet"
 
@@ -68,6 +68,6 @@ export const configs = {
   wallets,
   appName: "T1",
   projectId,
-  chains: [mainnetChain, sepoliaChain, t1],
+  chains: [mainnetChain, sepoliaChain, t1_devnet],
   ssr: true,
 }

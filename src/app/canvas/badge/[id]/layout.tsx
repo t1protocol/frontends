@@ -1,16 +1,17 @@
 import { Address, createPublicClient, http } from "viem"
-import { scroll, scrollSepolia } from "viem/chains"
+import { scroll } from "viem/chains"
 
 import CanvasBadgeABI from "@/assets/abis/CanvasBadge.json"
 import CanvasProfileABI from "@/assets/abis/CanvasProfile.json"
 import CanvasProfileRegistryABI from "@/assets/abis/CanvasProfileRegistry.json"
+import { t1_devnet } from "@/contexts/t1/chain"
 import { queryBadgeDetailById } from "@/services/canvasService"
 import { decodeBadgePayload, ipfsToBrowserURL } from "@/utils"
 import { genMeta } from "@/utils/route"
 
 export const generateMetadata = genMeta(async ({ params }) => {
   const publicClient = createPublicClient({
-    chain: process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT === "Mainnet" ? scroll : scrollSepolia,
+    chain: process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT === "Mainnet" ? scroll : t1_devnet,
     transport: http(),
   })
 

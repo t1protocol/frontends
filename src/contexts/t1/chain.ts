@@ -1,6 +1,6 @@
 import { defineChain } from "viem"
 
-export const t1 = /*#__PURE__*/ defineChain({
+export const t1_devnet = /*#__PURE__*/ defineChain({
   id: 3_151_908,
   name: "T1",
   nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
