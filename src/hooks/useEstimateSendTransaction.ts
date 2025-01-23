@@ -40,9 +40,17 @@ export function useEstimateSendTransaction(props) {
   }
 
   const withdrawETH = async () => {
-    return instance["sendMessage(address,uint256,bytes,uint256)"].estimateGas(walletCurrentAddress, minimumAmount, "0x", 0, {
-      value: minimumAmount,
-    })
+    return instance["sendMessage(address,uint256,bytes,uint256,uint64,address)"].estimateGas(
+      walletCurrentAddress,
+      minimumAmount,
+      "0x",
+      0,
+      CHAIN_ID.L1,
+      walletCurrentAddress,
+      {
+        value: minimumAmount,
+      },
+    )
   }
 
   const withdrawERC20 = async () => {

@@ -173,11 +173,13 @@ export function useSendTransaction(props) {
       options.maxPriorityFeePerGas = maxPriorityFeePerGas
     }
 
-    return networksAndSigners[CHAIN_ID.L1].scrollMessenger["sendMessage(address,uint256,bytes,uint256)"](
+    return networksAndSigners[CHAIN_ID.L1].scrollMessenger["sendMessage(address,uint256,bytes,uint256,uint64,address)"](
       receiver || walletCurrentAddress,
       parsedAmount,
       "0x",
       gasLimit,
+      CHAIN_ID.L1,
+      receiver || walletCurrentAddress,
       options,
     )
   }
@@ -209,11 +211,13 @@ export function useSendTransaction(props) {
   const withdrawETH = async () => {
     await checkIsContract(SCROLL_MESSENGER_ADDR[CHAIN_ID.L2])
 
-    return networksAndSigners[CHAIN_ID.L2].scrollMessenger["sendMessage(address,uint256,bytes,uint256)"](
+    return networksAndSigners[CHAIN_ID.L2].scrollMessenger["sendMessage(address,uint256,bytes,uint256,uint64,address)"](
       receiver || walletCurrentAddress,
       parsedAmount,
       "0x",
       0,
+      CHAIN_ID.L1,
+      receiver || walletCurrentAddress,
       {
         value: parsedAmount,
         gasLimit: txGasLimit,
