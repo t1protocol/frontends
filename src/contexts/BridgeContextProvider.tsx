@@ -16,7 +16,7 @@ import { BLOCK_NUMBERS } from "@/constants/storageKey"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBlockNumbers from "@/hooks/useBlockNumbers"
 // import useClaimHistory from "@/hooks/useClaimHistory"
-import useTokenPrice from "@/hooks/useTokenPrice"
+// import useTokenPrice from "@/hooks/useTokenPrice"
 // import useTxHistory, { TxHistory } from "@/hooks/useTxHistory"
 import useBridgeStore from "@/stores/bridgeStore"
 
@@ -35,7 +35,7 @@ type BridgeContextProps = {
   // txHistory: TxHistory
   blockNumbers: number[]
   // claimHistory: TxHistory
-  tokenPrice: Prices
+  // tokenPrice: Prices
 }
 
 const BridgeContext = createContext<BridgeContextProps | undefined>(undefined)
@@ -112,7 +112,7 @@ const BridgeContextProvider = ({ children }: any) => {
     })
   }
 
-  const tokenPrice = useTokenPrice(tokenList)
+  // const tokenPrice = useTokenPrice(tokenList)
 
   useEffect(() => {
     if (provider && walletCurrentAddress) {
@@ -127,7 +127,7 @@ const BridgeContextProvider = ({ children }: any) => {
         // txHistory,
         blockNumbers,
         // claimHistory,
-        tokenPrice,
+        // tokenPrice,
       }}
     >
       {children}
