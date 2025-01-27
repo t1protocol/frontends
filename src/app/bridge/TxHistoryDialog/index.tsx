@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import { makeStyles } from "tss-react/mui"
 
 import { Dialog, DialogTitle, IconButton, SvgIcon, Typography } from "@mui/material"
 
 import CloseSvg from "@/assets/svgs/bridge/close.svg"
-import { useBridgeContext } from "@/contexts/BridgeContextProvider"
-import { useRainbowContext } from "@/contexts/RainbowProvider"
+// import { useBridgeContext } from "@/contexts/BridgeContextProvider"
+// import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBridgeStore from "@/stores/bridgeStore"
 
 import TxHistoryTable from "./TxHistoryTable"
@@ -26,19 +26,19 @@ const useStyles = makeStyles()(theme => ({
 const TxHistoryDialog = () => {
   const { classes } = useStyles()
   const { historyVisible, changeHistoryVisible } = useBridgeStore()
-  const { walletCurrentAddress } = useRainbowContext()
+  // const { walletCurrentAddress } = useRainbowContext()
   const handleClose = () => {
     changeHistoryVisible(false)
   }
-  const {
-    txHistory: { refreshPageTransactions },
-  } = useBridgeContext()
+  // const {
+  //   txHistory: { refreshPageTransactions },
+  // } = useBridgeContext()
 
-  useEffect(() => {
-    if (historyVisible && walletCurrentAddress) {
-      refreshPageTransactions(1)
-    }
-  }, [historyVisible, walletCurrentAddress])
+  // useEffect(() => {
+  //   if (historyVisible && walletCurrentAddress) {
+  //     refreshPageTransactions(1)
+  //   }
+  // }, [historyVisible, walletCurrentAddress])
 
   return (
     <Dialog maxWidth={false} open={historyVisible} classes={{ paper: classes.paper }} onClose={handleClose}>

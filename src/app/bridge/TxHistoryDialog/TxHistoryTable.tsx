@@ -2,7 +2,7 @@ import { Box } from "@mui/material"
 import { styled } from "@mui/system"
 
 import { BRIDGE_PAGE_SIZE } from "@/constants"
-import { useBridgeContext } from "@/contexts/BridgeContextProvider"
+// import { useBridgeContext } from "@/contexts/BridgeContextProvider"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useTxStore from "@/stores/txStore"
 
@@ -21,16 +21,16 @@ const TableBox = styled(Box)(({ theme }) => ({
 }))
 
 const TransactionsList = () => {
-  const {
-    txHistory: { refreshPageTransactions },
-  } = useBridgeContext()
+  // const {
+  //   txHistory: { refreshPageTransactions },
+  // } = useBridgeContext()
   const { walletCurrentAddress } = useRainbowContext()
 
   const { page, total, pageTransactions, loading } = useTxStore()
 
-  const handleChangePage = currentPage => {
-    refreshPageTransactions(currentPage)
-  }
+  // const handleChangePage = currentPage => {
+  //   refreshPageTransactions(currentPage)
+  // }
 
   return (
     <TableBox>
@@ -41,7 +41,7 @@ const TransactionsList = () => {
           pagination={{
             count: Math.ceil(total / BRIDGE_PAGE_SIZE),
             page,
-            onChange: handleChangePage,
+            // onChange: handleChangePage,
           }}
         />
       ) : (
