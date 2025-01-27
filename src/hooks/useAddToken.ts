@@ -87,7 +87,7 @@ const useAddToken = () => {
       currentUserTokens.push(token)
     }
     saveState(USER_TOKEN_LIST, currentUserTokens)
-    fetchTokenList()
+    // fetchTokenList()
   }
 
   return { loading: isLoading, addToken }

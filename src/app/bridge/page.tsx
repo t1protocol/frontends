@@ -21,12 +21,12 @@ const Bridge = () => {
   const { txType, changeFromNetwork, changeToNetwork, fetchTokenList } = useBridgeStore()
   const alertWarning = useSnackbar()
 
-  useEffect(() => {
-    fetchTokenList().catch(e => {
-      sentryDebug(`tokenList: ${e.message}`)
-      alertWarning("Fail to fetch token list")
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetchTokenList().catch(e => {
+  //     sentryDebug(`tokenList: ${e.message}`)
+  //     alertWarning("Fail to fetch token list")
+  //   })
+  // }, [])
 
   useEffect(() => {
     if (txType === "Deposit") {
