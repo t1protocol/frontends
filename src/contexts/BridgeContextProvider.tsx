@@ -87,7 +87,10 @@ const BridgeContextProvider = ({ children }: any) => {
     l1ProviderForSafeBlock = await new JsonRpcProvider(RPC_URL.L1)
     l1ScrollMessenger = new ethers.Contract(SCROLL_MESSENGER_ADDR[CHAIN_ID.L1], L1_SCROLL_MESSENGER_ABI, l1signer)
     l2ScrollMessenger = new ethers.Contract(SCROLL_MESSENGER_ADDR[CHAIN_ID.L2], L2_SCROLL_MESSENGER_ABI, l2signer)
-    l1BatchBridgeGateway = new ethers.Contract(BATCH_BRIDGE_GATEWAY_PROXY_ADDR[CHAIN_ID.L1], BATCH_BRIDGE_GATEWAY_PROXY_ABI, l1signer)
+    // TODO - we have not deployed this contract and it doesn't seem to be included in the Scroll deployment scripts
+    l1BatchBridgeGateway = BATCH_BRIDGE_GATEWAY_PROXY_ADDR[CHAIN_ID.L1]
+      ? new ethers.Contract(BATCH_BRIDGE_GATEWAY_PROXY_ADDR[CHAIN_ID.L1], BATCH_BRIDGE_GATEWAY_PROXY_ABI, l1signer)
+      : null
 
     setNetworksAndSigners({
       [CHAIN_ID.L1]: {
