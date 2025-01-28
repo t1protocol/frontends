@@ -143,22 +143,22 @@ const MobileHeader = ({ currentMenu }) => {
     >
       {navigations.map(item => (
         <React.Fragment key={item.key}>
-            <ListItem dark={dark} className={cx(activeCollapse === item.key && "active")} sx={{ py: "1rem" }} onClick={() => toggleDrawer(false)}>
-              <MenuItemLink
-                href={item.href}
-                dark={dark}
-                className={cx(currentMenu.includes(item.key) && "active")}
-                // reloadDocument={item.reload}
-                onClick={() =>
-                  sendGAEvent("event", "click_menu", {
-                    label: item.label,
-                    device: "mobile",
-                  })
-                }
-              >
-                {item.label}
-              </MenuItemLink>
-            </ListItem>
+          <ListItem dark={dark} className={cx(activeCollapse === item.key && "active")} sx={{ py: "1rem" }} onClick={() => toggleDrawer(false)}>
+            <MenuItemLink
+              href={item.href}
+              dark={dark}
+              className={cx(currentMenu.includes(item.key) && "active")}
+              // reloadDocument={item.reload}
+              onClick={() =>
+                sendGAEvent("event", "click_menu", {
+                  label: item.label,
+                  device: "mobile",
+                })
+              }
+            >
+              {item.label}
+            </MenuItemLink>
+          </ListItem>
         </React.Fragment>
       ))}
     </List>
