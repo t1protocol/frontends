@@ -14,7 +14,7 @@ const useStyles = makeStyles()(theme => ({
     },
   },
   defaultError: {
-    backgroundColor: "#FF684B",
+    backgroundColor: "#16B093",
     color: "#FFEBD7",
   },
   icon: {

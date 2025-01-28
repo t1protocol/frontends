@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 368.5 368.5" style="enable-background:new 0 0 368.5 368.5;" xml:space="preserve">
   <style type="text/css">
     .st0{fill:#050308;}
-    .st2{fill:#FF684B;stroke:#050308;stroke-width:3;stroke-miterlimit:10;}
+    .st2{fill:#16B093;stroke:#050308;stroke-width:3;stroke-miterlimit:10;}
     .st4{fill:none;stroke:#050308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-    .st6{fill:none;stroke:#FF684B;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
-    .st7{fill:#FF684B;}
-    .st8{fill:#050308;stroke:#FF684B;stroke-miterlimit:10;}
+    .st6{fill:none;stroke:#16B093;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+    .st7{fill:#16B093;}
+    .st8{fill:#050308;stroke:#16B093;stroke-miterlimit:10;}
     .st45{fill:#EE5132;stroke:#050308;stroke-width:3;stroke-miterlimit:10;}
     .row{margin:0;}
     .row span{display:inline-block;height:14px;line-height:14px;background:#050308;padding:0 3px;border:1px solid #EE5132;}
@@ -54,10 +54,10 @@
           <g>
             <polygon class="st7" points="183.82,85.77 179.15,98.58 188.49,98.58"/>
             <polygon class="st7" points="183.82,259.27 188.49,246.46 179.15,246.46"/>
-            <line x1="183.82" y1="95.71" x2="183.82" y2="250.53" stroke="#FF684B" stroke-width="2" />
+            <line x1="183.82" y1="95.71" x2="183.82" y2="250.53" stroke="#16B093" stroke-width="2" />
             <polygon class="st7" points="270.57,172.52 257.76,167.85 257.76,177.19"/>
             <polygon class="st7" points="97.07,172.52 109.88,177.19 109.88,167.85"/>
-            <line x1="107.01" y1="172.52" x2="260.63" y2="172.52" stroke="#FF684B" stroke-width="2" />
+            <line x1="107.01" y1="172.52" x2="260.63" y2="172.52" stroke="#16B093" stroke-width="2" />
           </g>
           <g>
             <line class="st6" x1="79.36" y1="85.77" x2="288.28" y2="85.77"/>

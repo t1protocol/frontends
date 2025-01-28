@@ -21,7 +21,7 @@ const Positions = () => {
         alignItems: "center",
         paddingBottom: "12rem",
         borderRadius: "40px 40px 0px 0px",
-        background: "#FFF0DD",
+        background: "#EAF1F1",
         pb: {
           xs: "4rem",
           sm: "12rem",

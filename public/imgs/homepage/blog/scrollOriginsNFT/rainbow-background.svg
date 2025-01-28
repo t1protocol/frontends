@@ -111,19 +111,19 @@
       <stop stop-color="#93FBED"/>
       <stop offset="0.25" stop-color="#F49BFF"/>
       <stop offset="0.64" stop-color="#FFBC4F"/>
-      <stop offset="1" stop-color="#FF684B"/>
+      <stop offset="1" stop-color="#16B093"/>
     </linearGradient>
     <linearGradient id="gradient2" x1="61.5358" y1="350.831" x2="374.895" y2="187.201" gradientUnits="userSpaceOnUse">
       <stop stop-color="#93FBED"/>
       <stop offset="0.25" stop-color="#F49BFF"/>
       <stop offset="0.64" stop-color="#FFBC4F"/>
-      <stop offset="1" stop-color="#FF684B"/>
+      <stop offset="1" stop-color="#16B093"/>
     </linearGradient>
     <linearGradient id="gradient3" x1="104.9998" y1="362.579" x2="122.7058" y2="280.42" gradientUnits="userSpaceOnUse">
       <stop stop-color="#93FBED"/>
       <stop offset="0.25" stop-color="#F49BFF"/>
       <stop offset="0.64" stop-color="#FFBC4F"/>
-      <stop offset="1" stop-color="#FF684B"/>
+      <stop offset="1" stop-color="#16B093"/>
     </linearGradient>
   </defs>
 </svg> 

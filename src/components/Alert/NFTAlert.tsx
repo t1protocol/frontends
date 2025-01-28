@@ -15,7 +15,7 @@ const useStyles = makeStyles<any>()((theme, { type }) => ({
     },
   },
   standardError: {
-    backgroundColor: "#FF684B",
+    backgroundColor: "#16B093",
     color: "#FFEBD7",
   },
   standardSuccess: {

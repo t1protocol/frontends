@@ -72,7 +72,7 @@ const useStyles = makeStyles<any>()((theme, { width, color, whiteButton }) => ({
     pointerEvents: "none",
   },
   wrapperDisabled: {
-    backgroundColor: "#FFF0DD80",
+    backgroundColor: "#EAF1F180",
     borderRadius: "1rem",
     pointerEvents: "none",
   },
@@ -93,8 +93,8 @@ const useStyles = makeStyles<any>()((theme, { width, color, whiteButton }) => ({
     },
   },
   buttonDisabled: {
-    borderColor: "#EBC28E",
-    color: "#EBC28E",
+    borderColor: "#0AECC366",
+    color: "#40928399",
   },
   buttonLoading: {
     paddingLeft: "2rem",
@@ -120,7 +120,7 @@ const useStyles = makeStyles<any>()((theme, { width, color, whiteButton }) => ({
     width: "100% !important",
   },
   maskDisabled: {
-    backgroundColor: "#EBC28E",
+    backgroundColor: "#0AECC366",
   },
 
   icon: {

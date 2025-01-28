@@ -116,7 +116,7 @@ const EndDivText = styled("a")(() => ({
   fontFamily: "var(--developer-page-font-family)",
   "&:hover": {
     cursor: "pointer",
-    color: "#ff684b",
+    color: "#16B093",
     "& svg": {
       opacity: 1,
       marginLeft: "0.8rem !important",
