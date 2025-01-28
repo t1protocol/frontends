@@ -62,7 +62,7 @@ const Bridge = () => {
             sx={{
               fontSize: ["4rem", "4.8rem"],
               lineHeight: ["4.8rem", "7.2rem"],
-              fontWeight: 600,
+              fontWeight: 500,
               width: "100%",
               whiteSpace: "nowrap",
               overflow: "hidden",

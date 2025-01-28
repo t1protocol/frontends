@@ -40,7 +40,7 @@ const useStyles = makeStyles()(theme => ({
     fontWeight: 500,
     color: (theme as any).vars.palette.text.primary,
     padding: 0,
-    backgroundColor: (theme as any).vars.palette.themeBackground.normal,
+    backgroundColor: (theme as any).vars.palette.themeBackground.primary,
     textTransform: "unset",
     "&.Mui-selected": {
       color: (theme as any).vars.palette.text.primary,
