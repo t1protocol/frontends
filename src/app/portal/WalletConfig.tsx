@@ -61,7 +61,7 @@ const WalletConfig = () => {
 
   return (
     <>
-      <Descriptions title={`Configure for ${isMainnet ? "𝚝𝟷 mainnet" : "our Sepolia testnet"}`}>
+      <Descriptions title={`Configure for ${isMainnet ? "𝚝𝟷 mainnet" : "𝚝𝟷 devnet"}`}>
         {NETWORKS.map((item, index) => (
           <DescriptionItem key={item.name}>
             <Typography bold>Layer{index + 1}</Typography>

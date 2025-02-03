@@ -6,7 +6,8 @@ export const USDC_SYMBOL = "USDC"
 
 export const L1_NAME = `Ethereum ${isMainnet ? "" : process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}`
 
-export const L2_NAME = `𝚝𝟷 ${isMainnet ? "" : process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}`
+export const L2_DEVNET_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT === "Sepolia" ? "Devnet" : "Testnet"
+export const L2_NAME = `𝚝𝟷 ${isMainnet ? "" : L2_DEVNET_NAME}`
 
 export const CHAIN_ID = {
   L1: parseInt(process.env.NEXT_PUBLIC_CHAIN_ID_L1),

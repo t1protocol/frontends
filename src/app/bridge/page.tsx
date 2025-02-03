@@ -69,7 +69,7 @@ const Bridge = () => {
               textOverflow: "ellipsis",
             }}
           >
-            {isSepolia ? `${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Testnet` : ""} Bridge
+            {isSepolia ? `${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}` : ""} Bridge
           </Typography>
           {/* <HistoryButton></HistoryButton> */}
         </Stack>
