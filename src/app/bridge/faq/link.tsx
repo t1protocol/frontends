@@ -30,10 +30,10 @@ const BridgeLinks = () => {
           <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
         </FAQsLink>
       )}
-      <FAQsLink href="/terms-of-service">
+      {/* <FAQsLink href="/terms-of-service">
         Terms of Service
         <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
-      </FAQsLink>
+      </FAQsLink> */}
     </Stack>
   )
 }
