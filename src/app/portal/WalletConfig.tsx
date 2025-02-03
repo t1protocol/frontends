@@ -81,11 +81,11 @@ const WalletConfig = () => {
         ))}
         <DescriptionItem>
           <Typography>
-            Having issues? Try completely removing previous 𝚝𝟷 networks from your {walletName || "wallet"}. Troubleshoot other{" "}
+            Having issues? Try completely removing previous 𝚝𝟷 networks from your {walletName || "wallet"}. Check the{" "}
             <Link href="/bridge/faq" underline="hover">
-              Common Errors
+              FAQ
             </Link>{" "}
-            here.
+            for other common errors.
           </Typography>
         </DescriptionItem>
       </Descriptions>
