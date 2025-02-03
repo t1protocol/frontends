@@ -1,5 +1,7 @@
 "use client"
 
+import { useMemo } from "react"
+
 import { Box, Container, Stack, Typography } from "@mui/material"
 
 import { L2_NAME } from "@/constants"
@@ -9,12 +11,10 @@ import SendFeedback from "./SendFeedback"
 import TestFlow from "./TestFlow"
 import WalletConfig from "./WalletConfig"
 
-import { useMemo } from "react"
-
 const Portal = () => {
   const version = useMemo(() => {
-    return process.env.NEXT_PUBLIC_CHAIN_VERSION;
-  }, []);
+    return process.env.NEXT_PUBLIC_CHAIN_VERSION
+  }, [])
   return (
     <Container>
       <Box sx={{ textAlign: "center", mt: ["6.8rem", "13.8rem"] }}>
@@ -39,11 +39,11 @@ const Portal = () => {
         <WalletConfig></WalletConfig>
         <TestFlow></TestFlow>
         <SendFeedback></SendFeedback>
-      <Box sx={{ textAlign: "center", mt: "1rem", pb: "1rem" }}>
-        <Typography variant="body2" color="textSecondary">
-          version: {version}
-        </Typography>
-      </Box>
+        <Box sx={{ textAlign: "center", mt: "1rem", pb: "1rem" }}>
+          <Typography variant="body2" color="textSecondary">
+            version: {version}
+          </Typography>
+        </Box>
       </Stack>
     </Container>
   )
