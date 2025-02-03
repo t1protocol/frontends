@@ -82,7 +82,7 @@ const WalletConfig = () => {
         <DescriptionItem>
           <Typography>
             Having issues? Try completely removing previous 𝚝𝟷 networks from your {walletName || "wallet"}. Troubleshoot other{" "}
-            <Link href="https://docs.t1protocol.com/bridge/overview" underline="hover" external>
+            <Link href="/bridge/faq" underline="hover">
               Common Errors
             </Link>{" "}
             here.
