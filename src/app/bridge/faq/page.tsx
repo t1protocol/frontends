@@ -42,11 +42,12 @@ const FAQ = () => {
           2. Select Deposit or Withdraw on the bridge.
         </Typography>
         <Typography variant="Body3" color="textSecondary" className={classes.orderedParagraph}>
-          3. Select the token (for ex. ETH) you wish to transfer.
+          3. Select the token (for ex. ETH) you wish to transfer. Currently, only ETH is supported for bridging. Support for ERC20 tokens will be
+          added in the future.
         </Typography>
         <Typography variant="Body3" color="textSecondary" className={classes.orderedParagraph}>
-          4. Click on Deposit funds/Withdraw funds. A pop up window form will ask you for the transfer confirmation. You will be prompted to approve
-          the 𝚝𝟷 Bridge contract to access your ETH token.
+          4. Click on Deposit funds/Withdraw funds. A pop up window form will ask you for the transfer confirmation. You will be prompted to approve
+          the 𝚝𝟷 Bridge contract to access your ETH token. Ensure you have enough ETH to cover gas fees during the bridging process.
         </Typography>
         <Typography variant="Body3" color="textSecondary" className={classes.orderedParagraph}>
           5. Once the transaction is confirmed, the token will be deducted from your wallet.
