@@ -12,7 +12,7 @@ const useStyles = makeStyles()(() => ({
   },
   standardError: {
     backgroundColor: "#FFE1DB",
-    color: "#FF684B",
+    color: "#16B093",
     fontWeight: 600,
   },
   standardSuccess: {

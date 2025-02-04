@@ -144,7 +144,7 @@ const ListItemTextStyled = styled(ListItemText)(({ theme }) => ({
 }))
 
 const ErrorBoxStyled = styled(Box)(({ theme }) => ({
-  color: "#FF684B",
+  color: "#16B093",
   fontSize: "1.3rem",
   fontWeight: 500,
   margin: "1rem 2.4rem 0",
@@ -191,7 +191,6 @@ const MenuItemComponent = ({ token, isSelected, selectToken, txType }) => (
         <>
           <ListSymbolStyled>{token.symbol}</ListSymbolStyled>
           <ListNameStyled>{token.name}</ListNameStyled>
-          {token.earnMarks && <EarnMarksLabel>Earn marks</EarnMarksLabel>}
         </>
       }
       secondary={

@@ -6,7 +6,7 @@ export const t1_devnet = /*#__PURE__*/ defineChain({
   nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
   rpcUrls: {
     default: {
-      http: ["http://34.171.95.193:8545"],
+      http: ["https://rpc.devnet.t1protocol.com"],
     },
   },
   blockExplorers: {

@@ -11,7 +11,7 @@ import WebVitals from "@/components/WebVitals"
 // import SentrySetting from "@/components/SentrySetting"
 import { ROOT_METADATA } from "@/constants/route"
 import BridgeContextProvider from "@/contexts/BridgeContextProvider"
-import CanvasContextProvider from "@/contexts/CanvasContextProvider"
+// import CanvasContextProvider from "@/contexts/CanvasContextProvider"
 import RainbowProvider from "@/contexts/RainbowProvider"
 import { VersionChecker } from "@/hooks/useVersionCheck"
 import ScrollThemeProvider from "@/theme"
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <VersionChecker>
               <RainbowProvider>
                 <BridgeContextProvider>
-                  <CanvasContextProvider>{children}</CanvasContextProvider>
+                  {children}
                   <GlobalComponents></GlobalComponents>
                 </BridgeContextProvider>
               </RainbowProvider>

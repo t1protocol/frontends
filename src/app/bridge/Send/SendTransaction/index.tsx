@@ -26,7 +26,7 @@ import BalanceInput from "./BalanceInput"
 import CustomiseRecipient from "./CustomiseRecipient"
 import DepositSelector from "./DepositSelector"
 import NetworkDirection from "./NetworkDirection"
-import TransactionSummary from "./TransactionSummary"
+// import TransactionSummary from "./TransactionSummary"
 import useBatchDeposit from "./hooks/useBatchDeposit"
 
 const SendTransaction = () => {
@@ -335,7 +335,7 @@ const SendTransaction = () => {
             color="primary"
           >
             <SvgIcon
-              sx={{ fontSize: "1.6rem", mr: "0.8rem", verticalAlign: "middle", color: "#FF684B" }}
+              sx={{ fontSize: "1.6rem", mr: "0.8rem", verticalAlign: "middle", color: "#16B093" }}
               component={WarningSvg}
               inheritViewBox
             ></SvgIcon>
@@ -370,7 +370,7 @@ const SendTransaction = () => {
         />
       )}
 
-      {bridgeSummaryType === BridgeSummaryType.Summary && (
+      {/* {bridgeSummaryType === BridgeSummaryType.Summary && (
         <TransactionSummary
           selectedToken={selectedToken}
           amount={validAmount}
@@ -381,7 +381,7 @@ const SendTransaction = () => {
           l1DataFee={l1DataFee}
           needApproval={!!needApproval}
         />
-      )}
+      )} */}
       <Box
         sx={{
           mt: ["2.4rem", "2.8rem"],

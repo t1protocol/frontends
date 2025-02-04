@@ -40,6 +40,40 @@ body.mobile-top-nav-open {
 }
 
 @font-face {
+  font-family: "Inter";
+  src:
+    url("../assets/fonts/Inter-Regular.otf") format("opentype");
+  font-weight: 300;
+  line-height: 150%;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src:
+    url("../assets/fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src:
+    url("../assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src:
+    url("../assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+@font-face {
   font-family: "TransSansPremium";
   src:
     url("../assets/fonts/TransSansPremium-Light.woff2") format("woff2"),
@@ -86,11 +120,11 @@ body.mobile-top-nav-open {
   /* --swiper-pagination-bullet-inactive-color: #595959; */
 
   /* semibold/light never been used  */
-  --default-font-family: "TransSansPremium", "system-ui", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "Segoe UI", "Arial", "sans-serif",
+  --default-font-family: "SpaceGrotesk", "system-ui", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "Segoe UI", "Arial", "sans-serif",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /* same as scroll documnet */
-  --developer-page-font-family: "Roboto", "trans-sans", "circular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --developer-page-font-family: "Inter", "trans-sans", "circular", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 onboard-v2 .outer-container icon {
@@ -137,7 +171,7 @@ div.markdown-body h3 {
 }
 
 div.markdown-body a {
-  color: #ff684b;
+  color: #16B093;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -165,7 +199,7 @@ div.markdown-body img {
 .header-link:hover,
 .header-link:focus {
   font-weight: 600;
-  color: #ff684b;
+  color: #16B093;
 }
 
 .header-link a {

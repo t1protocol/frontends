@@ -111,7 +111,7 @@ const TotalPoints = () => {
           width: ["100%", "100%", "62.4rem"],
           height: ["auto", "auto", "22.8rem"],
           padding: ["2.4rem 1.2rem", "2.4rem"],
-          background: "#FFF0DD",
+          background: "#EAF1F1",
           borderRadius: "1.6rem",
           margin: "0 auto",
           position: ["relative", "relative", "absolute"],

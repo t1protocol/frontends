@@ -141,7 +141,7 @@ const WorkApproach = () => {
             title="How we work"
             content={
               <>
-                We are a <span style={{ color: "#FF684B", fontWeight: "bold" }}>remote-first, globally distributed </span>team spanning across 19
+                We are a <span style={{ color: "#16B093", fontWeight: "bold" }}>remote-first, globally distributed </span>team spanning across 19
                 countries. We are impact-driven, collaborative, and always willing to go above and beyond to help each other succeed.
                 <br />
                 <br />

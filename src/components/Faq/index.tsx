@@ -105,20 +105,12 @@ const Faq = props => {
         <Typography variant="Body3" color="textSecondary" className={classes.orderedParagraph}>
           2. View the statuses of transactions and blocks in the{" "}
           <Link href={SITE_MAP.L2Explorer} external>
-            Scroll Block Explorers{" "}
+            𝚝𝟷 Block Explorers
           </Link>
-          and the <Link href={SITE_MAP.RollupExplorer}>Rollup Explorer</Link>.
-        </Typography>
-        <Typography variant="Body3" color="textSecondary">
-          More instructions <Link href={SITE_MAP.Home}>here</Link>.
+          .
         </Typography>
       </FaqItem>
       {children}
-      <FaqItem title="Where can I find the Scroll architecture overview?">
-        <Typography variant="Body3" color="textSecondary">
-          Check our <Link href={SITE_MAP.Architecture}>architecture blog article</Link>.
-        </Typography>
-      </FaqItem>
     </div>
   )
 }

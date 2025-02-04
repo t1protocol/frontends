@@ -46,6 +46,6 @@ export const ECOSYSTEM_EXPLORER_LIST = [
 
 export const TWITTER_ORIGIN = "https://twitter.com/"
 
-export const ECOSYSTEM_NETWORK_LIST = ["All networks", "Mainnet", "Testnet"]
+export const ECOSYSTEM_NETWORK_LIST = ["All networks", "Mainnet", "Devnet"]
 
 export const NORMAL_HEADER_HEIGHT = "6.5rem"

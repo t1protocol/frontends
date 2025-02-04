@@ -41,13 +41,13 @@
 <defs>
 <linearGradient id="paint0_linear_4608_9985" x1="135.578" y1="113.017" x2="538.422" y2="113.017" gradientUnits="userSpaceOnUse">
 <stop stop-color="#F0C86F"/>
-<stop offset="0.38" stop-color="#FF684B"/>
+<stop offset="0.38" stop-color="#16B093"/>
 <stop offset="0.75" stop-color="#FAD880"/>
 <stop offset="1" stop-color="#90F7EB"/>
 </linearGradient>
 <linearGradient id="paint1_linear_4608_9985" x1="533.016" y1="151.564" x2="533.016" y2="138" gradientUnits="userSpaceOnUse">
 <stop stop-color="#F0C86F"/>
-<stop offset="0.38" stop-color="#FF684B"/>
+<stop offset="0.38" stop-color="#16B093"/>
 <stop offset="0.75" stop-color="#FAD880"/>
 <stop offset="1" stop-color="#90F7EB"/>
 </linearGradient>

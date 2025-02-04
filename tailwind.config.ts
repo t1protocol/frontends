@@ -121,8 +121,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      sans: ['"TransSansPremium"', ...defaultTheme.fontFamily.sans],
-      display: ['"TransSansPremium"', ...defaultTheme.fontFamily.sans],
+      sans: ['"SpaceGrotesk"', ...defaultTheme.fontFamily.sans],
+      display: ['"SpaceGrotesk"', ...defaultTheme.fontFamily.sans],
     },
     screens: {
       sm: "600px",

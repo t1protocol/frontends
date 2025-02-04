@@ -40,8 +40,8 @@ const useStyles = makeStyles()(theme => ({
     borderRadius: "1rem",
     paddingLeft: "1.4rem",
     "&.Mui-disabled": {
-      backgroundColor: "#FFF5E8",
-      border: "1px solid #A39B9A",
+      backgroundColor: "#F1F7F6",
+      border: "1px solid #39655D",
       cursor: "not-allowed",
     },
     [theme.breakpoints.down("sm")]: {
@@ -68,7 +68,7 @@ const useStyles = makeStyles()(theme => ({
   },
   disabledMaxButton: {
     pointerEvents: "none",
-    color: "#EBC28E",
+    color: "#39655D",
   },
   readOnlyMaxButton: {
     pointerEvents: "none",

@@ -143,94 +143,22 @@ const MobileHeader = ({ currentMenu }) => {
     >
       {navigations.map(item => (
         <React.Fragment key={item.key}>
-          {item.children ? (
-            <ListItem
+          <ListItem dark={dark} className={cx(activeCollapse === item.key && "active")} sx={{ py: "1rem" }} onClick={() => toggleDrawer(false)}>
+            <MenuItemLink
+              href={item.href}
               dark={dark}
-              className={activeCollapse === item.key ? "active" : ""}
-              sx={{ py: "1rem" }}
-              onClick={() => toggleCollapse(item.key)}
+              className={cx(currentMenu.includes(item.key) && "active")}
+              // reloadDocument={item.reload}
+              onClick={() =>
+                sendGAEvent("event", "click_menu", {
+                  label: item.label,
+                  device: "mobile",
+                })
+              }
             >
-              <Stack direction="row" alignItems="center" spacing="0.8rem">
-                <span>{item.label} </span>
-                {item.new && (
-                  <Box
-                    sx={{
-                      backgroundColor: "#B5F5EC",
-                      padding: "0 0.8rem",
-                      height: "2rem",
-                      lineHeight: "2rem",
-                      borderRadius: "0.4rem",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: "1.2rem", lineHeight: "2rem", fontWeight: 600 }}>NEW</Typography>
-                  </Box>
-                )}
-              </Stack>
-              <ExpandMoreIcon fontSize="large" className={activeCollapse === item.key ? "active" : ""} />{" "}
-            </ListItem>
-          ) : (
-            <ListItem dark={dark} className={cx(activeCollapse === item.key && "active")} sx={{ py: "1rem" }} onClick={() => toggleDrawer(false)}>
-              <MenuItemLink
-                href={item.href}
-                dark={dark}
-                className={cx(currentMenu.includes(item.key) && "active")}
-                reloadDocument={item.reload}
-                onClick={() =>
-                  sendGAEvent("event", "click_menu", {
-                    label: item.label,
-                    device: "mobile",
-                  })
-                }
-              >
-                {item.label}
-              </MenuItemLink>
-            </ListItem>
-          )}
-
-          <Collapse key={item.key} in={activeCollapse === item.key} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {item.children?.map((section, idx) => (
-                <SectionList onClick={() => toggleDrawer(false)} key={idx} dark={dark}>
-                  {section.label && (
-                    <Typography
-                      sx={{ fontSize: "1.4rem", fontWeight: "bold", lineHeight: "3rem", color: dark ? "primary.contrastText" : "text.primary" }}
-                    >
-                      {section.label}
-                    </Typography>
-                  )}
-                  {section.type === "grid" ? (
-                    <Stack direction="column" spacing="2rem">
-                      {section.children.map((item, index) => (
-                        <Stack key={item.label} direction="column" spacing="1.6rem">
-                          {/* <Divider textAlign="left" sx={{ color: "text.primary",  }}>
-                            {item.label}
-                          </Divider> */}
-                          <Typography sx={{ fontSize: "1.4rem", fontWeight: 700 }}>{item.label}</Typography>
-                          {item.items.map(item => (
-                            <SubmenuLink className={cx(item.key === currentMenu[0] && "active")} key={item.label} {...item}></SubmenuLink>
-                          ))}
-                        </Stack>
-                      ))}
-                    </Stack>
-                  ) : (
-                    <>
-                      {section.children
-                        // only show sub items with href
-                        ?.filter(subItem => subItem.href)
-                        .map(subItem => (
-                          <SubmenuLink
-                            key={subItem.label}
-                            className={cx(subItem.key === currentMenu[0] && "active")}
-                            dark={dark}
-                            {...subItem}
-                          ></SubmenuLink>
-                        ))}
-                    </>
-                  )}
-                </SectionList>
-              ))}
-            </List>
-          </Collapse>
+              {item.label}
+            </MenuItemLink>
+          </ListItem>
         </React.Fragment>
       ))}
     </List>

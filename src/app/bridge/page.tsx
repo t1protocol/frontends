@@ -12,21 +12,20 @@ import useBridgeStore from "@/stores/bridgeStore"
 import { isSepolia, sentryDebug } from "@/utils"
 
 import Send from "./Send"
+import FAQsLink from "./faq/link"
 
 // import HistoryButton from "./components/HistoryButton"
-
-// import FAQsLink from "./faq/link"
 
 const Bridge = () => {
   const { txType, changeFromNetwork, changeToNetwork, fetchTokenList } = useBridgeStore()
   const alertWarning = useSnackbar()
 
-  useEffect(() => {
-    fetchTokenList().catch(e => {
-      sentryDebug(`tokenList: ${e.message}`)
-      alertWarning("Fail to fetch token list")
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetchTokenList().catch(e => {
+  //     sentryDebug(`tokenList: ${e.message}`)
+  //     alertWarning("Fail to fetch token list")
+  //   })
+  // }, [])
 
   useEffect(() => {
     if (txType === "Deposit") {
@@ -62,19 +61,19 @@ const Bridge = () => {
             sx={{
               fontSize: ["4rem", "4.8rem"],
               lineHeight: ["4.8rem", "7.2rem"],
-              fontWeight: 600,
+              fontWeight: 500,
               width: "100%",
               whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}
           >
-            {isSepolia ? `${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Testnet` : ""} Bridge
+            {isSepolia ? `${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}` : ""} Bridge
           </Typography>
           {/* <HistoryButton></HistoryButton> */}
         </Stack>
         <Send></Send>
-        {/* <FAQsLink /> */}
+        <FAQsLink />
       </SectionWrapper>
       {/* <MintBadge /> */}
     </PriceFeeProvider>

@@ -10,8 +10,8 @@ export interface PageMetadata {
 }
 
 export const DEFAULT_METADATA = {
-  title: "T1",
-  description: "Native zkEVM Layer 2 for Ethereum",
+  title: "t1",
+  description: "The Ethereum L2 with Real-Time Proving",
   ogImg: "/og_scroll.png",
   twitterImg: "/og_scroll.png",
 }
@@ -21,7 +21,7 @@ export const ROOT_METADATA: Metadata = {
   title: DEFAULT_METADATA.title,
   applicationName: DEFAULT_METADATA.title,
   description: DEFAULT_METADATA.description,
-  keywords: ["layer 2", "ethereum", "zero knowledge proof", "scalability", "ZKP", "l2", "EVM compatible", "zk rollup"],
+  keywords: ["layer 2", "ethereum", "trusted execution environment", "scalability", "TEE", "l2", "EVM compatible", "composability"],
   openGraph: {
     title: DEFAULT_METADATA.title,
     description: DEFAULT_METADATA.description,

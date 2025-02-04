@@ -36,7 +36,7 @@ const useStyles = makeStyles()(theme => {
     },
     failedChip: {
       backgroundColor: "#FFE1DB",
-      color: "#FF684B",
+      color: "#16B093",
     },
     cancelledChip: {
       color: "#5B5B5B",

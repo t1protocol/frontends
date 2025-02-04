@@ -5,7 +5,7 @@ import { Box, Card, Grid, Stack, SvgIcon, Typography } from "@mui/material"
 
 import SelectedSvg from "@/assets/svgs/bridge/approve-token-selected.svg"
 import { ETH_SYMBOL } from "@/constants"
-import { useBridgeContext } from "@/contexts/BridgeContextProvider"
+// import { useBridgeContext } from "@/contexts/BridgeContextProvider"
 import useCheckViewport from "@/hooks/useCheckViewport"
 import useBatchBridgeStore, { DepositBatchMode } from "@/stores/batchBridgeStore"
 import useBridgeStore from "@/stores/bridgeStore"
@@ -103,7 +103,7 @@ const DepositSelector = props => {
   const [selectedType, setSelectedType] = useState(DepositBatchMode.Economy)
   const { isNetworkCorrect } = useBridgeStore()
   const { changeDepositBatchMode, depositBatchMode } = useBatchBridgeStore()
-  const { tokenPrice } = useBridgeContext()
+  // const { tokenPrice } = useBridgeContext()
 
   const handleSelect = value => {
     setSelectedType(value)
@@ -121,15 +121,15 @@ const DepositSelector = props => {
     return !!feeError && amount && !needApproval
   }, [feeError, amount, needApproval])
 
-  const getDisplayedPrice = useCallback(
-    (amount = "", tokenAddress = "ethereum") => {
-      if (allowDisplayValue && tokenPrice.price?.[tokenAddress.toLowerCase()]) {
-        return (+amount * tokenPrice.price[tokenAddress.toLowerCase()].usd).toFixed(2)
-      }
-      return ""
-    },
-    [allowDisplayValue, showFeeError, tokenPrice],
-  )
+  // const getDisplayedPrice = useCallback(
+  //   (amount = "", tokenAddress = "ethereum") => {
+  //     if (allowDisplayValue && tokenPrice.price?.[tokenAddress.toLowerCase()]) {
+  //       return (+amount * tokenPrice.price[tokenAddress.toLowerCase()].usd).toFixed(2)
+  //     }
+  //     return ""
+  //   },
+  //   [allowDisplayValue, showFeeError, tokenPrice],
+  // )
 
   const getDisplayedValue = useCallback(
     (value: TransactionValue = BigInt(0), decimals = BigInt(18), symbol = ETH_SYMBOL) => {
@@ -146,50 +146,50 @@ const DepositSelector = props => {
     let displayedPrice = ""
     if (checkApproved(needApproval, DepositBatchMode.Fast) && allowDisplayValue) {
       displayedFee = getDisplayedValue(l1GasFee) as any
-      displayedPrice = getDisplayedPrice(BNToAmount(l1GasFee as bigint))
+      // displayedPrice = getDisplayedPrice(BNToAmount(l1GasFee as bigint))
     }
     let displayedBatchFee = "-"
     let displayedBatchPrice = ""
     if (checkApproved(needApproval, DepositBatchMode.Economy) && allowDisplayValue) {
       displayedBatchFee = getDisplayedValue(l1EconomyGasFee) as any
-      displayedBatchPrice = getDisplayedPrice(BNToAmount(l1EconomyGasFee as bigint))
+      // displayedBatchPrice = getDisplayedPrice(BNToAmount(l1EconomyGasFee as bigint))
     }
     return {
       [DepositBatchMode.Fast]: {
         value: displayedFee,
-        price: displayedPrice,
+        // price: displayedPrice,
       },
       [DepositBatchMode.Economy]: {
         value: displayedBatchFee,
-        price: displayedBatchPrice,
+        // price: displayedBatchPrice,
       },
     }
-  }, [l1GasFee, l1EconomyGasFee, getDisplayedValue, getDisplayedPrice, needApproval, allowDisplayValue])
+  }, [l1GasFee, l1EconomyGasFee, getDisplayedValue, needApproval, allowDisplayValue])
 
   const displayedL2Fee = useMemo(() => {
     let displayedFee = "-"
     let displayedPrice = ""
     if (checkApproved(needApproval, DepositBatchMode.Fast) && allowDisplayValue) {
       displayedFee = getDisplayedValue(l2GasFee) as any
-      displayedPrice = getDisplayedPrice(BNToAmount(l2GasFee as bigint))
+      // displayedPrice = getDisplayedPrice(BNToAmount(l2GasFee as bigint))
     }
     let displayedBatchFee = "-"
     let displayedBatchPrice = ""
     if (checkApproved(needApproval, DepositBatchMode.Economy) && allowDisplayValue) {
       displayedBatchFee = getDisplayedValue(l2EconomyGasFee, selectedToken.decimals, selectedToken.symbol) as any
-      displayedBatchPrice = getDisplayedPrice(BNToAmount(l2EconomyGasFee as bigint))
+      // displayedBatchPrice = getDisplayedPrice(BNToAmount(l2EconomyGasFee as bigint))
     }
     return {
       [DepositBatchMode.Fast]: {
         value: displayedFee,
-        price: displayedPrice,
+        // price: displayedPrice,
       },
       [DepositBatchMode.Economy]: {
         value: displayedBatchFee,
-        price: displayedBatchPrice,
+        // price: displayedBatchPrice,
       },
     }
-  }, [l2GasFee, l2EconomyGasFee, getDisplayedValue, getDisplayedPrice, needApproval, allowDisplayValue])
+  }, [l2GasFee, l2EconomyGasFee, getDisplayedValue, needApproval, allowDisplayValue])
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -238,9 +238,9 @@ const DepositSelector = props => {
                 </Grid>
                 <Grid classes={{ root: classes.info }} item xs={8} textAlign="right">
                   {displayedL1Fee[DepositBatchMode[item.type]].value}
-                  <Typography classes={{ root: classes.price }} component="span">
+                  {/* <Typography classes={{ root: classes.price }} component="span">
                     {displayedL1Fee[DepositBatchMode[item.type]]?.price ? ` $${formatAmount(displayedL1Fee[DepositBatchMode[item.type]].price)}` : ""}
-                  </Typography>
+                  </Typography> */}
                 </Grid>
               </Grid>
 
@@ -250,11 +250,11 @@ const DepositSelector = props => {
                 </Grid>
                 <Grid classes={{ root: classes.info }} item xs={8} textAlign="right">
                   {displayedL2Fee[DepositBatchMode[item.type]].value}
-                  <Typography classes={{ root: classes.price }} component="span">
+                  {/* <Typography classes={{ root: classes.price }} component="span">
                     {displayedL1Fee[DepositBatchMode[item.type]]?.price
                       ? ` $${formatAmount(displayedL2Fee[DepositBatchMode[item.type]].price)}`
                       : " "}
-                  </Typography>
+                  </Typography> */}
                 </Grid>
               </Grid>
             </Box>

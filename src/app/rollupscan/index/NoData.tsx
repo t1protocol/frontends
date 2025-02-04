@@ -8,7 +8,7 @@ const Container = styled(Box)(() => ({
 }))
 
 const NoResultsTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: "TransSansPremium",
+  fontFamily: "SpaceGrotesk",
   fontWeight: "500",
   fontSize: "2rem",
   lineHeight: "2.4rem",

@@ -61,7 +61,7 @@ const WalletConfig = () => {
 
   return (
     <>
-      <Descriptions title={`Configure for ${isMainnet ? "Scroll mainnet" : "our Sepolia testnet"}`}>
+      <Descriptions title={`Configure for ${isMainnet ? "𝚝𝟷 mainnet" : "𝚝𝟷 devnet"}`}>
         {NETWORKS.map((item, index) => (
           <DescriptionItem key={item.name}>
             <Typography bold>Layer{index + 1}</Typography>
@@ -81,11 +81,11 @@ const WalletConfig = () => {
         ))}
         <DescriptionItem>
           <Typography>
-            Having issues? Try completely removing previous Scroll networks from your {walletName || "wallet"}. Troubleshoot other{" "}
-            <Link href="https://docs.scroll.io/en/user-guide/common-errors/" underline="hover" external>
-              Common Errors
+            Having issues? Try completely removing previous 𝚝𝟷 networks from your {walletName || "wallet"}. Check the{" "}
+            <Link href="/bridge/faq" underline="hover">
+              FAQ
             </Link>{" "}
-            here.
+            for other common errors.
           </Typography>
         </DescriptionItem>
       </Descriptions>
