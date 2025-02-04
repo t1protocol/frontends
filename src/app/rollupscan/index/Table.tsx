@@ -108,7 +108,7 @@ const CustomTableRow = styled(TableRow)(({ theme }) => ({
     transition: "all 0.5s ease",
   },
   "&.rowActive": {
-    backgroundColor: `${alpha("#FF684B", 0.05)}`,
+    backgroundColor: `${alpha("#16B093", 0.05)}`,
     "&:after": {
       backgroundColor: (theme as any).vars.palette.primary.main,
     },

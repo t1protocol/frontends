@@ -12,34 +12,12 @@ import Descriptions, { DescriptionItem } from "./Descriptions"
 const SendFeedback = () => {
   const FEEDBACK_LIST = [
     {
-      icon: StatusSvg,
-      content: (
-        <>
-          First, check our{" "}
-          <Link external underline="hover" href="https://status.scroll.io">
-            system status
-          </Link>
-        </>
-      ),
-    },
-    {
       icon: DiscordSvg,
       content: (
         <>
           Chat with us on{" "}
-          <Link external underline="hover" href="https://discord.gg/scroll">
+          <Link external underline="hover" href="https://discord.com/invite/nbvyXZHgke">
             Discord
-          </Link>
-        </>
-      ),
-    },
-    {
-      icon: GithubSvg,
-      content: (
-        <>
-          Open an issue/PR{" "}
-          <Link external underline="hover" href="https://github.com/scroll-tech">
-            in our GitHub
           </Link>
         </>
       ),

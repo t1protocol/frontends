@@ -17,12 +17,6 @@ export const NAVIGATIONS = [
     subdomainOrPath: "/bridge",
   },
   {
-    name: "Rollup Explorer",
-    description: "See L2 block data being committed to and finalized on L1.",
-    isActive: true,
-    subdomainOrPath: "/rollupscan",
-  },
-  {
     name: "L1 Block Explorer",
     description: `See your L1 transactions on ${L1_NAME}'s block explorer.`,
     isExternal: true,

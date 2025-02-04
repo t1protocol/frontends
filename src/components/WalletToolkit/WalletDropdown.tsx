@@ -38,7 +38,7 @@ const useStyles = makeStyles<any>()((theme, { dark }) => ({
 
   connectButton: {
     fontFamily: "var(--default-font-family)",
-    backgroundColor: "#FF684B",
+    backgroundColor: "#16B093",
     color: theme.palette.primary.contrastText,
     border: "none",
     fontSize: "1.8rem",

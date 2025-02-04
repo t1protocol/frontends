@@ -25,7 +25,7 @@ const useStyles = makeStyles()(theme => ({
       backgroundColor: "#ffffff",
     },
     "&.Mui-disabled": {
-      backgroundColor: "#FFF5E8",
+      backgroundColor: "#EAF1F1",
       border: "1px solid #A39B9A",
       opacity: 1,
       "*": {

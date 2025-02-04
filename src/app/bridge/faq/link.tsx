@@ -25,15 +25,15 @@ const BridgeLinks = () => {
         <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
       </FAQsLink>
       {isMainnet && (
-        <FAQsLink target="_blank" href="https://sepolia.scroll.io/bridge">
-          Testnet Bridge
+        <FAQsLink target="_blank" href="https://devnet.t1protocol.com/bridge">
+          Devnet Bridge
           <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
         </FAQsLink>
       )}
-      <FAQsLink href="/terms-of-service">
+      {/* <FAQsLink href="/terms-of-service">
         Terms of Service
         <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
-      </FAQsLink>
+      </FAQsLink> */}
     </Stack>
   )
 }

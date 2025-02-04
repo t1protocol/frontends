@@ -173,12 +173,11 @@ export function useSendTransaction(props) {
       options.maxPriorityFeePerGas = maxPriorityFeePerGas
     }
 
-    return networksAndSigners[CHAIN_ID.L1].scrollMessenger["sendMessage(address,uint256,bytes,uint256,uint64,address)"](
+    return networksAndSigners[CHAIN_ID.L1].scrollMessenger["sendMessage(address,uint256,bytes,uint256,address)"](
       receiver || walletCurrentAddress,
       parsedAmount,
       "0x",
       gasLimit,
-      CHAIN_ID.L1,
       receiver || walletCurrentAddress,
       options,
     )

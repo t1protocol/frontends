@@ -187,7 +187,7 @@ const PrivacyPolicy = () => {
       </p>
       <ul>
         <li>Make a transaction on Our Websites.</li>
-        <li>Sign up to join Our Testnets.</li>
+        <li>Sign up to join Our Devnet.</li>
         <li>Sign up to receive promotional emails or text messages.</li>
         <li>Provide Your contact information for any given reason.</li>
         <li>Create or update your account.</li>

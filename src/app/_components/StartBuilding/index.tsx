@@ -28,7 +28,7 @@ const Container = styled(Box)(({ theme }) => ({
   paddingTop: "15.3rem",
   paddingBottom: "16rem",
   borderRadius: "40px 40px 0px 0px",
-  background: "#FFF0DD",
+  background: "#EAF1F1",
   [theme.breakpoints.down("md")]: {
     paddingTop: "8.4rem",
     paddingBottom: "9rem",

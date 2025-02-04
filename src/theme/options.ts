@@ -5,7 +5,7 @@ const theme = extendTheme()
 export const paletteOptions = {
   primary: {
     light: "#F18740",
-    main: "#FF684B",
+    main: "#16B093",
     dark: "#FFDEB5",
     contrastText: "#FFF8F3",
   },
@@ -15,7 +15,7 @@ export const paletteOptions = {
   text: {
     primary: "#101010",
     secondary: "#595959",
-    disabled: "#FFDEB5",
+    disabled: "#39655D",
   },
   // for alert
   info: {
@@ -44,11 +44,11 @@ export const paletteOptions = {
     paper: "#FFF",
   },
   themeBackground: {
-    light: "#FFF8F3",
-    dark: "#101010",
-    normal: "#FFF0DD",
-    highlight: "#FFDEB5",
-    optionHightlight: "#FFE6C8",
+    light: "#f8fbfa",
+    dark: "#252C2B",
+    normal: "#EAF1F1",
+    highlight: "#39655D",
+    optionHightlight: "#EAF1F1",
     tag: "#262626",
     transparent: "transparent",
     brand: "#FFEEDA",
@@ -57,7 +57,7 @@ export const paletteOptions = {
     main: "#000",
   },
   link: {
-    main: "#FF684B",
+    main: "#16B093",
   },
   // for tag
   tagSuccess: {
@@ -89,7 +89,7 @@ export const paletteOptions = {
 
 export const typographyOptions = {
   fontFamily: [
-    "TransSansPremium",
+    "SpaceGrotesk",
     "system-ui",
     "BlinkMacSystemFont",
     "Roboto",
@@ -167,7 +167,8 @@ export const typographyOptions = {
   },
   button: {
     fontFamily: [
-      "TransSansPremium",
+      "SpaceGrotesk",
+      // "TransSansPremium",
       "system-ui",
       "BlinkMacSystemFont",
       "Roboto",

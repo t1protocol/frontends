@@ -8,7 +8,7 @@ const Card = styled(Paper)(({ theme }) => ({
   flex: "1",
   boxShadow: "none",
   borderRadius: "2.7rem",
-  background: "#FFF0DD",
+  background: "#EAF1F1",
   paddingLeft: "6rem",
   paddingRight: "6rem",
   paddingTop: "2.7rem",
