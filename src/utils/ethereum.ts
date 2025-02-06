@@ -1,4 +1,4 @@
-import { getWalletClient } from "@wagmi/core"
+import { getWalletClient, switchChain } from "@wagmi/core"
 import { isError } from "ethers"
 import { isNumber } from "lodash"
 
@@ -8,8 +8,8 @@ import { DepositBatchMode } from "@/stores/batchBridgeStore"
 export const switchNetwork = async (chainId: number) => {
   const walletClient = await getWalletClient(defaultConfig)
   try {
-    await walletClient?.switchChain({
-      id: chainId,
+    await switchChain(defaultConfig, {
+      chainId,
     })
   } catch (error) {
     // 4902 or -32603 mean chain doesn't exist
