@@ -21,15 +21,28 @@ const Portal = () => {
       <Box sx={{ textAlign: "center", mt: ["6.8rem", "13.8rem"] }}>
         <Typography sx={{ fontSize: ["4rem", "7.8rem"], lineHeight: 1, fontWeight: 500 }}>{L2_NAME}</Typography>
         <Typography sx={{ fontSize: ["2rem", "2.6rem"], mt: ["2rem", "1.4rem"] }}>
-          Experience face melting{" "}
+          Experience face-melting{" "}
           <img
             src="/imgs/rollup/jet.gif"
-            alt="jet engine GIF"
-            width="90"
-            height="90"
-            style={{ borderRadius: "0.5rem", display: "inline-block", verticalAlign: "middle" }}
+            alt="Jet engine GIF"
+            style={{
+              width: "100px",
+              height: "60px",
+              objectFit: "cover",
+              borderRadius: "0.5rem",
+            }}
           />{" "}
-          withdrawal speeds
+          withdrawal speeds{" "}
+          <img
+            src="/imgs/rollup/superman.gif"
+            alt="Superman GIF"
+            style={{
+              width: "100px",
+              height: "60px",
+              objectFit: "cover",
+              borderRadius: "0.5rem",
+            }}
+          />
         </Typography>
       </Box>
       <Stack
