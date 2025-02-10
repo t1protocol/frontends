@@ -22,7 +22,7 @@ interface TypographyProps extends MuiTypographyProps {
 const AddNetworkButton = props => {
   const { chainId, onReadd } = props
 
-  const { walletName, chainId: currentChainId } = useRainbowContext()
+  const { walletName: _, chainId: currentChainId } = useRainbowContext()
 
   const addToWallet = async () => {
     if (currentChainId === chainId) {
@@ -32,7 +32,7 @@ const AddNetworkButton = props => {
     await switchNetwork(chainId)
   }
 
-  return <TextButton onClick={addToWallet}>Add to {walletName}</TextButton>
+  return <TextButton onClick={addToWallet}>Add to Wallet</TextButton>
 }
 
 const Typography = styled(MuiTypography, {
