@@ -74,7 +74,8 @@ export function useSendTransaction(props) {
           if (receipt?.status === 1) {
             changeTxResult({ code: 1 })
             if (!tx.isL1) {
-              changeWithdrawStep("2")
+              // TODO - reenable once Bridge History API is activated
+              // changeWithdrawStep("2")
             }
             handleTransaction(tx, {
               fromBlockNumber: receipt.blockNumber,

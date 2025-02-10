@@ -49,9 +49,12 @@ const useStyles = makeStyles()(theme => ({
 
 const Withdraw = () => {
   const { classes } = useStyles()
-  const {
-    withDrawStep, // changeWithdrawStep
-  } = useBridgeStore()
+  // const {
+  //   withDrawStep, // changeWithdrawStep
+  // } = useBridgeStore()
+  // TODO - remove this hardcode once we have the Bridge History API enabled
+  // to show the user's transaction history
+  const withDrawStep = "1"
 
   // const handleChange = (e, newValue) => {
   //   changeWithdrawStep(newValue)
