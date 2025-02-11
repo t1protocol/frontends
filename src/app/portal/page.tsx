@@ -23,7 +23,7 @@ const Portal = () => {
         <Typography sx={{ fontSize: ["2rem", "2.6rem"], mt: ["2rem", "1.4rem"] }}>
           Experience face-melting{" "}
           <img
-            src="/imgs/rollup/jet.gif"
+            src="/imgs/rollup/jet.webp"
             alt="Jet engine GIF"
             style={{
               width: "100px",
@@ -34,7 +34,7 @@ const Portal = () => {
           />{" "}
           withdrawal speeds{" "}
           <img
-            src="/imgs/rollup/superman.gif"
+            src="/imgs/rollup/superman.webp"
             alt="Superman GIF"
             style={{
               width: "100px",
