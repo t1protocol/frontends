@@ -8,7 +8,7 @@ import { styled } from "@mui/material/styles"
 
 import Link from "@/components/Link"
 import TextButton from "@/components/TextButton"
-import { NETWORKS } from "@/constants"
+import { CHAIN_ID, NETWORKS, RPC_URL } from "@/constants"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import { isMainnet, switchNetwork } from "@/utils"
 
@@ -22,7 +22,7 @@ interface TypographyProps extends MuiTypographyProps {
 const AddNetworkButton = props => {
   const { chainId, onReadd } = props
 
-  const { walletName, chainId: currentChainId } = useRainbowContext()
+  const { walletName: _, chainId: currentChainId } = useRainbowContext()
 
   const addToWallet = async () => {
     if (currentChainId === chainId) {
@@ -32,7 +32,7 @@ const AddNetworkButton = props => {
     await switchNetwork(chainId)
   }
 
-  return <TextButton onClick={addToWallet}>Add to {walletName}</TextButton>
+  return <TextButton onClick={addToWallet}>Add to Wallet</TextButton>
 }
 
 const Typography = styled(MuiTypography, {
@@ -59,9 +59,27 @@ const WalletConfig = () => {
     setTip(null)
   }
 
+  const copyRpcUrl = async () => {
+    await navigator.clipboard.writeText(RPC_URL.L2)
+    setTip(
+      <>
+        RPC URL copied: <b>{RPC_URL.L2}</b>
+      </>,
+    )
+  }
+
+  const copyChainIdL2 = async () => {
+    await navigator.clipboard.writeText(CHAIN_ID.L2.toString())
+    setTip(
+      <>
+        Chain ID copied: <b>{CHAIN_ID.L2}</b>
+      </>,
+    )
+  }
+
   return (
     <>
-      <Descriptions title={`Configure for ${isMainnet ? "𝚝𝟷 mainnet" : "𝚝𝟷 devnet"}`}>
+      <Descriptions title={`Get set up on ${isMainnet ? "𝚝𝟷 mainnet" : "𝚝𝟷 devnet"}`}>
         {NETWORKS.map((item, index) => (
           <DescriptionItem key={item.name}>
             <Typography bold>Layer{index + 1}</Typography>
@@ -79,6 +97,32 @@ const WalletConfig = () => {
             </Stack>
           </DescriptionItem>
         ))}
+        <DescriptionItem>
+          <Typography bold></Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            sx={{ width: ["100%", "60rem"], border: "1px solid #DADADA", borderRadius: "10rem", p: ["1.2rem 1.6rem", "1.2rem 2.2rem"] }}
+          >
+            <Typography>{RPC_URL.L2}</Typography>
+            <Typography>
+              <TextButton onClick={copyRpcUrl}>Copy RPC URL</TextButton>
+            </Typography>
+          </Stack>
+        </DescriptionItem>
+        <DescriptionItem>
+          <Typography bold></Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            sx={{ width: ["100%", "60rem"], border: "1px solid #DADADA", borderRadius: "10rem", p: ["1.2rem 1.6rem", "1.2rem 2.2rem"] }}
+          >
+            <Typography>{CHAIN_ID.L2}</Typography>
+            <Typography>
+              <TextButton onClick={copyChainIdL2}>Copy Chain ID</TextButton>
+            </Typography>
+          </Stack>
+        </DescriptionItem>
         <DescriptionItem>
           <Typography>
             Having issues? Try completely removing previous 𝚝𝟷 networks from your {walletName || "wallet"}. Check the{" "}

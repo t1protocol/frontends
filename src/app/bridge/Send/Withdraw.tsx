@@ -49,9 +49,13 @@ const useStyles = makeStyles()(theme => ({
 
 const Withdraw = () => {
   const { classes } = useStyles()
-  const {
-    withDrawStep, // changeWithdrawStep
-  } = useBridgeStore()
+  // const {
+  //   withDrawStep, // changeWithdrawStep
+  // } = useBridgeStore()
+  // TODO - remove this hardcode once we have the Bridge History API enabled
+  // to show the user's transaction history
+  // https://www.notion.so/t1protocol/Create-API-for-users-to-call-relayMessageWithProof-197231194dc380a48a4dec8e9c0e65c4
+  const withDrawStep = "1"
 
   // const handleChange = (e, newValue) => {
   //   changeWithdrawStep(newValue)

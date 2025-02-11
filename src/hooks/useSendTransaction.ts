@@ -74,7 +74,9 @@ export function useSendTransaction(props) {
           if (receipt?.status === 1) {
             changeTxResult({ code: 1 })
             if (!tx.isL1) {
-              changeWithdrawStep("2")
+              // TODO - reenable once Bridge History API is activated
+              // https://www.notion.so/t1protocol/Create-API-for-users-to-call-relayMessageWithProof-197231194dc380a48a4dec8e9c0e65c4
+              // changeWithdrawStep("2")
             }
             handleTransaction(tx, {
               fromBlockNumber: receipt.blockNumber,
