@@ -54,9 +54,9 @@ export const BATCH_BRIDGE_GATEWAY_PROXY_ADDR = {
 }
 
 export const DOCUMENTATION_URL = {
-  Mainnet: "https://devnet.t1protocol.com/",
-  Sepolia: "https://devnet.t1protocol.com/",
-  Staging: "https://devnet.t1protocol.com/",
+  Mainnet: "https://docs.t1protocol.com/",
+  Sepolia: "https://docs.t1protocol.com/",
+  Staging: "https://docs.t1protocol.com/",
 }
 
 export const BRANCH_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT!.toLocaleLowerCase()
