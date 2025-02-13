@@ -20,6 +20,7 @@ const Bridge = () => {
   const { txType, changeFromNetwork, changeToNetwork, fetchTokenList } = useBridgeStore()
   const alertWarning = useSnackbar()
 
+  // uncomment this to fetch scroll's token list
   // useEffect(() => {
   //   fetchTokenList().catch(e => {
   //     sentryDebug(`tokenList: ${e.message}`)
