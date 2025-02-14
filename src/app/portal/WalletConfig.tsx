@@ -10,6 +10,7 @@ import Link from "@/components/Link"
 import TextButton from "@/components/TextButton"
 import { CHAIN_ID, NETWORKS, RPC_URL } from "@/constants"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
+import useCheckViewport from "@/hooks/useCheckViewport"
 import { isMainnet, switchNetwork } from "@/utils"
 
 import Descriptions, { DescriptionItem } from "./Descriptions"
@@ -45,6 +46,7 @@ const Typography = styled(MuiTypography, {
 const WalletConfig = () => {
   const { walletName, chainId, connect } = useRainbowContext()
   const [tip, setTip] = useState<ReactNode | null>(null)
+  const { isMobile } = useCheckViewport()
 
   const handleReadd = () => {
     chainId &&
@@ -104,7 +106,7 @@ const WalletConfig = () => {
             justifyContent="space-between"
             sx={{ width: ["100%", "60rem"], border: "1px solid #DADADA", borderRadius: "10rem", p: ["1.2rem 1.6rem", "1.2rem 2.2rem"] }}
           >
-            <Typography>{RPC_URL.L2}</Typography>
+            <Typography>{!isMobile && RPC_URL.L2}</Typography>
             <Typography>
               <TextButton onClick={copyRpcUrl}>Copy RPC URL</TextButton>
             </Typography>
