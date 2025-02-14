@@ -152,13 +152,7 @@ const Send = () => {
         <div>
           {txResult?.code === 1 && (
             <Alert severity="success">
-              <>
-                Submitted successfully!
-                <br />
-                <TextButton underline="always" sx={{ color: "inherit" }} onClick={handleOpenHistory}>
-                  View transaction history
-                </TextButton>
-              </>
+              <>Submitted successfully!</>
             </Alert>
           )}
           {txResult?.code === 0 && (
