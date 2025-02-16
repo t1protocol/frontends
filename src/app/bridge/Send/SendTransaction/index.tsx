@@ -196,7 +196,7 @@ const SendTransaction = () => {
     if (!sendLoading[txType] && sendError !== "cancel" && sendError !== "reject") {
       setAmount("")
     }
-  }, [sendLoading.Deposit, sendLoading.Withdraw, sendError, txType])
+  }, [sendLoading[txType], sendError, txType])
 
   useEffect(() => {
     if (sendError && sendError !== "cancel" && sendError !== "reject") {
