@@ -36,6 +36,10 @@ const AddNetworkButton = props => {
   return <TextButton onClick={addToWallet}>Add to Wallet</TextButton>
 }
 
+const truncateUrl = (url: string): string => {
+  return url.replace(/^https?:\/+/, '').slice(0, 14) + '...'
+}
+
 const Typography = styled(MuiTypography, {
   shouldForwardProp: prop => prop !== "bold" && prop !== "primary",
 })<TypographyProps>(({ theme, bold, primary }) => ({
@@ -106,7 +110,7 @@ const WalletConfig = () => {
             justifyContent="space-between"
             sx={{ width: ["100%", "60rem"], border: "1px solid #DADADA", borderRadius: "10rem", p: ["1.2rem 1.6rem", "1.2rem 2.2rem"] }}
           >
-            <Typography>{!isMobile && RPC_URL.L2}</Typography>
+            <Typography>{isMobile ? truncateUrl(RPC_URL.L2) : RPC_URL.L2}</Typography>
             <Typography>
               <TextButton onClick={copyRpcUrl}>Copy RPC URL</TextButton>
             </Typography>
