@@ -37,7 +37,7 @@ const AddNetworkButton = props => {
 }
 
 const truncateUrl = (url: string): string => {
-  return url.replace(/^https?:\/+/, '').slice(0, 14) + '...'
+  return url.replace(/^https?:\/+/, "").slice(0, 14) + "..."
 }
 
 const Typography = styled(MuiTypography, {
