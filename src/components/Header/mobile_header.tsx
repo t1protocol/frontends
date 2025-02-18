@@ -147,6 +147,7 @@ const MobileHeader = ({ currentMenu }) => {
             <MenuItemLink
               href={item.href}
               dark={dark}
+              sx={{ fontSize: "4rem", display: "flex", justifyContent: "center" }}
               className={cx(currentMenu.includes(item.key) && "active")}
               // reloadDocument={item.reload}
               onClick={() =>
