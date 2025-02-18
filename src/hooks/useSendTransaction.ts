@@ -28,12 +28,11 @@ export function useSendTransaction(props) {
   const { networksAndSigners, blockNumbers } = useBridgeContext()
   const { enlargedGasLimit: txGasLimit, maxFeePerGas, maxPriorityFeePerGas, gasLimitBatch } = useGasFee(selectedToken, needApproval)
   const { addTransaction, addEstimatedTimeMap, removeFrontTransactions, updateTransaction } = useTxStore()
-  const { fromNetwork, toNetwork, changeTxResult, changeWithdrawStep } = useBridgeStore()
+  const { fromNetwork, toNetwork, changeTxResult, changeTxHash, changeTxIsL1, changeWithdrawStep, setSendLoading } = useBridgeStore()
   const { bridgeSummaryType, depositBatchMode, batchDepositConfig } = useBatchBridgeStore()
 
   const { gasLimit, gasPrice } = usePriceFeeContext()
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [sendError, setSendError] = useState<any>()
 
   const parsedAmount = useMemo(() => {
@@ -48,7 +47,7 @@ export function useSendTransaction(props) {
   }
 
   const send = async () => {
-    setIsLoading(true)
+    setSendLoading(fromNetwork.isL1 ? "Deposit" : "Withdraw", true)
     let tx
     const isBatchMode = bridgeSummaryType === BridgeSummaryType.Selector && depositBatchMode === DepositBatchMode.Economy
     // let currentBlockNumber
@@ -73,6 +72,8 @@ export function useSendTransaction(props) {
         .then(receipt => {
           if (receipt?.status === 1) {
             changeTxResult({ code: 1 })
+            changeTxHash(tx.hash)
+            changeTxIsL1(fromNetwork.isL1)
             if (!tx.isL1) {
               // TODO - reenable once Bridge History API is activated
               // https://www.notion.so/t1protocol/Create-API-for-users-to-call-relayMessageWithProof-197231194dc380a48a4dec8e9c0e65c4
@@ -80,6 +81,8 @@ export function useSendTransaction(props) {
             }
             handleTransaction(tx, {
               fromBlockNumber: receipt.blockNumber,
+              // right now we have no backend to track relay, so we just display confirmation of transaction, not confirmation of relay
+              txStatus: TX_STATUS.Sent,
             })
             if (fromNetwork.isL1) {
               const estimatedOffsetTime = isBatchMode
@@ -133,10 +136,10 @@ export function useSendTransaction(props) {
           }
         })
         .finally(() => {
-          setIsLoading(false)
+          setSendLoading(fromNetwork.isL1 ? "Deposit" : "Withdraw", false)
         })
     } catch (error) {
-      setIsLoading(false)
+      setSendLoading(fromNetwork.isL1 ? "Deposit" : "Withdraw", false)
       // reject && insufficient funds(send error)
       if (isError(error, "ACTION_REJECTED")) {
         setSendError("reject")
@@ -287,7 +290,6 @@ export function useSendTransaction(props) {
 
   return {
     send,
-    isLoading,
     error: sendError,
   }
 }

@@ -12,7 +12,7 @@ export const t1_devnet = /*#__PURE__*/ defineChain({
   blockExplorers: {
     default: {
       name: "Blockscout",
-      url: "https://explorer.devnet.t1protocol.com/",
+      url: "https://explorer.devnet.t1protocol.com",
       //   apiUrl: "https://explorer.devnet.t1protocol.com/api",
     },
   },
