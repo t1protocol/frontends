@@ -23,7 +23,9 @@ const Typography = styled(MuiTypography, {
 const IntroToNetwork = () => {
   return (
     <>
-      <Descriptions title={`To ${isMainnet ? "𝚝𝟷 mainnet" : "𝚝𝟷 devnet"} and back in a single bound`}>
+      <Descriptions
+        title={`To ${isMainnet ? "𝚝𝟷 mainnet" : `𝚝𝟷 ${process.env.NEXT_PUBLIC_T1_ENVIRONMENT.toLowerCase()}`} and back in a single bound`}
+      >
         <DescriptionItem>
           <Typography fontSize="2rem">
             𝚝𝟷 is a high-speed rollup that enables near-instant withdrawals to Ethereum. Unlike optimistic and ZK rollups, 𝚝𝟷 transactions are

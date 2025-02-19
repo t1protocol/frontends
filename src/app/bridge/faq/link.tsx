@@ -25,8 +25,8 @@ const BridgeLinks = () => {
         <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
       </FAQsLink>
       {isMainnet && (
-        <FAQsLink target="_blank" href="https://devnet.t1protocol.com/bridge">
-          Devnet Bridge
+        <FAQsLink target="_blank" href="/bridge">
+          {process.env.NEXT_PUBLIC_T1_ENVIRONMENT} Bridge
           <SvgIcon component={LinkSvg} inheritViewBox></SvgIcon>
         </FAQsLink>
       )}
