@@ -48,6 +48,8 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SCROLL_ORIGINS_NFT_V2: string
     NEXT_PUBLIC_VERSION: string
     NEXT_PUBLIC_L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE: string
+    NEXT_PUBLIC_L1_ERC20_WETH_ADDR: string
+    NEXT_PUBLIC_L1_ERC20_USDT_ADDR: string
     NEXT_PUBLIC_L2_ERC20_WETH_ADDR: string
     NEXT_PUBLIC_L2_ERC20_USDT_ADDR: string
     [key: string]: string
