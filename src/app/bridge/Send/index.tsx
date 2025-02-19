@@ -2,17 +2,20 @@ import { useSearchParams } from "next/navigation"
 import { useEffect, useMemo } from "react"
 import { makeStyles } from "tss-react/mui"
 
+import CloseIcon from "@mui/icons-material/Close"
 import { TabContext, TabList, TabPanel } from "@mui/lab"
-import { Box, Snackbar, Tab } from "@mui/material"
+import { Box, IconButton, Snackbar, Tab, Typography } from "@mui/material"
 
 import Alert from "@/components/Alert"
-import TextButton from "@/components/TextButton"
-import { CHAIN_ID, ETH_SYMBOL } from "@/constants"
+import Link from "@/components/Link"
+import { CHAIN_ID, ETH_SYMBOL, NETWORKS } from "@/constants"
 import { BRIDGE_TOKEN } from "@/constants/searchParamsKey"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBatchBridgeStore, { DepositBatchMode } from "@/stores/batchBridgeStore"
 import useBridgeStore from "@/stores/bridgeStore"
+import { generateExploreLink } from "@/utils"
 
+import TxHistoryTable from "../TxHistoryDialog/TxHistoryTable"
 import Deposit from "./Deposit"
 import Withdraw from "./Withdraw"
 
@@ -59,6 +62,8 @@ const useStyles = makeStyles()(theme => ({
   tabPanel: {
     backgroundColor: (theme as any).vars.palette.themeBackground.optionHightlight,
     padding: "3rem 5.4rem",
+    borderBottomLeftRadius: "1rem",
+    borderBottomRightRadius: "1rem",
 
     "&.withdraw": {
       padding: "1rem 3rem 3rem",
@@ -82,12 +87,41 @@ const useStyles = makeStyles()(theme => ({
       transform: "translateX(-50%)",
     },
   },
+
+  transactionHistoryWrapper: {
+    marginTop: "2rem",
+    padding: "2rem",
+    borderRadius: "1.2rem",
+    backgroundColor: (theme as any).vars.palette.themeBackground.normal,
+    marginBottom: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "1.5rem",
+    },
+  },
+  transactionTitle: {
+    fontSize: "2.4rem",
+    fontWeight: 600,
+    marginBottom: "1.5rem",
+    color: (theme as any).vars.palette.text.primary,
+  },
 }))
 
 const Send = () => {
   const { classes, cx } = useStyles()
   const { chainId } = useRainbowContext()
-  const { txType, txResult, fromNetwork, withDrawStep, changeTxType, changeTxResult, changeHistoryVisible, changeIsNetworkCorrect } = useBridgeStore()
+  const {
+    txType,
+    txResult,
+    txHash,
+    txIsL1,
+    fromNetwork,
+    withDrawStep,
+    changeTxType,
+    changeTxResult,
+    changeTxHash,
+    changeTxIsL1,
+    changeIsNetworkCorrect,
+  } = useBridgeStore()
 
   const { depositBatchMode } = useBatchBridgeStore()
 
@@ -111,16 +145,12 @@ const Send = () => {
 
   const handleChange = (e, newValue) => {
     changeTxType(newValue)
-    handleClose()
-  }
-
-  const handleOpenHistory = () => {
-    changeHistoryVisible(true)
-    handleClose()
   }
 
   const handleClose = () => {
     changeTxResult(null)
+    changeTxHash(null)
+    changeTxIsL1(null)
   }
 
   return (
@@ -142,23 +172,32 @@ const Send = () => {
         </TabPanel>
       </TabContext>
 
+      <Box className={classes.transactionHistoryWrapper}>
+        <Typography className={classes.transactionTitle}>Transaction History</Typography>
+        <TxHistoryTable />
+      </Box>
+
       <Snackbar
         open={!!txResult}
-        autoHideDuration={6000}
+        autoHideDuration={8000}
         classes={{ root: classes.snackbar }}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         onClose={handleClose}
       >
         <div>
           {txResult?.code === 1 && (
-            <Alert severity="success">
-              <>
-                Submitted successfully!
-                <br />
-                <TextButton underline="always" sx={{ color: "inherit" }} onClick={handleOpenHistory}>
-                  View transaction history
-                </TextButton>
-              </>
+            <Alert
+              severity="success"
+              action={
+                <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              }
+            >
+              <Typography fontWeight="bold">Transaction Confirmed!</Typography>
+              <Link href={`${generateExploreLink(NETWORKS[+!txIsL1].explorer, txHash)}`} target="_blank" rel="noopener" underline="always">
+                View Transaction
+              </Link>
             </Alert>
           )}
           {txResult?.code === 0 && (
@@ -167,6 +206,9 @@ const Send = () => {
                 Failed in submission.
                 <br /> {txResult?.message}
               </>
+              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                <CloseIcon fontSize="small" />
+              </IconButton>
             </Alert>
           )}
         </div>

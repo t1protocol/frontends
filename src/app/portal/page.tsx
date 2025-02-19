@@ -5,7 +5,6 @@ import { useMemo } from "react"
 import { Box, Container, Stack, Typography } from "@mui/material"
 
 import { L2_NAME } from "@/constants"
-import { networkType } from "@/utils"
 
 import IntroToNetwork from "./IntroToNetwork"
 import SendFeedback from "./SendFeedback"
@@ -20,29 +19,9 @@ const Portal = () => {
     <Container>
       <Box sx={{ textAlign: "center", mt: ["6.8rem", "13.8rem"] }}>
         <Typography sx={{ fontSize: ["4rem", "7.8rem"], lineHeight: 1, fontWeight: 500 }}>{L2_NAME}</Typography>
-        <Typography sx={{ fontSize: ["2rem", "2.6rem"], mt: ["2rem", "1.4rem"] }}>
-          Experience face-melting{" "}
-          <img
-            src="/imgs/rollup/jet.webp"
-            alt="Jet engine GIF"
-            style={{
-              width: "100px",
-              height: "60px",
-              objectFit: "cover",
-              borderRadius: "0.5rem",
-            }}
-          />{" "}
-          withdrawal speeds{" "}
-          <img
-            src="/imgs/rollup/superman.webp"
-            alt="Superman GIF"
-            style={{
-              width: "100px",
-              height: "60px",
-              objectFit: "cover",
-              borderRadius: "0.5rem",
-            }}
-          />
+        <Typography sx={{ fontSize: ["2.3rem", "2.6rem"], mt: ["2rem", "1.4rem"] }}>
+          Experience face-melting <img src="/imgs/rollup/jet.webp" alt="Jet engine GIF" className="responsive-image" /> withdrawal speeds{" "}
+          <img src="/imgs/rollup/superman.webp" alt="Superman GIF" className="responsive-image" />
         </Typography>
       </Box>
       <Stack

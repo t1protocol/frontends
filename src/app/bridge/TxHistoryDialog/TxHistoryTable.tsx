@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 import { Box } from "@mui/material"
 import { styled } from "@mui/system"
 
@@ -26,23 +28,21 @@ const TransactionsList = () => {
   // } = useBridgeContext()
   const { walletCurrentAddress } = useRainbowContext()
 
-  const { page, total, pageTransactions, loading } = useTxStore()
+  const { page, total, loading, frontTransactions } = useTxStore()
 
-  // const handleChangePage = currentPage => {
-  //   refreshPageTransactions(currentPage)
-  // }
+  const transactions = (walletCurrentAddress && frontTransactions[walletCurrentAddress]) || []
 
   return (
-    <TableBox>
+    <TableBox sx={{ maxHeight: "600px", overflowY: "auto" }}>
       {walletCurrentAddress ? (
         <TxTable
-          data={pageTransactions}
+          data={transactions}
           loading={loading}
-          pagination={{
-            count: Math.ceil(total / BRIDGE_PAGE_SIZE),
-            page,
-            // onChange: handleChangePage,
-          }}
+          // pagination={{
+          //   count: Math.ceil(total / BRIDGE_PAGE_SIZE),
+          //   page,
+          //   onChange: handleChangePage,
+          // }}
         />
       ) : (
         <NoConnected sx={{ height: ["20rem", "30rem"] }} description="Connect wallet to see your transaction history"></NoConnected>

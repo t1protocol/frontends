@@ -41,7 +41,7 @@ const SendTransaction = () => {
 
   const { gasLimit, gasPrice, errorMessage: relayFeeErrorMessage, fetchData: fetchPriceFee, getL1DataFee } = usePriceFeeContext()
 
-  const { txType, isNetworkCorrect, fromNetwork, changeTxResult, tokenList } = useBridgeStore()
+  const { txType, sendLoading, isNetworkCorrect, fromNetwork, changeTxResult, changeTxHash, tokenList, setSendLoading } = useBridgeStore()
   const { bridgeSummaryType, depositBatchMode, batchDepositConfig } = useBatchBridgeStore()
 
   const [amount, setAmount] = useState<string>("")
@@ -76,11 +76,7 @@ const SendTransaction = () => {
     isLoading: approveLoading,
   } = useApprove(fromNetwork, selectedToken, validAmount)
 
-  const {
-    send: sendTransaction,
-    isLoading: sendLoading,
-    error: sendError,
-  } = useSendTransaction({
+  const { send: sendTransaction, error: sendError } = useSendTransaction({
     amount: validAmount,
     selectedToken,
     receiver: recipient,
@@ -187,28 +183,25 @@ const SendTransaction = () => {
   }, [validAmount, bridgeWarning, depositAmountIsVaild, depositBatchMode])
 
   const sendText = useMemo(() => {
-    if (txType === "Deposit" && sendLoading) {
-      return "Depositing funds"
-    } else if (txType === "Deposit" && !sendLoading) {
-      return "Deposit funds"
-    } else if (txType === "Withdraw" && sendLoading) {
-      return "Withdrawing funds"
-    }
-    return "Withdraw funds"
-  }, [txType, sendLoading])
+    const action = sendLoading[txType]
+      ? `${txType === "Deposit" ? "Depositing" : "Withdrawing"} funds`
+      : `${txType === "Deposit" ? "Deposit" : "Withdraw"} funds`
+    return action
+  }, [txType, sendLoading[txType]])
 
   useEffect(() => {
     // TODO: refactor
     // sendError: undefined  tx success
     // sendError: !(cancel||reject)  tx failure
-    if (!sendLoading && sendError !== "cancel" && sendError !== "reject") {
+    if (!sendLoading[txType] && sendError !== "cancel" && sendError !== "reject") {
       setAmount("")
     }
-  }, [sendLoading, sendError])
+  }, [sendLoading[txType], sendError, txType])
 
   useEffect(() => {
     if (sendError && sendError !== "cancel" && sendError !== "reject") {
       changeTxResult({ code: 0, message: trimErrorMessage(sendError.message) })
+      changeTxHash(null)
     }
   }, [sendError])
 
@@ -294,7 +287,7 @@ const SendTransaction = () => {
         width={isMobile ? "100%" : "25rem"}
         color="primary"
         disabled={!necessaryCondition || needApproval === undefined}
-        loading={sendLoading}
+        loading={sendLoading[txType]}
         onClick={sendTransaction}
         whiteButton
       >
@@ -316,7 +309,7 @@ const SendTransaction = () => {
         balance={balance}
         balanceLoading={balanceLoading}
         disabled={fromNetwork.chainId !== chainId}
-        readOnly={approveLoading || sendLoading}
+        readOnly={approveLoading || sendLoading[txType]}
         tokenOptions={tokenOptions}
         onError={handleError}
         onChangeToken={handleChangeTokenSymbol}
@@ -363,7 +356,7 @@ const SendTransaction = () => {
       )}
       {!(bridgeSummaryType === BridgeSummaryType.Selector && depositBatchMode === DepositBatchMode.Economy) && (
         <CustomiseRecipient
-          readOnly={approveLoading || sendLoading}
+          readOnly={approveLoading || sendLoading[txType]}
           disabled={fromNetwork.chainId !== chainId}
           bridgeWarning={bridgeWarning}
           handleChangeRecipient={handleChangeRecipient}

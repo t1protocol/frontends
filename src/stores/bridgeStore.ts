@@ -18,6 +18,9 @@ export interface TxError {
 }
 
 type TxResult = TxSuccess | TxError | null
+type TxHash = string | null
+type TxIsL1 = boolean | null
+
 interface BridgeStore {
   historyVisible: boolean
   changeHistoryVisible: (value) => void
@@ -28,6 +31,12 @@ interface BridgeStore {
   txType: TransactionType
   withDrawStep: WithDrawStep
   txResult: TxResult
+  txHash: TxHash
+  txIsL1: TxIsL1
+  sendLoading: {
+    Deposit: boolean
+    Withdraw: boolean
+  }
   isNetworkCorrect: boolean
   tokenList: Array<Token>
 
@@ -35,6 +44,9 @@ interface BridgeStore {
   changeToNetwork: (network: Network) => void
   changeTxType: (txType: TransactionType) => void
   changeTxResult: (txResult: TxResult | null) => void
+  changeTxHash: (txHash: TxHash | null) => void
+  changeTxIsL1: (txHash: TxIsL1 | null) => void
+  setSendLoading: (txType: TransactionType, isLoading: boolean) => void
   changeWithdrawStep: (withDrawStep: WithDrawStep) => void
   changeIsNetworkCorrect: (isNetworkCorrect: boolean) => void
   fetchTokenList: () => Promise<void>
@@ -48,6 +60,12 @@ const useBridgeStore = create<BridgeStore>()((set, get) => ({
   txType: "Deposit",
   withDrawStep: "1",
   txResult: null,
+  txHash: null,
+  txIsL1: null,
+  sendLoading: {
+    Deposit: false,
+    Withdraw: false,
+  },
   isNetworkCorrect: true,
   tokenList: NATIVE_TOKEN_LIST,
 
@@ -120,6 +138,23 @@ const useBridgeStore = create<BridgeStore>()((set, get) => ({
       txResult,
     })
   },
+
+  changeTxHash: txHash => {
+    set({
+      txHash,
+    })
+  },
+
+  changeTxIsL1: txIsL1 => {
+    set({
+      txIsL1,
+    })
+  },
+
+  setSendLoading: (txType, isLoading) =>
+    set(state => ({
+      sendLoading: { ...state.sendLoading, [txType]: isLoading },
+    })),
 
   changeWithdrawStep: withDrawStep => {
     set({

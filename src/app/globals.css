@@ -222,6 +222,21 @@ div.markdown-body img {
   text-decoration: none;
 }
 
+.responsive-image {
+  width: 100%;
+  max-width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .responsive-image {
+    max-width: 60px;
+    height: 35px;
+  }
+}
+
 .wrapper {
   @apply max-w-7xl p-6 mx-auto w-full overflow-hidden;
   padding-top: 3rem;

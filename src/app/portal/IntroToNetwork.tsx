@@ -38,7 +38,7 @@ const IntroToNetwork = () => {
             <a href="https://t-dex.devnet.t1protocol.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
               <strong>T-DEX</strong>
             </a>
-            , our fully on-chain order book DEX.
+            , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!
           </Typography>
         </DescriptionItem>
       </Descriptions>

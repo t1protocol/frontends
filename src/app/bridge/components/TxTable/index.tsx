@@ -24,6 +24,7 @@ import useTxStore from "@/stores/txStore"
 import { formatDate, generateExploreLink, toTokenDisplay, truncateHash } from "@/utils"
 
 import NoData from "../NoData"
+import TxConfirmationStatus from "./TxConfirmationStatus"
 import TxStatusButton from "./TxStatusButton"
 
 const useStyles = makeStyles<any>()((theme, { type }) => {
@@ -217,7 +218,6 @@ const TxRow = props => {
     if ([TX_STATUS.Dropped, TX_STATUS.FailedRelayed, TX_STATUS.SentFailed, TX_STATUS.Skipped, TX_STATUS.BatchDepositFailed].includes(tx.txStatus)) {
       return "-"
     }
-
     if (!tx.isL1) {
       if (estimatedTimeMap[`progress_${tx.hash}`] > Date.now()) {
         return "Claiming in progress..."
@@ -257,7 +257,7 @@ const TxRow = props => {
     <TableRow key={tx.hash}>
       <TableCell>
         <Stack direction="column" spacing="1.4rem">
-          <TxStatusButton tx={tx} />
+          <TxConfirmationStatus tx={tx} />
         </Stack>
       </TableCell>
 
@@ -293,8 +293,23 @@ const TxRow = props => {
           </Typography>
         </Stack>
 
-        <Stack direction="column">
+        {/* <Stack direction="column">
           <Typography sx={{ whiteSpace: "nowrap" }}>
+            {tx.isL1 ? "Ethereum" : "t1"}:{" "}
+            <Link
+              external
+              underline="always"
+              href={generateExploreLink(NETWORKS[+!tx.isL1].explorer, tx.hash)}
+              className="text-[#0F8E7E] leading-normal flex-1"
+            >
+              {truncateHash(tx.replayTxHash || tx.hash)}
+            </Link>
+          </Typography>
+        </Stack> */}
+
+        {/* <Stack direction="column">
+          <Typography sx={{ whiteSpace: "nowrap" }}>
+            
             {tx.isL1 ? "t1" : "Ethereum"}:{" "}
             {tx.toHash ? (
               <Link
@@ -311,7 +326,7 @@ const TxRow = props => {
               </Typography>
             )}
           </Typography>
-        </Stack>
+        </Stack> */}
       </TableCell>
     </TableRow>
   )

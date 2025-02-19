@@ -235,7 +235,7 @@ const OptimizedComponent = ({ listedbyUser, listedbyScroll, selectToken, selecte
     )}
     {listedbyScroll?.length > 0 && (
       <>
-        <ListTitleStyled>Listed by t1</ListTitleStyled>
+        <ListTitleStyled>Listed by 𝚝𝟷</ListTitleStyled>
         <TokenList tokens={listedbyScroll} txType={txType} selectToken={selectToken} selectedValue={selectedValue} />
       </>
     )}
