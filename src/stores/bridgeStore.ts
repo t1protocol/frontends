@@ -50,6 +50,7 @@ interface BridgeStore {
   changeWithdrawStep: (withDrawStep: WithDrawStep) => void
   changeIsNetworkCorrect: (isNetworkCorrect: boolean) => void
   fetchTokenList: () => Promise<void>
+  fetchT1TokenList: () => Promise<void>
 }
 
 const useBridgeStore = create<BridgeStore>()((set, get) => ({
@@ -67,6 +68,12 @@ const useBridgeStore = create<BridgeStore>()((set, get) => ({
   },
   isNetworkCorrect: true,
   tokenList: NATIVE_TOKEN_LIST,
+
+  fetchT1TokenList: async () => {
+    set({
+      tokenList: [...NATIVE_TOKEN_LIST],
+    })
+  },
 
   fetchTokenList: async () => {
     try {

@@ -17,15 +17,23 @@ import FAQsLink from "./faq/link"
 // import HistoryButton from "./components/HistoryButton"
 
 const Bridge = () => {
-  const { txType, changeFromNetwork, changeToNetwork, fetchTokenList } = useBridgeStore()
+  const { txType, changeFromNetwork, changeToNetwork, fetchTokenList, fetchT1TokenList } = useBridgeStore()
   const alertWarning = useSnackbar()
 
+  // uncomment this to fetch scroll's token list
   // useEffect(() => {
   //   fetchTokenList().catch(e => {
   //     sentryDebug(`tokenList: ${e.message}`)
   //     alertWarning("Fail to fetch token list")
   //   })
   // }, [])
+
+  useEffect(() => {
+    fetchT1TokenList().catch(e => {
+      sentryDebug(`tokenList: ${e.message}`)
+      alertWarning("Fail to fetch token list")
+    })
+  }, [])
 
   useEffect(() => {
     if (txType === "Deposit") {

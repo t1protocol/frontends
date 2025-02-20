@@ -2,6 +2,7 @@ import { isMainnet } from "@/utils"
 
 export const ETH_SYMBOL = process.env.NEXT_PUBLIC_ETH_SYMBOL
 export const WETH_SYMBOL = "WETH"
+export const USDT_SYMBOL = "USDT"
 export const USDC_SYMBOL = "USDC"
 
 export const L1_NAME = `Ethereum ${isMainnet ? "" : process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}`
