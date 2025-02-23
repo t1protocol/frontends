@@ -90,6 +90,11 @@ const sepoliaNavigations = [
     key: "bridge",
     href: "/bridge",
   },
+  {
+    label: "7683",
+    key: "7683",
+    href: "/7683",
+  },
 ]
 
 const mainnetNavigations = [
