@@ -1,9 +1,12 @@
 import { AbiCoder, keccak256 } from "ethers"
 import { useState } from "react"
 
-import { Button, Card, CardContent, Input, Typography } from "@mui/material"
+import { Link as LinkIcon } from "@mui/icons-material"
+import { Button, Card, CardContent, CardHeader, IconButton, Input, Typography } from "@mui/material"
 
 const ORDER_DATA_TYPE_HASH = "0x08d75650babf4de09c9273d48ef647876057ed91d4323f8a2e3ebc2cd8a63b5e"
+
+const fillerAddress = "0xEe7e4bf5ad67D8d9D0611a664a67d9cc9D716345"
 
 export default function OrderEncoder() {
   const [form, setForm] = useState({
@@ -11,8 +14,8 @@ export default function OrderEncoder() {
     recipient: "0xa3e5e908868E2D881E70c304C18636A2f43E933f",
     inputToken: "0x30E9b6B0d161cBd5Ff8cf904Ff4FA43Ce66AC346",
     outputToken: "0x337bE36E710f7af68E1fD3DDd48070Cecc5Bb136",
-    amountIn: "100",
-    amountOut: "100",
+    amountIn: "1000000000000000000",
+    amountOut: "1000000000000000000",
     senderNonce: Math.floor(Math.random() * 100000),
     originDomain: "11155111", // Sepolia
     destinationDomain: "3151908", // t1 devnet
@@ -82,6 +85,14 @@ export default function OrderEncoder() {
     navigator.clipboard.writeText(ORDER_DATA_TYPE_HASH)
   }
 
+  function copyFillDeadlineToClipboard() {
+    navigator.clipboard.writeText(form.fillDeadline)
+  }
+
+  function copyFillerDataToClipboard() {
+    navigator.clipboard.writeText("0x" + padAddress(fillerAddress))
+  }
+
   return (
     <div className="p-6 space-y-4">
       <Card>
@@ -99,29 +110,137 @@ export default function OrderEncoder() {
       </Card>
 
       {encodedData && (
-        <Card>
-          <CardContent className="p-4">
-            <Typography>orderData</Typography>
-            <div className="break-all text-sm font-mono">{encodedData}</div>
-            <Button onClick={copyOrderDataToClipboard} className="mt-2">
-              Copy to Clipboard
-            </Button>
-          </CardContent>
-          <CardContent className="p-4">
-            <Typography>order ID</Typography>
-            <div className="break-all text-sm font-mono">{keccak256(encodedData)}</div>
-            <Button onClick={copyOrderIdToClipboard} className="mt-2">
-              Copy to Clipboard
-            </Button>
-          </CardContent>
-          <CardContent className="p-4">
-            <Typography>order data type</Typography>
-            <div className="break-all text-sm font-mono">{ORDER_DATA_TYPE_HASH}</div>
-            <Button onClick={copyDataTypeToClipboard} className="mt-2">
-              Copy to Clipboard
-            </Button>
-          </CardContent>
-        </Card>
+        <div className="p-6 space-y-4">
+          <Card>
+            <CardHeader
+              title="Open Intent"
+              action={
+                <a
+                  href="https://sepolia.etherscan.io/address/0xcE90091836B14D1Ebc50d860E5e080Ea1465627b#writeProxyContract#F5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+            <CardContent className="p-4">
+              <Typography>fillDeadline</Typography>
+              <div className="break-all text-sm font-mono">{form.fillDeadline}</div>
+              <Button onClick={copyFillDeadlineToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+            <CardContent className="p-4">
+              <Typography>orderDataType</Typography>
+              <div className="break-all text-sm font-mono">{ORDER_DATA_TYPE_HASH}</div>
+              <Button onClick={copyDataTypeToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+            <CardContent className="p-4">
+              <Typography>orderData</Typography>
+              <div className="break-all text-sm font-mono">{encodedData}</div>
+              <Button onClick={copyOrderDataToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader
+              title="Fill Intent"
+              action={
+                <a
+                  href="https://explorer.devnet.t1protocol.com/address/0x16222661ff15e823b90f63024Eb891C7d30dc21b?tab=read_write_proxy&source_address=0x1D0dBA3F23Bf0b2653a23363245528635dDe0eaA#0x82e2c43f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+            <CardContent className="p-4">
+              <Typography>orderID</Typography>
+              <div className="break-all text-sm font-mono">{keccak256(encodedData)}</div>
+              <Button onClick={copyOrderIdToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+            <CardContent className="p-4">
+              <Typography>originData</Typography>
+              <div className="break-all text-sm font-mono">{encodedData}</div>
+              <Button onClick={copyOrderDataToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+            <CardContent className="p-4">
+              <Typography>fillerData</Typography>
+              <div className="break-all text-sm font-mono">{"0x" + padAddress(fillerAddress)}</div>
+              <Button onClick={copyFillerDataToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader
+              title="Settle Intent"
+              action={
+                <a
+                  href="https://explorer.devnet.t1protocol.com/address/0x16222661ff15e823b90f63024Eb891C7d30dc21b?tab=read_write_proxy&source_address=0x1D0dBA3F23Bf0b2653a23363245528635dDe0eaA#0xe7f921a2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+            <CardContent className="p-4">
+              <Typography>orderID</Typography>
+              <div className="break-all text-sm font-mono">{keccak256(encodedData)}</div>
+              <Button onClick={copyOrderIdToClipboard} className="mt-2">
+                Copy to Clipboard
+              </Button>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader
+              title="View User Fulfillment"
+              action={
+                <a
+                  href="https://explorer.devnet.t1protocol.com/address/0xa3e5e908868E2D881E70c304C18636A2f43E933f?tab=token_transfers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+          </Card>
+          <Card>
+            <CardHeader
+              title="View Filler Settlement"
+              action={
+                <a
+                  href="https://sepolia.etherscan.io/address/0xEe7e4bf5ad67D8d9D0611a664a67d9cc9D716345#tokentxns"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+          </Card>
+        </div>
       )}
     </div>
   )
