@@ -240,6 +240,18 @@ export default function OrderEncoder() {
               }
             />
           </Card>
+          <Card>
+            <CardHeader
+              title="View Real-Time Prover"
+              action={
+                <a href="https://sepolia.etherscan.io/address/0x30622442e5421c49a8f89e871bf37d55f8755b0e" target="_blank" rel="noopener noreferrer">
+                  <IconButton>
+                    <LinkIcon />
+                  </IconButton>
+                </a>
+              }
+            />
+          </Card>
         </div>
       )}
     </div>
