@@ -4,7 +4,7 @@ import { Typography as MuiTypography } from "@mui/material"
 import { TypographyProps as MuiTypographyProps } from "@mui/material/Typography"
 import { styled } from "@mui/material/styles"
 
-import { isMainnet } from "@/utils"
+import { TDEX_URL } from "@/constants"
 
 import Descriptions, { DescriptionItem } from "./Descriptions"
 
@@ -23,13 +23,12 @@ const Typography = styled(MuiTypography, {
 const IntroToNetwork = () => {
   return (
     <>
-      <Descriptions
-        title={`To ${isMainnet ? "𝚝𝟷 mainnet" : `𝚝𝟷 ${process.env.NEXT_PUBLIC_T1_ENVIRONMENT.toLowerCase()}`} and back in a single bound`}
-      >
+      <Descriptions title={`Get from 𝚝𝟷 back to Ethereum in a single L1 block`}>
         <DescriptionItem>
           <Typography fontSize="2rem">
-            𝚝𝟷 is a high-speed rollup that enables near-instant withdrawals to Ethereum. Unlike optimistic and ZK rollups, 𝚝𝟷 transactions are
-            finalized in the very next Ethereum block.
+            𝚝𝟷 is a TEE-enabled rollup (L2) that introduces Real-Time Proofs (RTP) to fix fragmentation and composability challenges in scaling
+            Ethereum. 𝚝𝟷 supports proving the integrity of its execution to Ethereum L1 in 6 seconds on average. Thus, unlike with optimistic and ZK
+            rollups, 𝚝𝟷’s transactions are finalized in the very next Ethereum block. This enables instant withdrawals.
             <br />
             <br />
             𝚝𝟷 is powered by a custom Reth implementation running inside a TEE, allowing it to trustfully post state updates to Ethereum every block.
@@ -37,7 +36,7 @@ const IntroToNetwork = () => {
             <br />
             <br />
             Once on 𝚝𝟷, you can trade on{" "}
-            <a href="https://t-dex.devnet.t1protocol.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
+            <a href={TDEX_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
               <strong>T-DEX</strong>
             </a>
             , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!
