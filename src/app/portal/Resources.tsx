@@ -1,14 +1,14 @@
 import { Typography } from "@mui/material"
 
 import Link from "@/components/Link"
-import { TEST_NAVIGATIONS } from "@/constants"
+import { RESOURCES } from "@/constants"
 
 import Descriptions, { DescriptionItem } from "./Descriptions"
 
-const TestFlow = () => {
+const Resources = () => {
   return (
-    <Descriptions title="Test the following">
-      {TEST_NAVIGATIONS.map(item => (
+    <Descriptions title="Resources">
+      {RESOURCES.map(item => (
         <DescriptionItem key={item.name} odd>
           <Link underline="hover" external={item.isExternal} href={item.subdomainOrPath}>
             {item.name}
@@ -20,4 +20,4 @@ const TestFlow = () => {
   )
 }
 
-export default TestFlow
+export default Resources
