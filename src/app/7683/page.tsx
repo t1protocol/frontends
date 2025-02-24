@@ -13,21 +13,9 @@ import { sentryDebug } from "@/utils"
 
 import Send from "./Send/index"
 
-// import FAQsLink from "./faq/link"
-
-// import HistoryButton from "./components/HistoryButton"
-
 const Demo7683 = () => {
   const { txType, changeFromNetwork, changeToNetwork, fetchT1TokenList } = useBridgeStore()
   const alertWarning = useSnackbar()
-
-  // uncomment this to fetch scroll's token list
-  // useEffect(() => {
-  //   fetchTokenList().catch(e => {
-  //     sentryDebug(`tokenList: ${e.message}`)
-  //     alertWarning("Fail to fetch token list")
-  //   })
-  // }, [])
 
   useEffect(() => {
     fetchT1TokenList().catch(e => {
@@ -59,13 +47,7 @@ const Demo7683 = () => {
           maxWidth: ["100% !important"],
         }}
       >
-        <Stack
-          direction="row"
-          sx={{ mb: "2.4rem", width: "64rem", maxWidth: "100%" }}
-          spacing="2rem"
-          justifyContent="space-between"
-          alignItems="center"
-        >
+        <Stack direction="row" sx={{ mb: "2.4rem", maxWidth: "100%" }} spacing="2rem" justifyContent="space-between" alignItems="center">
           <Typography
             sx={{
               fontSize: ["4rem", "4.8rem"],
@@ -79,12 +61,9 @@ const Demo7683 = () => {
           >
             🏕️
           </Typography>
-          {/* <HistoryButton></HistoryButton> */}
         </Stack>
         <Send></Send>
-        {/* <FAQsLink /> */}
       </SectionWrapper>
-      {/* <MintBadge /> */}
     </PriceFeeProvider>
   )
 }

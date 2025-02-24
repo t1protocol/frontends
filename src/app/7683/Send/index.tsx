@@ -1,15 +1,6 @@
-import { useEffect } from "react"
 import { makeStyles } from "tss-react/mui"
 
-import CloseIcon from "@mui/icons-material/Close"
-import { Box, IconButton, Snackbar, Typography } from "@mui/material"
-
-import Alert from "@/components/Alert"
-import Link from "@/components/Link"
-import { CHAIN_ID, NETWORKS } from "@/constants"
-import { useRainbowContext } from "@/contexts/RainbowProvider"
-import useBridgeStore from "@/stores/bridgeStore"
-import { generateExploreLink } from "@/utils"
+import { Box } from "@mui/material"
 
 import OrderEncoder from "./OrderEncoder"
 
@@ -102,73 +93,10 @@ const useStyles = makeStyles()(theme => ({
 
 const Send = () => {
   const { classes } = useStyles()
-  const { chainId } = useRainbowContext()
-  const { txType, txResult, txHash, txIsL1, fromNetwork, withDrawStep, changeTxResult, changeTxHash, changeTxIsL1, changeIsNetworkCorrect } =
-    useBridgeStore()
-
-  useEffect(() => {
-    let networkCorrect
-    if (txType === "Deposit") {
-      networkCorrect = fromNetwork.isL1 && chainId === CHAIN_ID.L1
-    } else if (withDrawStep === "1") {
-      networkCorrect = !fromNetwork.isL1 && chainId === CHAIN_ID.L2
-    } else {
-      networkCorrect = chainId === CHAIN_ID.L1
-    }
-    changeIsNetworkCorrect(networkCorrect)
-  }, [fromNetwork, txType, withDrawStep, chainId])
-
-  const handleClose = () => {
-    changeTxResult(null)
-    changeTxHash(null)
-    changeTxIsL1(null)
-  }
 
   return (
     <Box className={classes.sendWrapper}>
       <OrderEncoder />
-
-      {/* <Box className={classes.transactionHistoryWrapper}>
-        <Typography className={classes.transactionTitle}>Transaction History</Typography>
-        <TxHistoryTable />
-      </Box> */}
-
-      <Snackbar
-        open={!!txResult}
-        autoHideDuration={8000}
-        classes={{ root: classes.snackbar }}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        onClose={handleClose}
-      >
-        <div>
-          {txResult?.code === 1 && (
-            <Alert
-              severity="success"
-              action={
-                <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              }
-            >
-              <Typography fontWeight="bold">Transaction Confirmed!</Typography>
-              <Link href={`${generateExploreLink(NETWORKS[+!txIsL1].explorer, txHash)}`} target="_blank" rel="noopener" underline="always">
-                View Transaction
-              </Link>
-            </Alert>
-          )}
-          {txResult?.code === 0 && (
-            <Alert severity="error" sx={{ maxWidth: "49rem" }}>
-              <>
-                Failed in submission.
-                <br /> {txResult?.message}
-              </>
-              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            </Alert>
-          )}
-        </div>
-      </Snackbar>
     </Box>
   )
 }
