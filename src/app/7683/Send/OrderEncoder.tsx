@@ -20,7 +20,7 @@ export default function OrderEncoder() {
     originDomain: "11155111", // Sepolia
     destinationDomain: "3151908", // t1 devnet
     destinationSettler: "0x16222661ff15e823b90f63024Eb891C7d30dc21b",
-    fillDeadline: Math.floor(Date.now() / 1000 + 886400).toString(),
+    fillDeadline: Math.floor(Date.now() / 1000 + 86400).toString(),
     data: "0x",
   })
   const [encodedData, setEncodedData] = useState("")
