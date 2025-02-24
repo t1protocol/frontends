@@ -7,6 +7,7 @@ import { Box, Container, Stack, Typography } from "@mui/material"
 import { L2_NAME } from "@/constants"
 
 import IntroToNetwork from "./IntroToNetwork"
+import Resources from "./Resources"
 import SendFeedback from "./SendFeedback"
 import TestFlow from "./TestFlow"
 import WalletConfig from "./WalletConfig"
@@ -42,6 +43,7 @@ const Portal = () => {
         <IntroToNetwork></IntroToNetwork>
         <WalletConfig></WalletConfig>
         <TestFlow></TestFlow>
+        <Resources></Resources>
         <SendFeedback></SendFeedback>
         <Box sx={{ textAlign: "center", mt: "1rem", pb: "1rem" }}>
           <Typography variant="body2" color="textSecondary">
