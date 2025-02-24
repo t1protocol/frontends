@@ -60,4 +60,17 @@ export const DOCUMENTATION_URL = {
   Staging: "https://docs.t1protocol.com/",
 }
 
+export const SEPOLIA_URL = {
+  FAUCET: "https://cloud.google.com/application/web3/faucet/ethereum/sepolia",
+  WRAP_ETH: "https://sepolia.etherscan.io/token/0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9#writeContract",
+}
+
+export const MAINNET_URL = {
+  WRAP_ETH: "https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2#writeContract#F5",
+}
+
+export const WRAP_ETH_URL = isMainnet ? MAINNET_URL.WRAP_ETH : SEPOLIA_URL.WRAP_ETH
+
+export const TDEX_URL = "https://t-dex.devnet.t1protocol.com/"
+
 export const BRANCH_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT!.toLocaleLowerCase()
