@@ -1,6 +1,6 @@
 import { makeStyles } from "tss-react/mui"
 
-import { Box } from "@mui/material"
+import { Box, TextareaAutosize } from "@mui/material"
 
 import OrderEncoder from "./OrderEncoder"
 
@@ -96,6 +96,21 @@ const Send = () => {
 
   return (
     <Box className={classes.sendWrapper}>
+      <TextareaAutosize
+        style={{
+          margin: "auto",
+          marginTop: "15px",
+          padding: "10px",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          resize: "vertical",
+          width: "100%",
+          minHeight: "100px",
+          backgroundColor: "#f9f9f9",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          fontSize: "2rem",
+        }}
+      />
       <OrderEncoder />
     </Box>
   )
