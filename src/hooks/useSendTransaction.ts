@@ -9,7 +9,7 @@ import useBatchBridgeStore, { BridgeSummaryType, DepositBatchMode } from "@/stor
 import useBridgeStore from "@/stores/bridgeStore"
 import useTxStore from "@/stores/txStore"
 import { isValidOffsetTime } from "@/stores/utils"
-import { amountToBN, isSepolia, sentryDebug } from "@/utils"
+import { amountToBN, isSepolia, pollAllTransactionStatuses, sentryDebug } from "@/utils"
 
 import useGasFee from "./useGasFee"
 
@@ -155,6 +155,7 @@ export function useSendTransaction(props) {
       updateTransaction(walletCurrentAddress, tx.hash, updateOpts)
       return
     }
+
     addTransaction(walletCurrentAddress, {
       hash: tx.hash,
       amount: parsedAmount.toString(),
@@ -164,6 +165,7 @@ export function useSendTransaction(props) {
       initiatedAt: Math.floor(new Date().getTime() / 1000),
       txStatus: TX_STATUS.Unknown,
     })
+    pollAllTransactionStatuses(walletCurrentAddress, networksAndSigners, updateTransaction)
   }
 
   const depositETH = async () => {
