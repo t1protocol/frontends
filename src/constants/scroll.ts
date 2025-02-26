@@ -26,28 +26,28 @@ export const TEST_NAVIGATIONS = [
       subdomainOrPath: TDEX_URL,
     },
   ],
-  ...(!isMainnet
-    ? [
-        {
-          name: "Faucet",
-          description: `Get ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH.`,
-          isExternal: true,
-          subdomainOrPath: SEPOLIA_URL.FAUCET,
-        },
-      ]
-    : []),
-  ...[
-    {
-      name: "Wrap your ETH",
-      description: `If you need ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Wrapped ETH, use this deposit function to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷.`,
-      isExternal: true,
-      subdomainOrPath: WRAP_ETH_URL,
-    },
-  ],
 ]
 
 export const RESOURCES = [
   ...[
+    ...(!isMainnet
+      ? [
+          {
+            name: "Faucet",
+            description: `Get ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH.`,
+            isExternal: true,
+            subdomainOrPath: SEPOLIA_URL.FAUCET,
+          },
+        ]
+      : []),
+    ...[
+      {
+        name: "Wrap your ETH",
+        description: `If you need ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Wrapped ETH, use this deposit function to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷.`,
+        isExternal: true,
+        subdomainOrPath: WRAP_ETH_URL,
+      },
+    ],
     {
       name: "L1 Block Explorer",
       description: `See your L1 transactions on ${L1_NAME}'s block explorer.`,
