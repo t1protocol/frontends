@@ -216,7 +216,13 @@ const SendTransaction = () => {
   }, [isRequestedApproval])
 
   const handleChangeTokenSymbol = symbol => {
-    router.push(`${pathname}?${BRIDGE_TOKEN}=${symbol}`)
+    // Clone existing search params
+    const params = new URLSearchParams(searchParams)
+
+    // Update token param
+    params.set(BRIDGE_TOKEN, symbol)
+
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   const handleChangeAmount = value => {
