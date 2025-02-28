@@ -1,39 +1,13 @@
 "use client"
 
-import { useEffect } from "react"
-
 import { Stack, Typography } from "@mui/material"
 
 import SectionWrapper from "@/components/SectionWrapper"
-import { NETWORKS } from "@/constants"
 import { PriceFeeProvider } from "@/contexts/PriceFeeProvider"
-import useSnackbar from "@/hooks/useSnackbar"
-import useBridgeStore from "@/stores/bridgeStore"
-import { sentryDebug } from "@/utils"
 
 import Send from "./Send/index"
 
 const Demo7683 = () => {
-  const { txType, changeFromNetwork, changeToNetwork, fetchT1TokenList } = useBridgeStore()
-  const alertWarning = useSnackbar()
-
-  useEffect(() => {
-    fetchT1TokenList().catch(e => {
-      sentryDebug(`tokenList: ${e.message}`)
-      alertWarning("Fail to fetch token list")
-    })
-  }, [])
-
-  useEffect(() => {
-    if (txType === "Deposit") {
-      changeFromNetwork(NETWORKS[0])
-      changeToNetwork(NETWORKS[1])
-    } else {
-      changeFromNetwork(NETWORKS[1])
-      changeToNetwork(NETWORKS[0])
-    }
-  }, [txType])
-
   return (
     <PriceFeeProvider>
       <SectionWrapper
