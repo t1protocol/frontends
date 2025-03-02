@@ -1,4 +1,5 @@
-import { useSearchParams } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useEffect, useMemo } from "react"
 import { makeStyles } from "tss-react/mui"
 
@@ -9,13 +10,14 @@ import { Box, IconButton, Snackbar, Tab, Typography } from "@mui/material"
 import Alert from "@/components/Alert"
 import Link from "@/components/Link"
 import { CHAIN_ID, ETH_SYMBOL, NETWORKS } from "@/constants"
-import { BRIDGE_TOKEN } from "@/constants/searchParamsKey"
+import { BRIDGE_TOKEN, TRANSACTION_TYPE } from "@/constants/searchParamsKey"
 import { useBridgeContext } from "@/contexts/BridgeContextProvider"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBatchBridgeStore, { DepositBatchMode } from "@/stores/batchBridgeStore"
-import useBridgeStore from "@/stores/bridgeStore"
+import useBridgeStore, { TransactionType } from "@/stores/bridgeStore"
 import useTxStore from "@/stores/txStore"
 import { generateExploreLink, pollAllTransactionStatuses } from "@/utils"
+
 
 import TxHistoryTable from "../TxHistoryDialog/TxHistoryTable"
 import Deposit from "./Deposit"
@@ -132,6 +134,9 @@ const Send = () => {
   const searchParams = useSearchParams()
   const token = searchParams.get(BRIDGE_TOKEN)
   const tokenSymbol = useMemo(() => token || ETH_SYMBOL, [token])
+  const pathname = usePathname()
+  const router = useRouter()
+  const validTypes: TransactionType[] = ["Deposit", "Withdraw"]
 
   const isEconomyDeposit = useMemo(() => depositBatchMode === DepositBatchMode.Economy && tokenSymbol === ETH_SYMBOL, [depositBatchMode, tokenSymbol])
 
@@ -147,6 +152,7 @@ const Send = () => {
     changeIsNetworkCorrect(networkCorrect)
   }, [fromNetwork, txType, withDrawStep, chainId])
 
+
   useEffect(() => {
     if (!walletCurrentAddress || !networksAndSigners) {
       return
@@ -159,8 +165,14 @@ const Send = () => {
     }
   }, [walletCurrentAddress, networksAndSigners])
 
-  const handleChange = (e, newValue) => {
+  const handleChangeTransactionType = (e, newValue) => {
+
     changeTxType(newValue)
+    // Clone current search params
+    const params = new URLSearchParams(searchParams)
+    // Update only "transactionType"
+    params.set("transactionType", newValue)
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   const handleClose = () => {
@@ -169,11 +181,18 @@ const Send = () => {
     changeTxIsL1(null)
   }
 
+  useEffect(() => {
+    const typeFromParams = searchParams.get(TRANSACTION_TYPE)
+
+    if (!typeFromParams || !validTypes.includes(typeFromParams as TransactionType)) return
+    changeTxType(typeFromParams as TransactionType)
+  }, [searchParams])
+
   return (
     <Box className={classes.sendWrapper}>
       <TabContext value={txType}>
         <TabList
-          onChange={handleChange}
+          onChange={handleChangeTransactionType}
           textColor="primary"
           classes={{ root: classes.tabList, fixed: classes.tabList, flexContainer: classes.tabList, indicator: classes.indicator }}
         >
