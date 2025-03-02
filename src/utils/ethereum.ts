@@ -34,57 +34,81 @@ export const isUserRejected = error => {
   return isError(error, "ACTION_REJECTED")
 }
 
+const getFrontTransactions = () => {
+  try {
+    return useTxStore.getState().frontTransactions
+  } catch (error) {
+    console.error("Error fetching frontTransactions:", error)
+    return {}
+  }
+}
+
+const fetchTransactionStatus = async (transactionHash, provider) => {
+  try {
+    return await provider.getTransactionReceipt(transactionHash)
+  } catch (error) {
+    console.error(`Error fetching transaction status for ${transactionHash}:`, error)
+    return null
+  }
+}
+
+const removePendingTransaction = transactionHash => {
+  const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
+
+  if (!storedPendingTxs[transactionHash]) return storedPendingTxs // No change needed
+
+  delete storedPendingTxs[transactionHash]
+
+  // Only update localStorage if there are still pending transactions
+  if (Object.keys(storedPendingTxs).length > 0) {
+    localStorage.setItem("pendingTransactions", JSON.stringify(storedPendingTxs))
+  } else {
+    // Remove the key completely if empty
+    localStorage.removeItem("pendingTransactions")
+  }
+
+  // Return updated transactions for further checks
+  return storedPendingTxs
+}
+
 export const pollAllTransactionStatuses = (walletCurrentAddress, networksAndSigners, updateTransaction) => {
-  let pollingActive = true
-
   const interval = setInterval(async () => {
-    if (!pollingActive) {
-      clearInterval(interval)
-      return
-    }
+    let storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
 
-    const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
-
-    // if no pending transactions
+    // Stop polling if no pending transactions
     if (Object.keys(storedPendingTxs).length === 0) {
       clearInterval(interval)
       return
     }
 
-    const { frontTransactions } = useTxStore.getState()
-
-    let txList = frontTransactions[walletCurrentAddress] ?? []
+    const frontTransactions = getFrontTransactions()
+    const txList = frontTransactions[walletCurrentAddress] ?? []
 
     for (const transactionHash of Object.keys(storedPendingTxs)) {
       const tx = txList.find(txItem => txItem.hash === transactionHash)
-      if (!tx) continue // Skip if transaction not found
+      // Skip if transaction not found
+      if (!tx) continue
 
       const provider = networksAndSigners[tx.isL1 ? CHAIN_ID.L1 : CHAIN_ID.L2].provider
+      const receipt = await fetchTransactionStatus(transactionHash, provider)
 
-      try {
-        const receipt = await provider.getTransactionReceipt(transactionHash)
+      if (receipt?.status === 1) {
+        // Remove from localStorage and update transaction status
+        storedPendingTxs = removePendingTransaction(transactionHash)
 
-        if (receipt && receipt.status === 1) {
-          // Remove from localStorage
-          delete storedPendingTxs[transactionHash]
-          localStorage.setItem("pendingTransactions", JSON.stringify(storedPendingTxs))
-
-          // Update transaction status
-          updateTransaction(walletCurrentAddress, tx.hash, {
-            fromBlockNumber: receipt.blockNumber,
-            txStatus: TX_STATUS.Sent,
-          })
-        }
-      } catch (error) {
-        console.error(`Error fetching transaction status for ${transactionHash}:`, error)
+        updateTransaction(walletCurrentAddress, tx.hash, {
+          fromBlockNumber: receipt.blockNumber,
+          txStatus: TX_STATUS.Sent,
+        })
       }
     }
 
-    // If no more transactions are pending, stop polling
+    // Stop polling if no more pending transactions
     if (Object.keys(storedPendingTxs).length === 0) {
       clearInterval(interval)
     }
-  }, 5000) // Poll every 5 seconds
+    // Poll every 5 seconds
+  }, 5000)
 
   return interval
 }

@@ -153,7 +153,7 @@ const Send = () => {
     }
     const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
 
-    if (walletCurrentAddress && networksAndSigners && Object.keys(storedPendingTxs).length > 0) {
+    if (Object.keys(storedPendingTxs).length > 0) {
       const interval = pollAllTransactionStatuses(walletCurrentAddress, networksAndSigners, updateTransaction)
       return () => clearInterval(interval)
     }
