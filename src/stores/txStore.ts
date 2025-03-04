@@ -26,6 +26,14 @@ const useTxStore = create<TxStore>()(
           txList = [...txList]
         }
         txList.unshift(newTx)
+
+        // Save transaction hash in localStorage
+        const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
+        if (newTx?.hash) {
+          storedPendingTxs[newTx.hash] = walletAddress
+          localStorage.setItem("pendingTransactions", JSON.stringify(storedPendingTxs))
+        }
+
         set({
           frontTransactions: { ...frontTransactions, [walletAddress]: txList },
         })
