@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Link as LinkIcon } from "@mui/icons-material"
 import { Button, Card, CardContent, CardHeader, IconButton, Input, Typography } from "@mui/material"
 
-import { CHAIN_ID, SCROLL_MESSENGER_ADDR } from "@/constants"
+import { CHAIN_ID, EXPLORER_URL, SCROLL_MESSENGER_ADDR } from "@/constants"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 
 const ORDER_DATA_TYPE_HASH = "0x08d75650babf4de09c9273d48ef647876057ed91d4323f8a2e3ebc2cd8a63b5e"
@@ -137,7 +137,7 @@ export default function OrderEncoder() {
               title="Open Intent"
               action={
                 <a
-                  href={`https://sepolia.etherscan.io/address/${process.env.NEXT_PUBLIC_L1_T1_7683_PROXY_ADDR}#writeProxyContract#F5`}
+                  href={`${EXPLORER_URL.L1}/address/${process.env.NEXT_PUBLIC_L1_T1_7683_PROXY_ADDR}#writeProxyContract#F5`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -174,7 +174,7 @@ export default function OrderEncoder() {
               title="Fill Intent"
               action={
                 <a
-                  href={`https://explorer.devnet.t1protocol.com/address/${process.env.NEXT_PUBLIC_L2_T1_7683_PROXY_ADDR}?tab=read_write_proxy&source_address=${process.env.NEXT_PUBLIC_L2_T1_7683_IMPLEMENTATION_ADDR}#0x82e2c43f`}
+                  href={`${EXPLORER_URL.L2}/address/${process.env.NEXT_PUBLIC_L2_T1_7683_PROXY_ADDR}?tab=read_write_proxy&source_address=${process.env.NEXT_PUBLIC_L2_T1_7683_IMPLEMENTATION_ADDR}#0x82e2c43f`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -211,7 +211,7 @@ export default function OrderEncoder() {
               title="Settle Intent"
               action={
                 <a
-                  href={`https://explorer.devnet.t1protocol.com/address/${process.env.NEXT_PUBLIC_L2_T1_7683_PROXY_ADDR}?tab=read_write_proxy&source_address=${process.env.NEXT_PUBLIC_L2_T1_7683_IMPLEMENTATION_ADDR}#0xe7f921a2`}
+                  href={`${EXPLORER_URL.L2}/address/${process.env.NEXT_PUBLIC_L2_T1_7683_PROXY_ADDR}?tab=read_write_proxy&source_address=${process.env.NEXT_PUBLIC_L2_T1_7683_IMPLEMENTATION_ADDR}#0xe7f921a2`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -233,11 +233,7 @@ export default function OrderEncoder() {
             <CardHeader
               title="View User Fulfillment"
               action={
-                <a
-                  href={`https://explorer.devnet.t1protocol.com/address/${form.recipient}?tab=token_transfers`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={`${EXPLORER_URL.L2}/address/${form.recipient}?tab=token_transfers`} target="_blank" rel="noopener noreferrer">
                   <IconButton sx={{ border: "2px solid #0AECC3" }}>
                     <LinkIcon />
                   </IconButton>
@@ -249,7 +245,7 @@ export default function OrderEncoder() {
             <CardHeader
               title="View Filler Settlement"
               action={
-                <a href={`https://sepolia.etherscan.io/address/${fillerAddress}#tokentxns`} target="_blank" rel="noopener noreferrer">
+                <a href={`${EXPLORER_URL.L1}/address/${fillerAddress}#tokentxns`} target="_blank" rel="noopener noreferrer">
                   <IconButton sx={{ border: "2px solid #0AECC3" }}>
                     <LinkIcon />
                   </IconButton>
@@ -261,7 +257,7 @@ export default function OrderEncoder() {
             <CardHeader
               title="View Real-Time Prover"
               action={
-                <a href={`https://sepolia.etherscan.io/address/${SCROLL_MESSENGER_ADDR[CHAIN_ID.L1]}`} target="_blank" rel="noopener noreferrer">
+                <a href={`${EXPLORER_URL.L1}/address/${SCROLL_MESSENGER_ADDR[CHAIN_ID.L1]}`} target="_blank" rel="noopener noreferrer">
                   <IconButton sx={{ border: "2px solid #0AECC3" }}>
                     <LinkIcon />
                   </IconButton>
