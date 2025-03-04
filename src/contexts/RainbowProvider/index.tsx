@@ -5,7 +5,7 @@ import { RainbowKitProvider, getDefaultConfig, useConnectModal } from "@rainbow-
 import "@rainbow-me/rainbowkit/styles.css"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserProvider } from "ethers"
-import { createContext, useCallback, useContext, useEffect, useMemo } from "react"
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef } from "react"
 import { type Config, WagmiProvider, useAccount, useConnectorClient, useDisconnect } from "wagmi"
 
 import { configs } from "./configs"
@@ -49,19 +49,28 @@ const RainbowProvider = props => {
   )
 }
 
+const trackWalletEvent = (event: string, params: Record<string, any>) => {
+  sendGAEvent("event", event, params)
+}
+
 const Web3ContextProvider = props => {
   const { connector: activeConnector, address, isConnected, chainId } = useAccount()
   const { data: client } = useConnectorClient<Config>({ chainId })
   const { openConnectModal } = useConnectModal()
   const { disconnect } = useDisconnect()
 
+  const hasTracked = useRef(false)
+
   useEffect(() => {
-    if (isConnected && activeConnector?.name) {
-      sendGAEvent("event", "wallet_connected", {
+    if (isConnected && activeConnector?.name && !hasTracked.current) {
+      trackWalletEvent("wallet_connected", {
         wallet_type: activeConnector.name,
+        address,
+        chain_id: chainId,
       })
+      hasTracked.current = true // Mark as tracked
     }
-  }, [isConnected, activeConnector?.name])
+  }, [isConnected, activeConnector?.name, address, chainId])
 
   const provider = useMemo(() => {
     if (client && chainId && chainId === client.chain?.id) return clientToProvider(client)
