@@ -1,5 +1,5 @@
 import { getWalletClient, switchChain } from "@wagmi/core"
-import { ethers, isError } from "ethers"
+import { isError } from "ethers"
 import { isNumber } from "lodash"
 
 import { CHAIN_ID, TX_STATUS } from "@/constants"

@@ -18,7 +18,6 @@ import useBridgeStore, { TransactionType } from "@/stores/bridgeStore"
 import useTxStore from "@/stores/txStore"
 import { generateExploreLink, pollAllTransactionStatuses } from "@/utils"
 
-
 import TxHistoryTable from "../TxHistoryDialog/TxHistoryTable"
 import Deposit from "./Deposit"
 import Withdraw from "./Withdraw"
@@ -152,7 +151,6 @@ const Send = () => {
     changeIsNetworkCorrect(networkCorrect)
   }, [fromNetwork, txType, withDrawStep, chainId])
 
-
   useEffect(() => {
     if (!walletCurrentAddress || !networksAndSigners) {
       return
@@ -166,7 +164,6 @@ const Send = () => {
   }, [walletCurrentAddress, networksAndSigners])
 
   const handleChangeTransactionType = (e, newValue) => {
-
     changeTxType(newValue)
     // Clone current search params
     const params = new URLSearchParams(searchParams)
