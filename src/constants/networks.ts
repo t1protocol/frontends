@@ -44,7 +44,7 @@ export const NATIVE_TOKEN_LIST: Token[] = [
     decimals: BigInt(18),
     native: false,
     logoURI: ETHSvg.src,
-    address: process.env.NEXT_PUBLIC_L1_ERC20_WETH_ADDR,
+    address: process.env.NEXT_PUBLIC_L1_WETH_ADDR,
   },
   {
     chainId: CHAIN_ID.L1,
@@ -53,7 +53,7 @@ export const NATIVE_TOKEN_LIST: Token[] = [
     decimals: BigInt(18),
     native: false,
     logoURI: USDTSvg.src,
-    address: process.env.NEXT_PUBLIC_L1_ERC20_USDT_ADDR,
+    address: process.env.NEXT_PUBLIC_L1_USDT_ADDR,
   },
   {
     chainId: CHAIN_ID.L2,
@@ -70,7 +70,7 @@ export const NATIVE_TOKEN_LIST: Token[] = [
     decimals: BigInt(18),
     native: false,
     logoURI: ETHSvg.src,
-    address: process.env.NEXT_PUBLIC_L2_ERC20_WETH_ADDR,
+    address: process.env.NEXT_PUBLIC_L2_WETH_ADDR,
   },
   {
     chainId: CHAIN_ID.L2,
@@ -79,6 +79,6 @@ export const NATIVE_TOKEN_LIST: Token[] = [
     decimals: BigInt(18),
     native: false,
     logoURI: USDTSvg.src,
-    address: process.env.NEXT_PUBLIC_L2_ERC20_USDT_ADDR,
+    address: process.env.NEXT_PUBLIC_L2_USDT_ADDR,
   },
 ]

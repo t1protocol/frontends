@@ -15,7 +15,11 @@ export function useClaim(props) {
   const { chainId } = useRainbowContext()
 
   const relayMessageWithProof = async () => {
-    const contract = new ethers.Contract(process.env.NEXT_PUBLIC_L1_SCROLL_MESSENGER, L1ScrollMessenger, networksAndSigners[chainId as number].signer)
+    const contract = new ethers.Contract(
+      process.env.NEXT_PUBLIC_L1_T1_MESSENGER_PROXY_ADDR,
+      L1ScrollMessenger,
+      networksAndSigners[chainId as number].signer,
+    )
     const {
       from,
       to,
