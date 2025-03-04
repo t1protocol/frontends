@@ -2,7 +2,6 @@ import MainnetSvg from "@/assets/svgs/bridge/network-mainnet.svg"
 import ETHSvg from "@/assets/svgs/bridge/network-mainnet.svg?url"
 import T1Svg from "@/assets/svgs/bridge/network-t1.svg"
 import USDTSvg from "@/assets/svgs/bridge/usdt.svg?url"
-import { isMainnet, isSepolia } from "@/utils"
 
 import { CHAIN_ID, ETH_SYMBOL, EXPLORER_URL, L1_NAME, L2_NAME, RPC_URL, USDT_SYMBOL, WETH_SYMBOL } from "./common"
 

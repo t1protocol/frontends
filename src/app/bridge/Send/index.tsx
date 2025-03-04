@@ -11,10 +11,12 @@ import Alert from "@/components/Alert"
 import Link from "@/components/Link"
 import { CHAIN_ID, ETH_SYMBOL, NETWORKS } from "@/constants"
 import { BRIDGE_TOKEN, TRANSACTION_TYPE } from "@/constants/searchParamsKey"
+import { useBridgeContext } from "@/contexts/BridgeContextProvider"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBatchBridgeStore, { DepositBatchMode } from "@/stores/batchBridgeStore"
 import useBridgeStore, { TransactionType } from "@/stores/bridgeStore"
-import { generateExploreLink } from "@/utils"
+import useTxStore from "@/stores/txStore"
+import { generateExploreLink, pollAllTransactionStatuses } from "@/utils"
 
 import TxHistoryTable from "../TxHistoryDialog/TxHistoryTable"
 import Deposit from "./Deposit"
@@ -109,7 +111,7 @@ const useStyles = makeStyles()(theme => ({
 
 const Send = () => {
   const { classes, cx } = useStyles()
-  const { chainId } = useRainbowContext()
+  const { chainId, walletCurrentAddress } = useRainbowContext()
   const {
     txType,
     txResult,
@@ -124,7 +126,9 @@ const Send = () => {
     changeIsNetworkCorrect,
   } = useBridgeStore()
 
+  const { networksAndSigners } = useBridgeContext()
   const { depositBatchMode } = useBatchBridgeStore()
+  const { updateTransaction } = useTxStore()
 
   const searchParams = useSearchParams()
   const token = searchParams.get(BRIDGE_TOKEN)
@@ -146,6 +150,18 @@ const Send = () => {
     }
     changeIsNetworkCorrect(networkCorrect)
   }, [fromNetwork, txType, withDrawStep, chainId])
+
+  useEffect(() => {
+    if (!walletCurrentAddress || !networksAndSigners) {
+      return
+    }
+    const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
+
+    if (Object.keys(storedPendingTxs).length > 0) {
+      const interval = pollAllTransactionStatuses(walletCurrentAddress, networksAndSigners, updateTransaction)
+      return () => clearInterval(interval)
+    }
+  }, [walletCurrentAddress, networksAndSigners])
 
   const handleChangeTransactionType = (e, newValue) => {
     changeTxType(newValue)
