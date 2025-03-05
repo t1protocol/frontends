@@ -21,7 +21,7 @@ type TxOptions = {
 }
 
 const LOWER_BOUND = 1e5
-const MULTIPLIER = BigInt(1.5)
+const MULTIPLIER = BigInt(2)
 
 export function useSendTransaction(props) {
   const { amount: fromTokenAmount, selectedToken, receiver, needApproval } = props
