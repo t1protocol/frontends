@@ -21,6 +21,7 @@ type TxOptions = {
 }
 
 const LOWER_BOUND = 1e5
+const MULTIPLIER = BigInt(1.5)
 
 export function useSendTransaction(props) {
   const { amount: fromTokenAmount, selectedToken, receiver, needApproval } = props
@@ -176,8 +177,8 @@ export function useSendTransaction(props) {
 
     // set maxFeePerGas for testnet
     if (maxFeePerGas && maxPriorityFeePerGas && isSepolia) {
-      options.maxFeePerGas = maxFeePerGas
-      options.maxPriorityFeePerGas = maxPriorityFeePerGas
+      options.maxFeePerGas = maxFeePerGas * MULTIPLIER
+      options.maxPriorityFeePerGas = maxPriorityFeePerGas * MULTIPLIER
     }
 
     return networksAndSigners[CHAIN_ID.L1].scrollMessenger["sendMessage(address,uint256,bytes,uint256,address)"](
@@ -197,8 +198,8 @@ export function useSendTransaction(props) {
     }
 
     if (maxFeePerGas && maxPriorityFeePerGas && isSepolia) {
-      options.maxFeePerGas = maxFeePerGas
-      options.maxPriorityFeePerGas = maxPriorityFeePerGas
+      options.maxFeePerGas = maxFeePerGas * MULTIPLIER
+      options.maxPriorityFeePerGas = maxPriorityFeePerGas * MULTIPLIER
     }
 
     if (receiver) {
