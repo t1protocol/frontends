@@ -1,18 +1,18 @@
 import { defineChain } from "viem"
 
 export const t1_devnet = /*#__PURE__*/ defineChain({
-  id: 3_151_908,
+  id: Number(process.env.NEXT_PUBLIC_CHAIN_ID_L2),
   name: "T1",
   nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
   rpcUrls: {
     default: {
-      http: ["https://rpc.devnet.t1protocol.com"],
+      http: [process.env.NEXT_PUBLIC_EXTERNAL_RPC_URI_L2],
     },
   },
   blockExplorers: {
     default: {
       name: "Blockscout",
-      url: "https://explorer.devnet.t1protocol.com",
+      url: process.env.NEXT_PUBLIC_EXTERNAL_EXPLORER_URI_L2,
       //   apiUrl: "https://explorer.devnet.t1protocol.com/api",
     },
   },

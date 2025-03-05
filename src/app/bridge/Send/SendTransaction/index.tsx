@@ -1,3 +1,4 @@
+import { sendGAEvent } from "@next/third-parties/google"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useState } from "react"
 
@@ -41,7 +42,8 @@ const SendTransaction = () => {
 
   const { gasLimit, gasPrice, errorMessage: relayFeeErrorMessage, fetchData: fetchPriceFee, getL1DataFee } = usePriceFeeContext()
 
-  const { txType, sendLoading, isNetworkCorrect, fromNetwork, changeTxResult, changeTxHash, tokenList, setSendLoading } = useBridgeStore()
+  const { txType, txResult, txHash, sendLoading, isNetworkCorrect, fromNetwork, toNetwork, changeTxResult, changeTxHash, tokenList, setSendLoading } =
+    useBridgeStore()
   const { bridgeSummaryType, depositBatchMode, batchDepositConfig } = useBatchBridgeStore()
 
   const [amount, setAmount] = useState<string>("")
@@ -82,6 +84,24 @@ const SendTransaction = () => {
     receiver: recipient,
     needApproval,
   })
+
+  const trackTransactionEvent = (status: "success" | "failed", txHashOrError?: string) => {
+    sendGAEvent(`send_transaction_${status}`, {
+      transaction_type: txType,
+      amount: validAmount,
+      token: selectedToken?.symbol,
+      receiver: recipient,
+      from_chain: fromNetwork?.name,
+      to_chain: toNetwork?.name,
+      ...(status === "success" ? { tx_hash: txHashOrError } : { error_message: txHashOrError }),
+    })
+  }
+
+  useEffect(() => {
+    if (txResult?.code === 1 && txHash) {
+      trackTransactionEvent("success", txHash)
+    }
+  }, [txResult, txHash])
 
   const { depositAmountIsVaild } = useBatchDeposit({ selectedToken, amount: validAmount })
 
@@ -202,6 +222,7 @@ const SendTransaction = () => {
     if (sendError && sendError !== "cancel" && sendError !== "reject") {
       changeTxResult({ code: 0, message: trimErrorMessage(sendError.message) })
       changeTxHash(null)
+      trackTransactionEvent("failed", sendError.message)
     }
   }, [sendError])
 
@@ -216,7 +237,13 @@ const SendTransaction = () => {
   }, [isRequestedApproval])
 
   const handleChangeTokenSymbol = symbol => {
-    router.push(`${pathname}?${BRIDGE_TOKEN}=${symbol}`)
+    // Clone existing search params
+    const params = new URLSearchParams(searchParams)
+
+    // Update token param
+    params.set(BRIDGE_TOKEN, symbol)
+
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   const handleChangeAmount = value => {

@@ -8,6 +8,7 @@ import GlobalComponents from "@/components/GlobalComponents"
 // import GoogleAnalytics from "@/components/GoogleAnalytics"
 import ScrollToTop from "@/components/ScrollToTop"
 import WebVitals from "@/components/WebVitals"
+import AnalyticsTracker from "@/components/WebVitals/AnalyticsTracker"
 // import SentrySetting from "@/components/SentrySetting"
 import { ROOT_METADATA } from "@/constants/route"
 import BridgeContextProvider from "@/contexts/BridgeContextProvider"
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
             </Suspense>
             <WebVitals></WebVitals>
+            <AnalyticsTracker />
             {/* <SentrySetting></SentrySetting> */}
           </>
         )}

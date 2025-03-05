@@ -83,11 +83,11 @@ const Contracts = {
     abi: require("@/assets/abis/L2StandardERC20Gateway.json"),
     env: process.env.NEXT_PUBLIC_L2_PUFFER_GATEWAY_PROXY_ADDR,
   },
-  SCROLL_MESSENGER: { abi: require("@/assets/abis/L2ScrollMessenger.json"), env: process.env.NEXT_PUBLIC_L2_SCROLL_MESSENGER },
+  SCROLL_MESSENGER: { abi: require("@/assets/abis/L2ScrollMessenger.json"), env: process.env.NEXT_PUBLIC_L2_T1_MESSENGER_PROXY_ADDR },
   L1_GAS_PRICE_ORACLE: { abi: require("@/assets/abis/L1GasPriceOracle.json"), env: process.env.NEXT_PUBLIC_L1_GAS_PRICE_ORACLE },
   L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE: {
     abi: require("@/assets/abis/L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE.json"),
-    env: process.env.NEXT_PUBLIC_L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE,
+    env: process.env.NEXT_PUBLIC_L1_MESSAGE_QUEUE_PROXY_ADDR_WITH_GAS_PRICE_ORACLE,
   },
 
   L1_GATEWAY_ROUTER_PROXY: {
@@ -268,7 +268,7 @@ export const PriceFeeProvider = ({ children }) => {
 
     try {
       const gaslimit = await l2Provider.estimateGas({
-        from: "0x" + (BigInt(process.env.NEXT_PUBLIC_L1_SCROLL_MESSENGER) + (BigInt(OFFSET) % BigInt(Math.pow(2, 160)))).toString(16),
+        from: "0x" + (BigInt(process.env.NEXT_PUBLIC_L1_T1_MESSENGER_PROXY_ADDR) + (BigInt(OFFSET) % BigInt(Math.pow(2, 160)))).toString(16),
         to: Contracts.SCROLL_MESSENGER.env,
         data: calldata,
       })

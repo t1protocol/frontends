@@ -1,19 +1,22 @@
 ## PR Summary
 
-[comment]: Summarise the problem and how the pull request solves it
+Summarise the problem and how this pull request solves it.
 
-
----
 
 ## Checklist
 
-- [ ] There are breaking changes
-- [ ] I've added/changed/removed ENV variable(s)
-- [ ] I checked whether I should update the docs and did so by updating `/docs`
+- [ ] I listed any breaking changes below:
+- ...
+      
+- [ ] I listed any env variable additions/changes/removals below:
+- ...
+      
+- [ ] I checked whether I should update the docs in https://github.com/t1protocol/docs and if so, added PR link below:
+- ...
+      
+- [ ] I updated the notion task tracker's status and added link to this PR there
 
----
 
 ## Description
 
-[comment]: # (Please provide a more detailed description of your pull request here, explaining the changes made and the reasoning behind them)
-
+...
