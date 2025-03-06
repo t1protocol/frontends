@@ -12,10 +12,35 @@ import SendFeedback from "./SendFeedback"
 import TestFlow from "./TestFlow"
 import WalletConfig from "./WalletConfig"
 
+const BuildInfo = () => {
+  const buildId = process.env.NEXT_PUBLIC_BUILD_ID && process.env.NEXT_PUBLIC_BUILD_ID !== "" ? process.env.NEXT_PUBLIC_BUILD_ID : "N/A"
+  const version =
+    process.env.NEXT_PUBLIC_CHAIN_VERSION && process.env.NEXT_PUBLIC_CHAIN_VERSION !== "" ? process.env.NEXT_PUBLIC_CHAIN_VERSION : "N/A"
+  return (
+    <div
+      className="build-info-badge"
+      style={{
+        padding: "4px 8px",
+        fontSize: "0.75rem",
+        opacity: 0.85,
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "4px",
+        borderRadius: "4px",
+        background: "#f0f0f0",
+        fontFamily: "monospace",
+        userSelect: "all",
+        cursor: "default",
+      }}
+    >
+      <Typography variant="body2" color="textSecondary">
+        build <span>{buildId}</span> for version: {version}
+      </Typography>
+    </div>
+  )
+}
+
 const Portal = () => {
-  const version = useMemo(() => {
-    return process.env.NEXT_PUBLIC_CHAIN_VERSION
-  }, [])
   return (
     <Container>
       <Box sx={{ textAlign: "center", mt: ["6.8rem", "13.8rem"] }}>
@@ -45,11 +70,7 @@ const Portal = () => {
         <TestFlow></TestFlow>
         <Resources></Resources>
         <SendFeedback></SendFeedback>
-        <Box sx={{ textAlign: "center", mt: "1rem", pb: "1rem" }}>
-          <Typography variant="body2" color="textSecondary">
-            version: {version}
-          </Typography>
-        </Box>
+        <BuildInfo></BuildInfo>
       </Stack>
     </Container>
   )
