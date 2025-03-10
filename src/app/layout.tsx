@@ -1,6 +1,6 @@
 import { GoogleAnalytics } from "@next/third-parties/google"
 import { Metadata } from "next"
-import React, { Suspense } from "react"
+import React from "react"
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 
@@ -45,9 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </AppRouterCacheProvider>
         {process.env.NODE_ENV === "production" && (
           <>
-            <Suspense fallback={null}>
-              <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
-            </Suspense>
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
             <WebVitals></WebVitals>
             <AnalyticsTracker />
             {/* <SentrySetting></SentrySetting> */}
