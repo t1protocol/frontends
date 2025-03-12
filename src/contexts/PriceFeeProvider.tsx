@@ -84,7 +84,7 @@ const Contracts = {
     env: process.env.NEXT_PUBLIC_L2_PUFFER_GATEWAY_PROXY_ADDR,
   },
   SCROLL_MESSENGER: { abi: require("@/assets/abis/L2ScrollMessenger.json"), env: process.env.NEXT_PUBLIC_L2_T1_MESSENGER_PROXY_ADDR },
-  L1_GAS_PRICE_ORACLE: { abi: require("@/assets/abis/L1GasPriceOracle.json"), env: process.env.NEXT_PUBLIC_L1_GAS_PRICE_ORACLE },
+  L1_GAS_PRICE_ORACLE: { abi: require("@/assets/abis/L1GasPriceOracle.json"), env: process.env.NEXT_PUBLIC_L1_GAS_PRICE_ORACLE_ADDR },
   L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE: {
     abi: require("@/assets/abis/L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE.json"),
     env: process.env.NEXT_PUBLIC_L1_MESSAGE_QUEUE_PROXY_ADDR_WITH_GAS_PRICE_ORACLE,
