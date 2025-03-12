@@ -186,6 +186,7 @@ export function useSendTransaction(props) {
       parsedAmount,
       "0x",
       gasLimit,
+      CHAIN_ID.L2,
       receiver || walletCurrentAddress,
       options,
     )
