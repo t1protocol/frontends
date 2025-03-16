@@ -17,6 +17,9 @@ import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBatchBridgeStore, { BridgeSummaryType, DepositBatchMode } from "@/stores/batchBridgeStore"
 import { amountToBN } from "@/utils"
 
+const MAX_FEE_MULTIPLIER = BigInt(2)
+const MAX_PRIORITY_FEE_MULTIPLIER = BigInt(3)
+
 const useApprove = (fromNetwork, selectedToken, amount) => {
   const { walletCurrentAddress, chainId } = useRainbowContext()
   const { networksAndSigners } = useBridgeContext()
@@ -96,7 +99,12 @@ const useApprove = (fromNetwork, selectedToken, amount) => {
       if (bridgeSummaryType === BridgeSummaryType.Selector && depositBatchMode === DepositBatchMode.Economy) {
         proxyAddress = BATCH_BRIDGE_GATEWAY_PROXY_ADDR[fromNetwork.chainId]
       }
-      const tx = await tokenInstance.approve(proxyAddress, toApproveAmount)
+      const { provider } = networksAndSigners[chainId as number]
+      const feeData = await provider.getFeeData()
+      const tx = await tokenInstance.approve(proxyAddress, toApproveAmount, {
+        maxFeePerGas: feeData.maxFeePerGas * MAX_FEE_MULTIPLIER,
+        maxPriorityFeePerGas: feeData.maxPriorityFeePerGas * MAX_PRIORITY_FEE_MULTIPLIER,
+      })
       setIsRequested(true)
       await tx?.wait()
       const needApproval = await checkApproval()
