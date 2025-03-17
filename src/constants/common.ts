@@ -62,7 +62,7 @@ export const DOCUMENTATION_URL = {
 
 export const SEPOLIA_URL = {
   FAUCET: "https://cloud.google.com/application/web3/faucet/ethereum/sepolia",
-  WRAP_ETH: "https://sepolia.etherscan.io/token/0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9#writeContract",
+  WRAP_ETH: "https://sepolia.etherscan.io/token/0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9#writeContract#F2",
 }
 
 export const MAINNET_URL = {
