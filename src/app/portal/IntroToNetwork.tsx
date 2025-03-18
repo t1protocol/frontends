@@ -39,7 +39,11 @@ const IntroToNetwork = () => {
             , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!
             <br />
             <br />
-            {isSepolia && `(Note: Sepolia currently tends to be congested, so give it some time)`}
+            {isSepolia && (
+              <Typography fontSize="2rem" fontStyle="italic">
+                (Note: Sepolia currently tends to be congested, so give it some time)
+              </Typography>
+            )}
           </Typography>
         </DescriptionItem>
       </Descriptions>
