@@ -42,8 +42,8 @@ export const RESOURCES = [
       : []),
     ...[
       {
-        name: "Wrap your ETH",
-        description: `If you need ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Wrapped ETH, use this deposit function to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷.`,
+        name: `Wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH`,
+        description: `If you need ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Wrapped ETH, use this deposit function (0xd0e30db0) to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷. (may take a while as ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} tends to be congested)`,
         isExternal: true,
         subdomainOrPath: WRAP_ETH_URL,
       },
