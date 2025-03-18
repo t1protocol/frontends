@@ -41,7 +41,7 @@ const IntroToNetwork = () => {
             <br />
             {isSepolia && (
               <Typography fontSize="2rem" fontStyle="italic">
-                (Note: Sepolia currently tends to be congested, so give it some time)
+                Note: Sepolia currently tends to be congested, so give it some time.
               </Typography>
             )}
           </Typography>
