@@ -66,5 +66,11 @@ export const RESOURCES = [
       isExternal: true,
       subdomainOrPath: DOCUMENTATION_URL[process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT as string],
     },
+    {
+      name: "Website",
+      description: `Check out our official website here.`,
+      isExternal: true,
+      subdomainOrPath: "https://t1protocol.com",
+    },
   ],
 ]
