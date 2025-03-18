@@ -15,9 +15,9 @@ const Announcement = () => {
     if (isMainnet && isHome) {
       return (
         <>
-          Join Scroll Open: Build the Future of the Open Economy{" "}
+          Hack on 𝚝𝟷 as part of ETHGlobal Trifecta this weekend{" "}
           <div className="inline-block w-[5px] h-[5px] rounded-full bg-current mx-[20px] align-middle"></div>
-          Jan 27 - March 17
+          20 March - 23 March
           <div className="inline-block w-[5px] h-[5px] rounded-full bg-current mx-[20px] align-middle"></div>
         </>
       )
@@ -27,13 +27,13 @@ const Announcement = () => {
 
   const rightHref = useMemo(() => {
     if (isMainnet && isHome) {
-      return "https://open.scroll.io"
+      return "https://x.com/t1protocol/status/1901966613680689163"
     }
     return ""
   }, [isMainnet, isHome])
 
   return displayAnnouncement && announcementContent ? (
-    <a href={rightHref} rel="noopener noreferrer" className="mb-[1.6rem]">
+    <a href={rightHref} target="_blank" rel="noopener noreferrer" className="mb-[1.6rem]">
       <Box
         sx={{
           backgroundColor: theme => (isMainnet ? theme.palette.common.white : theme.palette.primary.main),
