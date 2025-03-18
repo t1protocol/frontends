@@ -43,7 +43,7 @@ export const RESOURCES = [
     ...[
       {
         name: `Wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH`,
-        description: `If you need ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} Wrapped ETH, use this deposit function (0xd0e30db0) to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷. (may take a while as ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} tends to be congested)`,
+        description: `If you need WETH, call deposit (0xd0e30db0) to wrap your ${process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷.`,
         isExternal: true,
         subdomainOrPath: WRAP_ETH_URL,
       },
