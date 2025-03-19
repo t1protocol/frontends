@@ -5,6 +5,7 @@ import { TypographyProps as MuiTypographyProps } from "@mui/material/Typography"
 import { styled } from "@mui/material/styles"
 
 import { TDEX_URL } from "@/constants"
+import { isSepolia } from "@/utils"
 
 import Descriptions, { DescriptionItem } from "./Descriptions"
 
@@ -36,6 +37,13 @@ const IntroToNetwork = () => {
               <strong>T-DEX</strong>
             </a>
             , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!
+            <br />
+            <br />
+            {isSepolia && (
+              <Typography fontSize="2rem" fontStyle="italic">
+                Note: Sepolia currently tends to be congested, so give it some time.
+              </Typography>
+            )}
           </Typography>
         </DescriptionItem>
       </Descriptions>
