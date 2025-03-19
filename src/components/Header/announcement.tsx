@@ -4,15 +4,13 @@ import Marquee from "react-fast-marquee"
 
 import { Box } from "@mui/material"
 
-import { isMainnet } from "@/utils"
-
 const Announcement = () => {
   const displayAnnouncement = true
   const pathname = usePathname()
   const isHome = pathname === "/"
 
   const announcementContent = useMemo(() => {
-    if (isMainnet && isHome) {
+    if (isHome) {
       return (
         <>
           Hack on 𝚝𝟷 as part of ETHGlobal Trifecta this weekend{" "}
@@ -23,21 +21,21 @@ const Announcement = () => {
       )
     }
     return null
-  }, [isMainnet, isHome])
+  }, [isHome])
 
   const rightHref = useMemo(() => {
-    if (isMainnet && isHome) {
+    if (isHome) {
       return "https://x.com/t1protocol/status/1901966613680689163"
     }
     return ""
-  }, [isMainnet, isHome])
+  }, [isHome])
 
   return displayAnnouncement && announcementContent ? (
     <a href={rightHref} target="_blank" rel="noopener noreferrer" className="mb-[1.6rem]">
       <Box
         sx={{
-          backgroundColor: theme => (isMainnet ? theme.palette.common.white : theme.palette.primary.main),
-          color: theme => (isMainnet ? theme.palette.text.primary : theme.palette.primary.contrastText),
+          backgroundColor: theme => theme.palette.primary.main,
+          color: theme => theme.palette.primary.contrastText,
           fontSize: "1.6rem",
           lineHeight: {
             xs: "2rem",

@@ -1,11 +1,11 @@
-import { isMainnet } from "@/utils"
+import { isMainnet, isSepolia } from "@/utils"
 
 export const ETH_SYMBOL = process.env.NEXT_PUBLIC_ETH_SYMBOL
 export const WETH_SYMBOL = "WETH"
 export const USDT_SYMBOL = "USDT"
 export const USDC_SYMBOL = "USDC"
 
-export const L1_NAME = `Ethereum ${isMainnet ? "" : process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}`
+export const L1_NAME = `Ethereum ${isSepolia ? "Sepolia" : process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT}`
 
 export const L2_DEVNET_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT === "Sepolia" ? process.env.NEXT_PUBLIC_T1_ENVIRONMENT : "Testnet"
 export const L2_NAME = `𝚝𝟷 ${isMainnet ? "" : L2_DEVNET_NAME}`
@@ -69,7 +69,7 @@ export const MAINNET_URL = {
   WRAP_ETH: "https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2#writeContract#F5",
 }
 
-export const WRAP_ETH_URL = isMainnet ? MAINNET_URL.WRAP_ETH : SEPOLIA_URL.WRAP_ETH
+export const WRAP_ETH_URL = isSepolia ? SEPOLIA_URL.WRAP_ETH : MAINNET_URL.WRAP_ETH
 
 export const TDEX_URL = "https://t-dex.v006.t1protocol.com/"
 
