@@ -47,7 +47,7 @@ export const TEST_NAVIGATIONS = [
           liquidity.
           <br />
           <br />
-          <Typography fontStyle="italic">Note: Make sure your RPC endpoint is set to Sepolia</Typography>
+          <Typography fontStyle="italic">Note: Make sure you are on Sepolia</Typography>
         </Typography>
       ),
       isExternal: true,
