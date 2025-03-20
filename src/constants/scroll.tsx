@@ -88,19 +88,22 @@ export const RESOURCES = [
         descriptionJSX: (
           <Typography sx={{ width: ["100%", "60rem"] }}>
             If you need WETH, call{" "}
-            <Typography
-              component="span"
-              sx={{
-                fontFamily: "monospace",
-                backgroundColor: "#2D2D2D",
-                padding: "2px 4px",
-                borderRadius: "4px",
-                color: "#E6A23C",
-                fontSize: "1.5rem",
-              }}
-            >
-              deposit (0xd0e30db0)
-            </Typography>{" "}
+            <Link external={true} href={WRAP_ETH_URL}>
+              <Typography
+                component="span"
+                sx={{
+                  fontFamily: "monospace",
+                  backgroundColor: "#2D2D2D",
+                  padding: "2px 4px",
+                  borderRadius: "4px",
+                  color: "#E6A23C",
+                  fontSize: "1.5rem",
+                  cursor: "pointer",
+                }}
+              >
+                deposit (0xd0e30db0)
+              </Typography>
+            </Link>{" "}
             to wrap your {process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT} ETH before bridging into 𝚝𝟷.
           </Typography>
         ),
