@@ -53,20 +53,6 @@ export const TEST_NAVIGATIONS = [
       isExternal: true,
       subdomainOrPath: TDEX_URL_SEPOLIA,
     },
-    {
-      name: "Hackathon Project Ideas",
-      description: `Check out some ideas for hackathon projects for ETH Global Trifecta.`,
-      descriptionJSX: (
-        <Typography sx={{ width: ["100%", "60rem"] }}>
-          Check out some ideas for hackathon projects for{" "}
-          <Link underline="hover" external={true} href={`https://ethglobal.com/events/trifecta`}>
-            ETH Global Trifecta.
-          </Link>
-        </Typography>
-      ),
-      isExternal: true,
-      subdomainOrPath: "https://t1protocol.notion.site/Imagine-the-possibilities-with-1bb231194dc380feb695f0daf85e8771",
-    },
   ],
 ]
 
@@ -134,6 +120,19 @@ export const RESOURCES = [
       description: `Check out our official website here.`,
       isExternal: true,
       subdomainOrPath: "https://t1protocol.com",
+    },
+    {
+      name: "What to build with 𝚝𝟷",
+      descriptionJSX: (
+        <Typography sx={{ width: ["100%", "60rem"] }}>
+          Unique use cases to build on 𝚝𝟷 devnet during the{" "}
+          <Link underline="hover" external={true} href={`https://ethglobal.com/events/trifecta`}>
+            ETH Global Trifecta.
+          </Link>
+        </Typography>
+      ),
+      isExternal: true,
+      subdomainOrPath: "https://t1protocol.notion.site/Imagine-the-possibilities-with-1bb231194dc380feb695f0daf85e8771",
     },
     {
       name: "Tutorial",

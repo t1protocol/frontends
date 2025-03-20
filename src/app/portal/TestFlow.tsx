@@ -11,7 +11,7 @@ const TestFlow = () => {
   return (
     <Descriptions title="Test the following">
       {TEST_NAVIGATIONS.map(item => (
-        <DescriptionItem key={item.name} odd>
+        <DescriptionItem key={item.name} odd alignTop>
           <Link
             underline="hover"
             external={item.isExternal}
