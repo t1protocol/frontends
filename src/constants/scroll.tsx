@@ -3,7 +3,7 @@ import { Typography } from "@mui/material"
 import Link from "@/components/Link"
 import { isSepolia } from "@/utils"
 
-import { DOCUMENTATION_URL, EXPLORER_URL, L1_NAME, L2_NAME, SEPOLIA_URL, TDEX_URL, WRAP_ETH_URL } from "./common"
+import { DOCUMENTATION_URL, EXPLORER_URL, L1_NAME, L2_NAME, SEPOLIA_URL, TDEX_URL, TDEX_URL_SEPOLIA, WRAP_ETH_URL } from "./common"
 
 export const SITE_MAP = {
   Home: "/portal",
@@ -51,7 +51,7 @@ export const TEST_NAVIGATIONS = [
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: TDEX_URL,
+      subdomainOrPath: TDEX_URL_SEPOLIA,
     },
     {
       name: "Hackathon Project Ideas",
