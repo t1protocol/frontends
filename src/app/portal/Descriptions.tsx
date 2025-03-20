@@ -53,6 +53,9 @@ const useStyles = makeStyles()(theme => ({
       backgroundColor: "rgba(249, 249, 249, 0.30)",
     },
   },
+  alignTop: {
+    alignItems: "flex-start",
+  },
 }))
 
 const Descriptions = props => {
@@ -68,11 +71,11 @@ const Descriptions = props => {
 }
 
 const DescriptionItem = props => {
-  const { children, odd, ...restProps } = props
+  const { children, odd, alignTop, ...restProps } = props
   const { classes, cx } = useStyles()
 
   return (
-    <Box className={cx(classes.descriptionItem, odd ? classes.odd : classes.even)} {...restProps}>
+    <Box className={cx(classes.descriptionItem, odd ? classes.odd : classes.even, alignTop && classes.alignTop)} {...restProps}>
       {children}
     </Box>
   )
