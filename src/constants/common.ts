@@ -72,5 +72,6 @@ export const MAINNET_URL = {
 export const WRAP_ETH_URL = isSepolia ? SEPOLIA_URL.WRAP_ETH : MAINNET_URL.WRAP_ETH
 
 export const TDEX_URL = "https://t-dex.v006.t1protocol.com/"
+export const TDEX_URL_SEPOLIA = "https://t-dex.v006.t1protocol.com/?network=sepolia"
 
 export const BRANCH_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT!.toLocaleLowerCase()

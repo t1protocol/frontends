@@ -88,7 +88,7 @@ const WalletConfig = () => {
       <Descriptions title={`Get set up on ${isMainnet ? "𝚝𝟷 mainnet" : `𝚝𝟷 ${process.env.NEXT_PUBLIC_T1_ENVIRONMENT.toLowerCase()}`}`}>
         {NETWORKS.map((item, index) => (
           <DescriptionItem key={item.name}>
-            <Typography bold>Layer{index + 1}</Typography>
+            <Typography bold>Layer {index + 1}</Typography>
             <Stack
               direction="row"
               justifyContent="space-between"
