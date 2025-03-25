@@ -173,8 +173,20 @@ const MobileHeader = ({ currentMenu }) => {
       <Announcement />
       <NavStack direction="row" justifyContent="space-between" alignItems="center">
         <Link href="/" className="flex">
-          <Box onClick={() => toggleDrawer(false)}>
-            <Logo light={dark} />
+          <Box onClick={() => toggleDrawer(false)} style={{ display: "flex" }}>
+            <Logo light={dark} small />
+            <Typography
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                marginLeft: "0.5rem",
+                cursor: "pointer",
+                fontSize: "1.5rem",
+                fontWeight: 500,
+              }}
+            >
+              Portal
+            </Typography>
           </Box>
         </Link>
         <Stack direction="row" spacing="1.6rem" alignItems="center">
