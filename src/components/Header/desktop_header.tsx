@@ -289,7 +289,7 @@ const DesktopHeader = ({ currentMenu }) => {
         setIsHover(false)
       }}
     >
-      <Announcement />
+      {/* <Announcement /> */}
       <Container>
         <HeaderContainer>
           <ScrollLink href="/" className="flex ">
