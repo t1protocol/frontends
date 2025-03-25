@@ -292,7 +292,7 @@ const DesktopHeader = ({ currentMenu }) => {
       {/* <Announcement /> */}
       <Container>
         <HeaderContainer>
-          <ScrollLink href="/" className="flex ">
+          <ScrollLink href="/" className="flex">
             <Logo light={dark} />
             <Typography
               style={{
