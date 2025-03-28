@@ -24,7 +24,7 @@ const TestFlow = () => {
               })
             }}
           >
-            {item.name}
+            {item?.nameJSX ? item.nameJSX : item.name}
           </Link>
           {item.descriptionJSX ? item.descriptionJSX : <Typography sx={{ width: ["100%", "60rem"] }}>{item.description}</Typography>}
         </DescriptionItem>
