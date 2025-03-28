@@ -1,3 +1,5 @@
+import { sendGAEvent } from "@next/third-parties/google"
+
 import { Typography } from "@mui/material"
 
 import Link from "@/components/Link"
@@ -10,7 +12,18 @@ const Resources = () => {
     <Descriptions title="Resources">
       {RESOURCES.map(item => (
         <DescriptionItem key={item.name} odd>
-          <Link underline="hover" external={item.isExternal} href={item.subdomainOrPath}>
+          <Link
+            underline="hover"
+            external={item.isExternal}
+            href={item.subdomainOrPath}
+            onClick={() => {
+              sendGAEvent("resource_link_clicked", {
+                resource_name: item.name,
+                resource_url: item.subdomainOrPath,
+                is_external: item.isExternal,
+              })
+            }}
+          >
             {item.name}
           </Link>
           <Typography sx={{ width: ["100%", "60rem"] }}>{item.description}</Typography>

@@ -17,9 +17,9 @@ export function useRetry(props) {
   const replayMessage = async () => {
     const l2provider = networksAndSigners[CHAIN_ID.L2].provider
     const deployer = networksAndSigners[CHAIN_ID.L1].signer
-    const messenger = new ethers.Contract(process.env.NEXT_PUBLIC_L1_SCROLL_MESSENGER, L1ScrollMessenger, deployer)
+    const messenger = new ethers.Contract(process.env.NEXT_PUBLIC_L1_T1_MESSENGER_PROXY_ADDR, L1ScrollMessenger, deployer)
     const l1MessageQueueWithGasPriceOracleContract = new ethers.Contract(
-      process.env.NEXT_PUBLIC_L1_MESSAGE_QUEUE_WITH_GAS_PRICE_ORACLE,
+      process.env.NEXT_PUBLIC_L1_MESSAGE_QUEUE_PROXY_ADDR_WITH_GAS_PRICE_ORACLE,
       L1MessageQueueWithGasPriceOracle,
       deployer,
     )

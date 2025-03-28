@@ -1,5 +1,7 @@
 "use client"
 
+import { sendGAEvent } from "@next/third-parties/google"
+
 import { Stack, SvgIcon, Typography } from "@mui/material"
 
 import DiscordSvg from "@/assets/svgs/portal/discord.svg"
@@ -16,7 +18,17 @@ const SendFeedback = () => {
       content: (
         <>
           Chat with us on{" "}
-          <Link external underline="hover" href="https://discord.com/invite/nbvyXZHgke">
+          <Link
+            external
+            underline="hover"
+            href="https://discord.com/invite/nbvyXZHgke"
+            onClick={() => {
+              sendGAEvent("social_link_clicked", {
+                platform: "Discord",
+                url: "https://discord.com/invite/nbvyXZHgke",
+              })
+            }}
+          >
             Discord
           </Link>
         </>

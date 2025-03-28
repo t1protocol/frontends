@@ -31,10 +31,6 @@ const IntroToNetwork = () => {
             rollups, 𝚝𝟷’s transactions are finalized in the very next Ethereum block. This enables instant withdrawals.
             <br />
             <br />
-            𝚝𝟷 is powered by a custom Reth implementation running inside a TEE, allowing it to trustfully post state updates to Ethereum every block.
-            This ensures withdrawals are completed in seconds, not minutes or hours.
-            <br />
-            <br />
             Once on 𝚝𝟷, you can trade on{" "}
             <a href={TDEX_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
               <strong>T-DEX</strong>

@@ -5,7 +5,7 @@ import { NATIVE_TOKEN_LIST, NETWORKS } from "@/constants"
 import { USER_TOKEN_LIST } from "@/constants/storageKey"
 import { loadState } from "@/utils/localStorage"
 
-type TransactionType = "Deposit" | "Withdraw"
+export type TransactionType = "Deposit" | "Withdraw"
 
 type WithDrawStep = "1" | "2"
 

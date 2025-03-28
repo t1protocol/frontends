@@ -1,4 +1,5 @@
-import { useSearchParams } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useEffect, useMemo } from "react"
 import { makeStyles } from "tss-react/mui"
 
@@ -9,11 +10,13 @@ import { Box, IconButton, Snackbar, Tab, Typography } from "@mui/material"
 import Alert from "@/components/Alert"
 import Link from "@/components/Link"
 import { CHAIN_ID, ETH_SYMBOL, NETWORKS } from "@/constants"
-import { BRIDGE_TOKEN } from "@/constants/searchParamsKey"
+import { BRIDGE_TOKEN, TRANSACTION_TYPE } from "@/constants/searchParamsKey"
+import { useBridgeContext } from "@/contexts/BridgeContextProvider"
 import { useRainbowContext } from "@/contexts/RainbowProvider"
 import useBatchBridgeStore, { DepositBatchMode } from "@/stores/batchBridgeStore"
-import useBridgeStore from "@/stores/bridgeStore"
-import { generateExploreLink } from "@/utils"
+import useBridgeStore, { TransactionType } from "@/stores/bridgeStore"
+import useTxStore from "@/stores/txStore"
+import { generateExploreLink, pollAllTransactionStatuses } from "@/utils"
 
 import TxHistoryTable from "../TxHistoryDialog/TxHistoryTable"
 import Deposit from "./Deposit"
@@ -108,7 +111,7 @@ const useStyles = makeStyles()(theme => ({
 
 const Send = () => {
   const { classes, cx } = useStyles()
-  const { chainId } = useRainbowContext()
+  const { chainId, walletCurrentAddress } = useRainbowContext()
   const {
     txType,
     txResult,
@@ -123,11 +126,16 @@ const Send = () => {
     changeIsNetworkCorrect,
   } = useBridgeStore()
 
+  const { networksAndSigners } = useBridgeContext()
   const { depositBatchMode } = useBatchBridgeStore()
+  const { updateTransaction } = useTxStore()
 
   const searchParams = useSearchParams()
   const token = searchParams.get(BRIDGE_TOKEN)
   const tokenSymbol = useMemo(() => token || ETH_SYMBOL, [token])
+  const pathname = usePathname()
+  const router = useRouter()
+  const validTypes: TransactionType[] = ["Deposit", "Withdraw"]
 
   const isEconomyDeposit = useMemo(() => depositBatchMode === DepositBatchMode.Economy && tokenSymbol === ETH_SYMBOL, [depositBatchMode, tokenSymbol])
 
@@ -143,8 +151,25 @@ const Send = () => {
     changeIsNetworkCorrect(networkCorrect)
   }, [fromNetwork, txType, withDrawStep, chainId])
 
-  const handleChange = (e, newValue) => {
+  useEffect(() => {
+    if (!walletCurrentAddress || !networksAndSigners) {
+      return
+    }
+    const storedPendingTxs = JSON.parse(localStorage.getItem("pendingTransactions") || "{}")
+
+    if (Object.keys(storedPendingTxs).length > 0) {
+      const interval = pollAllTransactionStatuses(walletCurrentAddress, networksAndSigners, updateTransaction)
+      return () => clearInterval(interval)
+    }
+  }, [walletCurrentAddress, networksAndSigners])
+
+  const handleChangeTransactionType = (e, newValue) => {
     changeTxType(newValue)
+    // Clone current search params
+    const params = new URLSearchParams(searchParams)
+    // Update only "transactionType"
+    params.set("transactionType", newValue)
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   const handleClose = () => {
@@ -153,11 +178,18 @@ const Send = () => {
     changeTxIsL1(null)
   }
 
+  useEffect(() => {
+    const typeFromParams = searchParams.get(TRANSACTION_TYPE)
+
+    if (!typeFromParams || !validTypes.includes(typeFromParams as TransactionType)) return
+    changeTxType(typeFromParams as TransactionType)
+  }, [searchParams])
+
   return (
     <Box className={classes.sendWrapper}>
       <TabContext value={txType}>
         <TabList
-          onChange={handleChange}
+          onChange={handleChangeTransactionType}
           textColor="primary"
           classes={{ root: classes.tabList, fixed: classes.tabList, flexContainer: classes.tabList, indicator: classes.indicator }}
         >
