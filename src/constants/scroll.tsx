@@ -23,7 +23,14 @@ export const TEST_NAVIGATIONS = [
       subdomainOrPath: "/bridge",
     },
     {
-      name: "T-DEX",
+      // name: "T-DEX",
+      nameJSX: (
+        <>
+          T-DEX
+          <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+        </>
+      ),
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Use T-DEX, the RFQ DEX on 𝚝𝟷, to swap between WETH and USDT. Once you are done trading, you can use the bridge to withdraw funds back to L1
@@ -37,7 +44,13 @@ export const TEST_NAVIGATIONS = [
       subdomainOrPath: TDEX_URL,
     },
     {
-      name: "T-DEX for L1",
+      // name: "T-DEX for L1",
+      nameJSX: (
+        <>
+          T-DEX for L1 <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+        </>
+      ),
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Single Block Deposit-Trade-Withdraw (DTW) enables Ethereum users to swap assets against a T-DEX on 𝚝𝟷 and receive funds in their L1 wallet
