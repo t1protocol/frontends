@@ -3,7 +3,7 @@ import ETHSvg from "@/assets/svgs/bridge/network-mainnet.svg?url"
 import T1Svg from "@/assets/svgs/bridge/network-t1.svg"
 import USDTSvg from "@/assets/svgs/bridge/usdt.svg?url"
 
-import { CHAIN_ID, ETH_SYMBOL, EXPLORER_URL, L1_NAME, L2_NAME, RPC_URL, USDT_SYMBOL, WETH_SYMBOL } from "./common"
+import { CHAIN_ID, ETH_SYMBOL, EXPLORER_URL, L1_NAME, L2_CHAIN_NAME, RPC_URL, USDT_SYMBOL, WETH_SYMBOL } from "./common"
 
 export const NETWORKS: Network[] = [
   {
@@ -17,7 +17,7 @@ export const NETWORKS: Network[] = [
     isL1: true,
   },
   {
-    name: L2_NAME,
+    name: L2_CHAIN_NAME,
     slug: "layer2",
     icon: T1Svg,
     rpcUrl: RPC_URL.L2,

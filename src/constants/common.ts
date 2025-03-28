@@ -9,6 +9,7 @@ export const L1_NAME = `Ethereum ${isSepolia ? "Sepolia" : process.env.NEXT_PUBL
 
 export const L2_DEVNET_NAME = process.env.NEXT_PUBLIC_SCROLL_ENVIRONMENT === "Sepolia" ? process.env.NEXT_PUBLIC_T1_ENVIRONMENT : "Testnet"
 export const L2_NAME = `𝚝𝟷 ${isMainnet ? "" : L2_DEVNET_NAME}`
+export const L2_CHAIN_NAME = `𝚝𝟷 v${process.env.NEXT_PUBLIC_CHAIN_VERSION}`
 
 export const CHAIN_ID = {
   L1: parseInt(process.env.NEXT_PUBLIC_CHAIN_ID_L1),

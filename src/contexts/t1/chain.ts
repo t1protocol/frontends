@@ -2,7 +2,7 @@ import { defineChain } from "viem"
 
 export const t1_devnet = /*#__PURE__*/ defineChain({
   id: Number(process.env.NEXT_PUBLIC_CHAIN_ID_L2),
-  name: "𝚝1 v0.0.6",
+  name: `t1 ${process.env.NEXT_PUBLIC_CHAIN_VERSION}`,
   nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
   rpcUrls: {
     default: {
