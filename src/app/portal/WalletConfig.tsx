@@ -94,7 +94,7 @@ const WalletConfig = () => {
               justifyContent="space-between"
               sx={{ width: ["100%", "60rem"], border: "1px solid #DADADA", borderRadius: "10rem", p: ["1.2rem 1.6rem", "1.2rem 2.2rem"] }}
             >
-              <Typography>{item.name}</Typography>
+              <Typography>{item.chainVersion}</Typography>
               {walletName ? (
                 <AddNetworkButton chainId={item.chainId} onReadd={handleReadd} />
               ) : (
