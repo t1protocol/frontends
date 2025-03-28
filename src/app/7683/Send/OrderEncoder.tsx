@@ -18,8 +18,8 @@ export default function OrderEncoder() {
   const [form, setForm] = useState({
     sender: walletCurrentAddress || "",
     recipient: walletCurrentAddress || "",
-    inputToken: process.env.NEXT_PUBLIC_L1_ERC20_USDT_ADDR || "",
-    outputToken: process.env.NEXT_PUBLIC_L2_ERC20_USDT_ADDR || "",
+    inputToken: process.env.NEXT_PUBLIC_L1_USDT_ADDR || "",
+    outputToken: process.env.NEXT_PUBLIC_L2_USDT_ADDR || "",
     amountIn: parseEther("1").toString(),
     amountOut: parseEther("1").toString(),
     senderNonce: Math.floor(Math.random() * 100000),
