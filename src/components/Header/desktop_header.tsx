@@ -289,11 +289,23 @@ const DesktopHeader = ({ currentMenu }) => {
         setIsHover(false)
       }}
     >
-      <Announcement />
+      {/* <Announcement /> */}
       <Container>
         <HeaderContainer>
           <ScrollLink href="/" className="flex">
             <Logo light={dark} />
+            <Typography
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                marginLeft: "1rem",
+                cursor: "pointer",
+                fontSize: "2.5rem",
+                fontWeight: 500,
+              }}
+            >
+              Portal
+            </Typography>
           </ScrollLink>
           <Stack direction="row" spacing={isDesktop ? "4.4rem" : "2rem"} alignItems="center">
             <Box>{renderNavigationList()}</Box>

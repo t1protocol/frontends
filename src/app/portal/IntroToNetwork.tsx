@@ -36,7 +36,8 @@ const IntroToNetwork = () => {
             <a href={TDEX_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
               <strong>T-DEX</strong>
             </a>
-            , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!
+            , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!{" "}
+            <Typography fontStyle="italic">(T-DEX is currently under maintenance)</Typography>
             <br />
             <br />
             {isSepolia && (

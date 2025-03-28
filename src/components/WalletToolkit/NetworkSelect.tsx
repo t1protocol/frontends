@@ -107,12 +107,12 @@ const NetworkSelect = props => {
         </ButtonBase>
       )}
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose} TransitionComponent={Fade} classes={{ paper: classes.paper, list: classes.list }}>
-        {NETWORKS.map(({ icon, name, chainId }) => (
+        {NETWORKS.map(({ icon, name, chainVersion, chainId }) => (
           <MenuItem key={name} classes={{ root: classes.listItem }} onClick={() => handleSwitchNetwork(chainId)}>
             <ListItemIcon classes={{ root: classes.listItemIcon }}>
               <SvgIcon sx={{ fontSize: "2.4rem" }} component={icon} inheritViewBox></SvgIcon>
             </ListItemIcon>
-            <ListItemText classes={{ primary: classes.listItemText }}>{name}</ListItemText>
+            <ListItemText classes={{ primary: classes.listItemText }}>{chainVersion}</ListItemText>
           </MenuItem>
         ))}
       </Menu>
