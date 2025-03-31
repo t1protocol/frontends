@@ -66,7 +66,6 @@ const useGasFee = (selectedToken, needApproval) => {
         priorityFee = null
       }
       const gasLimit = checkApproved(needApproval, DepositBatchMode.Fast) ? await estimateSend() : BigInt(0)
-      console.log("gas limit!!", gasLimit)
       try {
         gasLimitBatch =
           checkApproved(needApproval, DepositBatchMode.Economy) && BATCH_DEPOSIT_TOKENS.includes(selectedToken.symbol)

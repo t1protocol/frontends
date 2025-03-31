@@ -202,9 +202,6 @@ export function useSendTransaction(props) {
       options.maxFeePerGas = maxFeePerGas * MULTIPLIER
       options.maxPriorityFeePerGas = maxPriorityFeePerGas * MULTIPLIER
     }
-    console.log(networksAndSigners[CHAIN_ID.L1])
-    console.log(networksAndSigners[CHAIN_ID.L1].gateway)
-    console.log(receiver)
     if (receiver) {
       return networksAndSigners[CHAIN_ID.L1].gateway["depositERC20(address,address,uint256,uint256)"](
         selectedToken.address,
@@ -214,9 +211,6 @@ export function useSendTransaction(props) {
         options,
       )
     }
-    console.log(gasPrice)
-    console.log("g", gasLimit)
-    console.log("f", fee)
     return networksAndSigners[CHAIN_ID.L1].gateway["depositERC20(address,uint256,uint256)"](selectedToken.address, parsedAmount, gasLimit, options)
   }
 

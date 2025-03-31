@@ -121,7 +121,6 @@ export const PriceFeeProvider = ({ children }) => {
   const [gasLimit, setGasLimit] = useState(BigInt(0))
   const [gasPrice, setGasPrice] = useState(BigInt(0))
   const [errorMessage, setErrorMessage] = useState("")
-  console.log(gasLimit)
   const fetchData = async () => {
     const { provider } = networksAndSigners[CHAIN_ID.L2]
     if (provider) {
