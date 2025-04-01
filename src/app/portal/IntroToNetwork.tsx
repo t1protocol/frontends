@@ -37,7 +37,7 @@ const IntroToNetwork = () => {
               <strong>T-DEX</strong>
             </a>
             , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!{" "}
-            <Typography fontStyle="italic">(T-DEX is currently under maintenance)</Typography>
+            {/* <Typography fontStyle="italic">(T-DEX is currently under maintenance)</Typography> */}
             <br />
             <br />
             {isSepolia && (

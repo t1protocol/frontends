@@ -27,8 +27,8 @@ export const TEST_NAVIGATIONS = [
       nameJSX: (
         <>
           T-DEX
-          <br />
-          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+          {/* <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span> */}
         </>
       ),
       descriptionJSX: (
@@ -47,8 +47,9 @@ export const TEST_NAVIGATIONS = [
       // name: "T-DEX for L1",
       nameJSX: (
         <>
-          T-DEX for L1 <br />
-          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+          T-DEX for L1
+          {/* <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span> */}
         </>
       ),
       descriptionJSX: (
