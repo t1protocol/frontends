@@ -67,6 +67,22 @@ export const TEST_NAVIGATIONS = [
       isExternal: true,
       subdomainOrPath: TDEX_URL_SEPOLIA,
     },
+    {
+      name: "Intent Bridge",
+      descriptionJSX: (
+        <Typography sx={{ width: ["100%", "60rem"] }}>
+          𝚝𝟷’s Real-Time proving reduces repayment time for solvers from [60] minutes to 1 minute, increasing capital efficiency and reducing costs
+          for users.
+          <br />
+          <br />
+          <Typography fontStyle="italic">
+            Note: Given the manual nature of this product, we are sharing a video while the fill-process is being automated
+          </Typography>
+        </Typography>
+      ),
+      isExternal: true,
+      subdomainOrPath: "https://x.com/kisaguncan/status/1897180384699523461",
+    },
   ],
 ]
 
