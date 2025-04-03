@@ -82,7 +82,9 @@ const Bridge = () => {
         </Stack>
         <Send></Send>
         <FAQsLink />
+        <Typography marginTop={"1rem"} fontSize={"1.1rem"}>{`v${process.env.NEXT_PUBLIC_CHAIN_VERSION}`}</Typography>
       </SectionWrapper>
+
       {/* <MintBadge /> */}
     </PriceFeeProvider>
   )
