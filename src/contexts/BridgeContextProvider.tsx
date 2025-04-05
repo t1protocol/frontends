@@ -134,7 +134,7 @@ const BridgeContextProvider = ({ children }: any) => {
       {!isL1Available && (
         <Snackbar open={true}>
           <Alert severity="error" key="l1">
-            {RPC_URL.L1} is not available, please wait...
+            L1 RPC URL is not available, please wait...
           </Alert>
         </Snackbar>
       )}
