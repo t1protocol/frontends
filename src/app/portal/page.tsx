@@ -9,6 +9,7 @@ import { L2_NAME } from "@/constants"
 import IntroToNetwork from "./IntroToNetwork"
 import Resources from "./Resources"
 import SendFeedback from "./SendFeedback"
+import Status from "./Status"
 import TestFlow from "./TestFlow"
 import WalletConfig from "./WalletConfig"
 
@@ -41,6 +42,7 @@ const Portal = () => {
         }}
       >
         <IntroToNetwork></IntroToNetwork>
+        <Status />
         <WalletConfig></WalletConfig>
         <TestFlow></TestFlow>
         <Resources></Resources>
