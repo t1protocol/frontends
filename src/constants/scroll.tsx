@@ -15,11 +15,32 @@ export const SITE_MAP = {
   Architecture: "/blog/architecture",
 }
 
+export const STATUS_PAGE = [
+  ...[
+    {
+      name: "𝚝𝟷 Status",
+      nameJSX: null,
+      descriptionJSX: (
+        <Typography sx={{ width: ["100%", "60rem"] }}>
+          Check the status of 𝚝𝟷's services{" "}
+          <Link underline="hover" external={true} href={`http://t1protocol.statuspage.io/`}>
+            here
+          </Link>
+          .
+        </Typography>
+      ),
+      description: null,
+      subdomainOrPath: "http://t1protocol.statuspage.io/",
+      isExternal: true,
+    },
+  ],
+]
+
 export const TEST_NAVIGATIONS = [
   ...[
     {
       name: "Bridge",
-      description: "Use 𝚝𝟷’s Canonical Bridge to deposit ETH and ERC-20s from Ethereum to 𝚝𝟷 and instantly withdraw back to Ethereum.",
+      description: "Use 𝚝𝟷's Canonical Bridge to deposit ETH and ERC-20s from Ethereum to 𝚝𝟷 and instantly withdraw back to Ethereum.",
       subdomainOrPath: "/bridge",
     },
     {
