@@ -45,20 +45,37 @@ export const TEST_NAVIGATIONS = [
       subdomainOrPath: "/bridge",
     },
     {
-      name: "T-DEX",
-      nameJSX: null,
+      // name: "T-DEX",
+      nameJSX: (
+        <>
+          T-DEX
+          <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+        </>
+      ),
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Use T-DEX, the RFQ DEX on 𝚝𝟷, to swap between WETH and USDT. Once you are done trading, you can use the bridge to withdraw funds back to L1
           instantly
+          <br />
+          <br />
+          <Link underline="hover" external={true} href={`https://www.loom.com/share/e795859953ec4239927dc9dbb58eb834`}>
+            Video Link
+          </Link>
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: "https://www.loom.com/share/e795859953ec4239927dc9dbb58eb834",
+      subdomainOrPath: TDEX_URL,
     },
     {
-      name: "T-DEX L1 (DTW)",
-      nameJSX: null,
+      // name: "T-DEX L1 (DTW)",
+      nameJSX: (
+        <>
+          T-DEX L1 (DTW)
+          <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+        </>
+      ),
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Single Block Deposit-Trade-Withdraw (DTW) enables Ethereum users to swap assets against a T-DEX on 𝚝𝟷 and receive funds in their L1 wallet
@@ -66,10 +83,15 @@ export const TEST_NAVIGATIONS = [
           <br />
           Inspired by centralized RFQ DEXs, this mode entails EIP-712 messages to enable Ethereum users (DEX aggreagtors) to swap against 𝚝𝟷 bridge
           liquidity.
+          <br />
+          <br />
+          <Link underline="hover" external={true} href={`https://www.loom.com/share/b189bc68769145e4aa414d66e113e9f6`}>
+            Video Link
+          </Link>
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: "https://www.loom.com/share/b189bc68769145e4aa414d66e113e9f6",
+      subdomainOrPath: TDEX_URL_SEPOLIA,
     },
     {
       name: "Intent Bridge",
