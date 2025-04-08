@@ -128,7 +128,6 @@ export const PriceFeeProvider = ({ children }) => {
       if (chainId === CHAIN_ID.L1) {
         const price = await getGasPrice()
         const limit = await getGasLimit()
-
         setGasPrice(price)
         setGasLimit(limit)
       } else {

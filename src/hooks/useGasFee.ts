@@ -91,11 +91,6 @@ const useGasFee = (selectedToken, needApproval) => {
       const estimatedBatchDepositGasCost = (gasLimitBatch as bigint) * (gasPrice || BigInt(1e9))
       const enlargedGasLimit = (gasLimit * BigInt(120)) / BigInt(100)
 
-      console.log(gasLimit)
-      console.log(enlargedGasLimit)
-      console.log("estimatedGasCost", estimatedGasCost)
-      console.log(gasPrice)
-      console.log(maxPriorityFeePerGas)
       return {
         gasLimit,
         gasLimitBatch,
