@@ -40,11 +40,13 @@ export const TEST_NAVIGATIONS = [
   ...[
     {
       name: "Bridge",
+      nameJSX: null,
       description: "Use 𝚝𝟷's Canonical Bridge to deposit ETH and ERC-20s from Ethereum to 𝚝𝟷 and instantly withdraw back to Ethereum.",
       subdomainOrPath: "/bridge",
     },
     {
       name: "T-DEX",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Use T-DEX, the RFQ DEX on 𝚝𝟷, to swap between WETH and USDT. Once you are done trading, you can use the bridge to withdraw funds back to L1
@@ -56,6 +58,7 @@ export const TEST_NAVIGATIONS = [
     },
     {
       name: "T-DEX L1 (DTW)",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Single Block Deposit-Trade-Withdraw (DTW) enables Ethereum users to swap assets against a T-DEX on 𝚝𝟷 and receive funds in their L1 wallet
@@ -70,6 +73,7 @@ export const TEST_NAVIGATIONS = [
     },
     {
       name: "Intent Bridge",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           𝚝𝟷’s Real-Time proving reduces repayment time for solvers from [60] minutes to 1 minute, increasing capital efficiency and reducing costs
