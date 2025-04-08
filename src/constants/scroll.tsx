@@ -65,7 +65,7 @@ export const TEST_NAVIGATIONS = [
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: "https://www.loom.com/share/e795859953ec4239927dc9dbb58eb834",
+      subdomainOrPath: TDEX_URL,
     },
     {
       nameJSX: (
@@ -90,7 +90,7 @@ export const TEST_NAVIGATIONS = [
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: "https://www.loom.com/share/b189bc68769145e4aa414d66e113e9f6",
+      subdomainOrPath: TDEX_URL_SEPOLIA,
     },
     {
       name: "Intent Bridge",
