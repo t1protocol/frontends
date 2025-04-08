@@ -27,6 +27,7 @@ export function useEstimateSendTransaction(props) {
 
   const depositETH = async () => {
     const fee = gasPrice * gasLimit
+
     return instance["sendMessage(address,uint256,bytes,uint256,uint64)"].estimateGas(
       walletCurrentAddress,
       minimumAmount,

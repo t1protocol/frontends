@@ -90,6 +90,7 @@ const useGasFee = (selectedToken, needApproval) => {
       const estimatedGasCost = (gasLimit as bigint) * (gasPrice || BigInt(1e9))
       const estimatedBatchDepositGasCost = (gasLimitBatch as bigint) * (gasPrice || BigInt(1e9))
       const enlargedGasLimit = (gasLimit * BigInt(120)) / BigInt(100)
+
       return {
         gasLimit,
         gasLimitBatch,
