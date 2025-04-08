@@ -32,14 +32,14 @@ const IntroToNetwork = () => {
             rollups, 𝚝𝟷’s transactions are finalized in the very next Ethereum block. This enables instant withdrawals.
             <br />
             <br />
-            Once on 𝚝𝟷, you can trade on{" "}
+            {/* Once on 𝚝𝟷, you can trade on{" "}
             <a href={TDEX_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>
               <strong>T-DEX</strong>
             </a>
             , our fully on-chain order book DEX, and move your assets back to L1 in the very next block!{" "}
             <Typography fontStyle="italic">(T-DEX is currently under maintenance)</Typography>
             <br />
-            <br />
+            <br /> */}
             {isSepolia && (
               <Typography fontSize="2rem" fontStyle="italic">
                 This is an early devnet that may be wiped to a clean state at any time. Do not expect persistence! Note: Sepolia L1 currently tends to
