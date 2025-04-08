@@ -46,7 +46,13 @@ export const TEST_NAVIGATIONS = [
     },
     {
       name: "T-DEX",
-      nameJSX: null,
+      nameJSX: (
+        <>
+          T-DEX
+          <br />
+          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
+        </>
+      ),
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Use T-DEX, the RFQ DEX on 𝚝𝟷, to swap between WETH and USDT. Once you are done trading, you can use the bridge to withdraw funds back to L1
