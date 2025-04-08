@@ -40,38 +40,25 @@ export const TEST_NAVIGATIONS = [
   ...[
     {
       name: "Bridge",
+      nameJSX: null,
       description: "Use 𝚝𝟷's Canonical Bridge to deposit ETH and ERC-20s from Ethereum to 𝚝𝟷 and instantly withdraw back to Ethereum.",
       subdomainOrPath: "/bridge",
     },
     {
-      // name: "T-DEX",
-      nameJSX: (
-        <>
-          T-DEX
-          <br />
-          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
-        </>
-      ),
+      name: "T-DEX",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Use T-DEX, the RFQ DEX on 𝚝𝟷, to swap between WETH and USDT. Once you are done trading, you can use the bridge to withdraw funds back to L1
           instantly
-          <br />
-          <br />
-          <Typography fontStyle="italic">Note: T-DEX currently supports swaps and limit orders</Typography>
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: TDEX_URL,
+      subdomainOrPath: "https://www.loom.com/share/e795859953ec4239927dc9dbb58eb834",
     },
     {
-      // name: "T-DEX for L1",
-      nameJSX: (
-        <>
-          T-DEX for L1 <br />
-          <span style={{ fontStyle: "italic" }}>(under maintenance)</span>
-        </>
-      ),
+      name: "T-DEX L1 (DTW)",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           Single Block Deposit-Trade-Withdraw (DTW) enables Ethereum users to swap assets against a T-DEX on 𝚝𝟷 and receive funds in their L1 wallet
@@ -79,16 +66,14 @@ export const TEST_NAVIGATIONS = [
           <br />
           Inspired by centralized RFQ DEXs, this mode entails EIP-712 messages to enable Ethereum users (DEX aggreagtors) to swap against 𝚝𝟷 bridge
           liquidity.
-          <br />
-          <br />
-          <Typography fontStyle="italic">Note: Make sure you are on Sepolia</Typography>
         </Typography>
       ),
       isExternal: true,
-      subdomainOrPath: TDEX_URL_SEPOLIA,
+      subdomainOrPath: "https://www.loom.com/share/b189bc68769145e4aa414d66e113e9f6",
     },
     {
       name: "Intent Bridge",
+      nameJSX: null,
       descriptionJSX: (
         <Typography sx={{ width: ["100%", "60rem"] }}>
           𝚝𝟷’s Real-Time proving reduces repayment time for solvers from [60] minutes to 1 minute, increasing capital efficiency and reducing costs
