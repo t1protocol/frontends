@@ -42,7 +42,8 @@ const IntroToNetwork = () => {
             <br />
             {isSepolia && (
               <Typography fontSize="2rem" fontStyle="italic">
-                Note: Sepolia currently tends to be congested, so give it some time.
+                This is an early devnet that may be wiped to a clean state at any time. Do not expect persistence! Note: Sepolia L1 currently tends to
+                be congested, so give it some time.
               </Typography>
             )}
           </Typography>
