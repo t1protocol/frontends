@@ -173,13 +173,11 @@ const nextConfig = {
     // automaticVercelMonitors: true,
   },
 }
-export default nextConfig
+// export default nextConfig
 // Injected content via Sentry wizard below
 
-// export default withSentryConfig(nextConfig, {
-//   silent: true,
-//   url: process.env.SENTRY_URL,
-//   org: process.env.SENTRY_ORG,
-//   project: process.env.SENTRY_PROJECT,
-//   authToken: process.env.SENTRY_AUTH_TOKEN,
-// });
+export default withSentryConfig(nextConfig, {
+  silent: true,
+  org: "t1-lh",
+  project: "frontend-bridge",
+});
