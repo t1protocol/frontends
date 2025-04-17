@@ -170,7 +170,7 @@ const MobileHeader = ({ currentMenu }) => {
       className={open ? "active" : ""}
       sx={{ backgroundColor: navbarBg && !open ? `themeBackground.${navbarBg}` : dark ? "themeBackground.dark" : "themeBackground.light" }}
     >
-      {/* <Announcement /> */}
+      <Announcement />
       <NavStack direction="row" justifyContent="space-between" alignItems="center">
         <Link href="/" className="flex">
           <Box onClick={() => toggleDrawer(false)} style={{ display: "flex" }}>
