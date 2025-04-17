@@ -12,7 +12,7 @@ const Announcement = () => {
     return (
       <>
         Degraded performance due to high volume <div className="inline-block w-[5px] h-[5px] rounded-full bg-current mx-[20px] align-middle"></div>
-        Check Status Here
+        Check status here
         <div className="inline-block w-[5px] h-[5px] rounded-full bg-current mx-[20px] align-middle"></div>
       </>
     )
