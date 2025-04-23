@@ -4,6 +4,7 @@ import { sendGAEvent } from "@next/third-parties/google"
 
 import { Stack, SvgIcon, Typography } from "@mui/material"
 
+import TwitterSvg from "@/assets/svgs/ecosystem/twitter.svg"
 import DiscordSvg from "@/assets/svgs/portal/discord.svg"
 import GithubSvg from "@/assets/svgs/portal/github.svg"
 import StatusSvg from "@/assets/svgs/portal/status.svg"
@@ -30,6 +31,27 @@ const SendFeedback = () => {
             }}
           >
             Discord
+          </Link>
+        </>
+      ),
+    },
+    {
+      icon: TwitterSvg,
+      content: (
+        <>
+          Follow us on{" "}
+          <Link
+            external
+            underline="hover"
+            href="https://x.com/t1protocol"
+            onClick={() => {
+              sendGAEvent("social_link_clicked", {
+                platform: "X",
+                url: "https://x.com/t1protocol",
+              })
+            }}
+          >
+            X
           </Link>
         </>
       ),
