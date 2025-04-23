@@ -1,9 +1,13 @@
 "use client"
 
+import { sendGAEvent } from "@next/third-parties/google"
+
 import { Typography as MuiTypography } from "@mui/material"
 import { TypographyProps as MuiTypographyProps } from "@mui/material/Typography"
 import { styled } from "@mui/material/styles"
 
+import TwitterSvg from "@/assets/svgs/ecosystem/twitter.svg"
+import Link from "@/components/Link"
 import { TDEX_URL } from "@/constants"
 import { isSepolia } from "@/utils"
 
@@ -41,11 +45,30 @@ const IntroToNetwork = () => {
             <br />
             <br />
             {isSepolia && (
-              <Typography fontSize="2rem" fontStyle="italic">
+              <Typography fontSize="1.8rem" fontStyle="italic">
                 This is an early devnet that may be wiped to a clean state at any time. Do not expect persistence! Note: Sepolia L1 currently tends to
                 be congested, so give it some time.
               </Typography>
             )}
+            <br />
+            <br />
+            <Typography fontSize="1.8rem" alignItems="center">
+              Follow us on{" "}
+              <Link
+                href="https://x.com/t1protocol"
+                external
+                underline="hover"
+                onClick={() => {
+                  sendGAEvent("social_link_clicked", {
+                    platform: "X",
+                    url: "https://x.com/t1protocol",
+                  })
+                }}
+              >
+                <TwitterSvg />
+              </Link>{" "}
+              for the latest updates
+            </Typography>
           </Typography>
         </DescriptionItem>
       </Descriptions>
